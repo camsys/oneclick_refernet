@@ -45,6 +45,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    awesome_print (1.7.0)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
     erubis (2.7.0)
@@ -111,6 +112,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   oneclick_refernet!
   sqlite3
 

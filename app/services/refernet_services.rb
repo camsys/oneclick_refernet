@@ -11,8 +11,14 @@ module RefernetServices
 		end
 
 		# Keyword Search
+		# Returns an array of Hashes of ReferNET Services
 		def search_keyword keyword
-			self.send("#{BASE_URL}Keyword_Name_Search?api_key=#{@api_key}&ro=&keyw=#{keyword}&zipcode=&deviceId=")
+			response = self.send("#{BASE_URL}Keyword_Name_Search?api_key=#{@api_key}&ro=&keyw=#{keyword}&zipcode=&deviceId=0")
+      if response.code == '200'
+        return JSON.parse(Hash.from_xml(response.body)["anyType"])
+      else
+      	return []
+      end
 		end
 
 		## Send the Requests
