@@ -1,5 +1,5 @@
 # OneclickRefernet
-Short description and motivation.
+oneclick_refernet is a Ruby Engine that provides interaction with the ReferNET 211 API.
 
 ## Usage
 How to use my plugin.
@@ -8,21 +8,16 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'oneclick_refernet'
+gem 'oneclick_refernet', github: 'camsys/oneclick_refernet'
 ```
 
 And then execute:
 ```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install oneclick_refernet
+$ bundle install
 ```
 
 ## Contributing
-Contribution directions go here.
+To contribute to oneclick_refernet, create a pull request for review.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
