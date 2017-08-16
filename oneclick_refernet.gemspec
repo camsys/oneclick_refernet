@@ -7,8 +7,8 @@ require "oneclick_refernet/version"
 Gem::Specification.new do |s|
   s.name        = "oneclick_refernet"
   s.version     = OneclickRefernet::VERSION
-  s.authors     = ["Derek Edwards"]
-  s.email       = ["dedwards8@gmail.com"]
+  s.authors     = ["Derek Edwards", "Nicolas Garcia"]
+  s.email       = ["dedwards8@gmail.com", "nicolas.o.garcia@gmail.com"]
   s.homepage    = "http://occ-lynx-prod.herokuapp.com"
   s.summary     = "Connect Oneclick-Core with ReferNET API."
   s.description = "Adapter between Oneclick-Core and ReferNET"
