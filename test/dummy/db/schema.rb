@@ -10,29 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816135727) do
+ActiveRecord::Schema.define(version: 20170817143457) do
 
   create_table "oneclick_refernet_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "confirmed",  default: false
     t.index ["name"], name: "index_oneclick_refernet_categories_on_name"
   end
 
   create_table "oneclick_refernet_services", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "confirmed",  default: false
+    t.text     "details"
+    t.index ["name"], name: "index_oneclick_refernet_services_on_name"
+  end
+
+  create_table "oneclick_refernet_services_sub_sub_categories", force: :cascade do |t|
+    t.integer  "service_id"
     t.integer  "sub_sub_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["name"], name: "index_oneclick_refernet_services_on_name"
-    t.index ["sub_sub_category_id"], name: "index_oneclick_refernet_services_on_sub_sub_category_id"
+    t.index ["service_id"], name: "idx_svcs_cat_join_table_on_service_id"
+    t.index ["sub_sub_category_id"], name: "idx_svcs_cat_join_table_on_sub_sub_category_id"
   end
 
   create_table "oneclick_refernet_sub_categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.boolean  "confirmed",            default: false
+    t.integer  "refernet_category_id"
     t.index ["category_id"], name: "index_oneclick_refernet_sub_categories_on_category_id"
     t.index ["name"], name: "index_oneclick_refernet_sub_categories_on_name"
   end
@@ -40,8 +52,9 @@ ActiveRecord::Schema.define(version: 20170816135727) do
   create_table "oneclick_refernet_sub_sub_categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "sub_category_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "confirmed",       default: false
     t.index ["name"], name: "index_oneclick_refernet_sub_sub_categories_on_name"
     t.index ["sub_category_id"], name: "index_oneclick_refernet_sub_sub_categories_on_sub_category_id"
   end

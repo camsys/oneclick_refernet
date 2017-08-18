@@ -5,8 +5,9 @@ module OneclickRefernet
   	require 'net/http'
 		attr_accessor :api_key
 	  BASE_URL = "http://www.referweb.net/mws/service.asmx/"
+		DEFAULT_API_KEY = 'KIXUUKWX' # TODO: Factor this into a config/env variable
 
-		def initialize(api_key)
+		def initialize(api_key=DEFAULT_API_KEY)
 			@api_key = api_key
 		end
 
@@ -73,7 +74,7 @@ module OneclickRefernet
 		# Pulls JSON response out of ReferNET XML response and parses it
 		def unpack(response)
 			if response.code == '200'
-				return JSON.parse(Hash.from_xml(response.body)["anyType"])
+				return JSON.parse(Hash.from_xml(response.body)["anyType"]) || []
 			else
 				return []
 			end
