@@ -55,9 +55,10 @@ namespace :oneclick_refernet do
       end
       
       ### SERVICES ###
-      new_services = new_sub_sub_categories.flat_map do |sub_sub_cat|
+      new_sub_sub_categories.each do |sub_sub_cat|
         Rails.logger.info "Getting services for #{sub_sub_cat.name}..."
         services = Service.fetch_by_sub_sub_category(sub_sub_cat)
+        sub_sub_cat.services << services
         errors += save_and_log_errors(services)
         next services
       end
@@ -78,7 +79,11 @@ namespace :oneclick_refernet do
       Rails.logger.error e
       Rails.logger.error errors.ai
       Rails.logger.warn "Rejecting New Categories and Services..."
-      tables.map(&:reject_changes) and Rails.logger.warn "REJECTION COMPLETE"
+      if tables.map(&:reject_changes)
+        Rails.logger.warn "REJECTION COMPLETE"
+      else
+        Rails.logger.error "THERE WAS A PROBLEM ROLLING BACK CHANGES"
+      end
     end
   
   end

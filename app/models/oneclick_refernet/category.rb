@@ -6,7 +6,7 @@ module OneclickRefernet
     include OneclickRefernet::Confirmable
     
     ### ASSOCIATIONS ###
-    has_many :sub_categories
+    has_many :sub_categories, dependent: :destroy
     has_many :sub_sub_categories, through: :sub_categories
     has_many :services, through: :sub_sub_categories
     
