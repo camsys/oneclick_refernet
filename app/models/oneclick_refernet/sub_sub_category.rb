@@ -8,7 +8,7 @@ module OneclickRefernet
     ### ASSOCIATIONS ###
     belongs_to :sub_category
     has_one :category, through: :sub_category
-    has_many :services_sub_sub_categories
+    has_many :services_sub_sub_categories, dependent: :destroy
     has_many :services, through: :services_sub_sub_categories
 
 

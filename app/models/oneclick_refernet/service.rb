@@ -6,9 +6,10 @@ module OneclickRefernet
     
     ### ATTRIBUTES ###
     serialize :details
+    before_save :set_latlng # Before saving, set latlng value based on details hash
     
     ### ASSOCIATIONS ###
-    has_many :services_sub_sub_categories
+    has_many :services_sub_sub_categories, dependent: :destroy
     has_many :sub_sub_categories, through: :services_sub_sub_categories
     has_many :sub_categories, through: :sub_sub_categories
     has_many :categories, through: :sub_categories
@@ -23,14 +24,36 @@ module OneclickRefernet
       .try(:map) do |svc|
         name = svc["Name_Agency"].try(:strip)
         next nil unless name.present?
-        Rails.logger.info "Building new service with name: #{svc["Name_Agency"]}"
-        sub_sub_cat.services.build(
+        Rails.logger.info "Updating or building new service with name: #{svc["Name_Agency"]}"
+        new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           name: name,
-          details: svc
+          confirmed: false
         )
+        new_service.assign_attributes(details: svc)
+        next new_service
       end.compact
 
     end
+
+    
+    
+    ### INSTANCE METHODS ###
+    
+    # Build an RGeo spatial factory
+    def rgeo_factory
+      RGeo::Geos::CAPIFactory.new(:srid => 4326)
+    end
+    
+    def point_from_latlng(lat, lng)
+      rgeo_factory.point(lat, lng)
+    end
+    
+    # Sets the latlng point from lat and lng in the details
+    def set_latlng
+      lat, lng = details["Latitude"].to_f, details["Longitude"].to_f * -1
+      self.latlng = rgeo_factory.point(lat, lng) unless (lat.zero? || lng.zero?)
+    end
+    
     
   end
 end

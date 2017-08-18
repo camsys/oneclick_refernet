@@ -10,23 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817143457) do
+ActiveRecord::Schema.define(version: 20170818172914) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "oneclick_refernet_categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "confirmed",  default: false
-    t.index ["name"], name: "index_oneclick_refernet_categories_on_name"
+    t.index ["name"], name: "index_oneclick_refernet_categories_on_name", using: :btree
   end
 
   create_table "oneclick_refernet_services", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "confirmed",  default: false
+    t.datetime "created_at",                                                          null: false
+    t.datetime "updated_at",                                                          null: false
+    t.boolean  "confirmed",                                           default: false
     t.text     "details"
-    t.index ["name"], name: "index_oneclick_refernet_services_on_name"
+    t.geometry "latlng",     limit: {:srid=>4326, :type=>"st_point"}
+    t.index ["latlng"], name: "index_oneclick_refernet_services_on_latlng", using: :gist
+    t.index ["name"], name: "index_oneclick_refernet_services_on_name", using: :btree
   end
 
   create_table "oneclick_refernet_services_sub_sub_categories", force: :cascade do |t|
@@ -34,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170817143457) do
     t.integer  "sub_sub_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["service_id"], name: "idx_svcs_cat_join_table_on_service_id"
-    t.index ["sub_sub_category_id"], name: "idx_svcs_cat_join_table_on_sub_sub_category_id"
+    t.index ["service_id"], name: "idx_svcs_cat_join_table_on_service_id", using: :btree
+    t.index ["sub_sub_category_id"], name: "idx_svcs_cat_join_table_on_sub_sub_category_id", using: :btree
   end
 
   create_table "oneclick_refernet_sub_categories", force: :cascade do |t|
@@ -45,8 +51,8 @@ ActiveRecord::Schema.define(version: 20170817143457) do
     t.datetime "updated_at",                           null: false
     t.boolean  "confirmed",            default: false
     t.integer  "refernet_category_id"
-    t.index ["category_id"], name: "index_oneclick_refernet_sub_categories_on_category_id"
-    t.index ["name"], name: "index_oneclick_refernet_sub_categories_on_name"
+    t.index ["category_id"], name: "index_oneclick_refernet_sub_categories_on_category_id", using: :btree
+    t.index ["name"], name: "index_oneclick_refernet_sub_categories_on_name", using: :btree
   end
 
   create_table "oneclick_refernet_sub_sub_categories", force: :cascade do |t|
@@ -55,8 +61,12 @@ ActiveRecord::Schema.define(version: 20170817143457) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "confirmed",       default: false
-    t.index ["name"], name: "index_oneclick_refernet_sub_sub_categories_on_name"
-    t.index ["sub_category_id"], name: "index_oneclick_refernet_sub_sub_categories_on_sub_category_id"
+    t.index ["name"], name: "index_oneclick_refernet_sub_sub_categories_on_name", using: :btree
+    t.index ["sub_category_id"], name: "index_oneclick_refernet_sub_sub_categories_on_sub_category_id", using: :btree
   end
 
+  add_foreign_key "oneclick_refernet_services_sub_sub_categories", "oneclick_refernet_services", column: "service_id"
+  add_foreign_key "oneclick_refernet_services_sub_sub_categories", "oneclick_refernet_sub_sub_categories", column: "sub_sub_category_id"
+  add_foreign_key "oneclick_refernet_sub_categories", "oneclick_refernet_categories", column: "category_id"
+  add_foreign_key "oneclick_refernet_sub_sub_categories", "oneclick_refernet_sub_categories", column: "sub_category_id"
 end

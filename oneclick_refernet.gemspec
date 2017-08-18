@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 5.0.3"
+  s.add_dependency 'pg'
   s.add_dependency "rgeo"
   s.add_dependency 'activerecord-postgis-adapter'
 
