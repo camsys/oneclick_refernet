@@ -17,7 +17,6 @@ end
 APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
 
-
 load 'rails/tasks/statistics.rake'
 
 
@@ -35,3 +34,6 @@ end
 
 
 task default: :test
+
+### LOAD REFERNET TASKS
+load 'lib/tasks/oneclick_refernet_tasks.rake'

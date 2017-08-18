@@ -4,15 +4,15 @@ module OneclickRefernet
     
     included do
       
-      scope :confirmed, { where(confirmed: true) }
-      scope :unconfirmed, { where(confirmed: false) }
+      scope :confirmed, -> { where(confirmed: true) }
+      scope :unconfirmed, -> { where(confirmed: false) }
       
       def self.confirm_all
-        all.update_attributes(confirmed: true)
+        all.update_all(confirmed: true)
       end
       
       def self.unconfirm_all
-        all.update_attributes(confirmed: false)
+        all.update_all(confirmed: false)
       end
       
       def self.destroy_confirmed
