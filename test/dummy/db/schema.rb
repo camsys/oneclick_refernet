@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818172914) do
+ActiveRecord::Schema.define(version: 20170821135337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20170818172914) do
   end
 
   create_table "oneclick_refernet_services", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",                                                          null: false
-    t.datetime "updated_at",                                                          null: false
-    t.boolean  "confirmed",                                           default: false
+    t.datetime "created_at",                                                           null: false
+    t.datetime "updated_at",                                                           null: false
+    t.boolean  "confirmed",                                            default: false
     t.text     "details"
-    t.geometry "latlng",     limit: {:srid=>4326, :type=>"st_point"}
+    t.geometry "latlng",      limit: {:srid=>4326, :type=>"st_point"}
+    t.string   "agency_name"
+    t.string   "site_name"
     t.index ["latlng"], name: "index_oneclick_refernet_services_on_latlng", using: :gist
-    t.index ["name"], name: "index_oneclick_refernet_services_on_name", using: :btree
   end
 
   create_table "oneclick_refernet_services_sub_sub_categories", force: :cascade do |t|
