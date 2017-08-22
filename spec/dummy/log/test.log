@@ -16245,3 +16245,1123 @@ Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 1.3ms)
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 600]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."name" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 600]]
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 1"], ["created_at", "2017-08-22 18:42:00.960464"], ["updated_at", "2017-08-22 18:42:00.960464"], ["refernet_category_id", 701]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 1"], ["created_at", "2017-08-22 18:42:00.986282"], ["updated_at", "2017-08-22 18:42:00.986282"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.7ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 422], ["updated_at", "2017-08-22 18:42:00.992750"], ["id", 564]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 2"], ["created_at", "2017-08-22 18:42:01.002728"], ["updated_at", "2017-08-22 18:42:01.002728"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 422], ["updated_at", "2017-08-22 18:42:01.004435"], ["id", 565]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 3"], ["created_at", "2017-08-22 18:42:01.006147"], ["updated_at", "2017-08-22 18:42:01.006147"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 422], ["updated_at", "2017-08-22 18:42:01.007313"], ["id", 566]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 2"], ["created_at", "2017-08-22 18:42:01.009008"], ["updated_at", "2017-08-22 18:42:01.009008"], ["refernet_category_id", 702]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 4"], ["created_at", "2017-08-22 18:42:01.010294"], ["updated_at", "2017-08-22 18:42:01.010294"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 423], ["updated_at", "2017-08-22 18:42:01.011959"], ["id", 567]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 5"], ["created_at", "2017-08-22 18:42:01.013940"], ["updated_at", "2017-08-22 18:42:01.013940"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 423], ["updated_at", "2017-08-22 18:42:01.015385"], ["id", 568]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 6"], ["created_at", "2017-08-22 18:42:01.017165"], ["updated_at", "2017-08-22 18:42:01.017165"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 423], ["updated_at", "2017-08-22 18:42:01.018533"], ["id", 569]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" ORDER BY "oneclick_refernet_sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Processing by OneclickRefernet::SubSubCategoriesController#index as HTML
+  Parameters: {"sub_category"=>"Test SubCategory 1"}
+  [1m[36mOneclickRefernet::SubCategory Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."name" = $1 LIMIT $2[0m  [["name", "Test SubCategory 1"], ["LIMIT", 1]]
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 422]]
+[active_model_serializers]   [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 564]]
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 565]]
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 566]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.29ms)
+Completed 200 OK in 38ms (Views: 27.9ms | ActiveRecord: 8.2ms)
+  [1m[36mOneclickRefernet::SubCategory Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" ORDER BY "oneclick_refernet_sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 422]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."name" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 422]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 1"], ["created_at", "2017-08-22 18:42:01.071066"], ["updated_at", "2017-08-22 18:42:01.071066"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.077723"], ["updated_at", "2017-08-22 18:42:01.077723"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 1"], ["site_name", "Test Site Name 1"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 960], ["sub_sub_category_id", 570], ["created_at", "2017-08-22 18:42:01.086062"], ["updated_at", "2017-08-22 18:42:01.086062"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.088427"], ["updated_at", "2017-08-22 18:42:01.088427"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 2"], ["site_name", "Test Site Name 2"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 961], ["sub_sub_category_id", 570], ["created_at", "2017-08-22 18:42:01.090621"], ["updated_at", "2017-08-22 18:42:01.090621"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.092355"], ["updated_at", "2017-08-22 18:42:01.092355"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 3"], ["site_name", "Test Site Name 3"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 962], ["sub_sub_category_id", 570], ["created_at", "2017-08-22 18:42:01.094440"], ["updated_at", "2017-08-22 18:42:01.094440"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 2"], ["created_at", "2017-08-22 18:42:01.095964"], ["updated_at", "2017-08-22 18:42:01.095964"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.097680"], ["updated_at", "2017-08-22 18:42:01.097680"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 4"], ["site_name", "Test Site Name 4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 963], ["sub_sub_category_id", 571], ["created_at", "2017-08-22 18:42:01.103103"], ["updated_at", "2017-08-22 18:42:01.103103"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.105442"], ["updated_at", "2017-08-22 18:42:01.105442"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 5"], ["site_name", "Test Site Name 5"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 964], ["sub_sub_category_id", 571], ["created_at", "2017-08-22 18:42:01.107774"], ["updated_at", "2017-08-22 18:42:01.107774"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.109557"], ["updated_at", "2017-08-22 18:42:01.109557"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 6"], ["site_name", "Test Site Name 6"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 965], ["sub_sub_category_id", 571], ["created_at", "2017-08-22 18:42:01.112695"], ["updated_at", "2017-08-22 18:42:01.112695"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 3"], ["created_at", "2017-08-22 18:42:01.114349"], ["updated_at", "2017-08-22 18:42:01.114349"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.116192"], ["updated_at", "2017-08-22 18:42:01.116192"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 7"], ["site_name", "Test Site Name 7"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 966], ["sub_sub_category_id", 572], ["created_at", "2017-08-22 18:42:01.119525"], ["updated_at", "2017-08-22 18:42:01.119525"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.121149"], ["updated_at", "2017-08-22 18:42:01.121149"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 8"], ["site_name", "Test Site Name 8"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 967], ["sub_sub_category_id", 572], ["created_at", "2017-08-22 18:42:01.123256"], ["updated_at", "2017-08-22 18:42:01.123256"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.129372"], ["updated_at", "2017-08-22 18:42:01.129372"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 9"], ["site_name", "Test Site Name 9"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 968], ["sub_sub_category_id", 572], ["created_at", "2017-08-22 18:42:01.132208"], ["updated_at", "2017-08-22 18:42:01.132208"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 4"], ["created_at", "2017-08-22 18:42:01.133971"], ["updated_at", "2017-08-22 18:42:01.133971"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.135934"], ["updated_at", "2017-08-22 18:42:01.135934"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 10"], ["site_name", "Test Site Name 10"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 969], ["sub_sub_category_id", 573], ["created_at", "2017-08-22 18:42:01.138751"], ["updated_at", "2017-08-22 18:42:01.138751"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.140402"], ["updated_at", "2017-08-22 18:42:01.140402"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 11"], ["site_name", "Test Site Name 11"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 970], ["sub_sub_category_id", 573], ["created_at", "2017-08-22 18:42:01.142448"], ["updated_at", "2017-08-22 18:42:01.142448"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.144087"], ["updated_at", "2017-08-22 18:42:01.144087"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 12"], ["site_name", "Test Site Name 12"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 971], ["sub_sub_category_id", 573], ["created_at", "2017-08-22 18:42:01.146134"], ["updated_at", "2017-08-22 18:42:01.146134"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 5"], ["created_at", "2017-08-22 18:42:01.147526"], ["updated_at", "2017-08-22 18:42:01.147526"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.150509"], ["updated_at", "2017-08-22 18:42:01.150509"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 13"], ["site_name", "Test Site Name 13"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 972], ["sub_sub_category_id", 574], ["created_at", "2017-08-22 18:42:01.154496"], ["updated_at", "2017-08-22 18:42:01.154496"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.156567"], ["updated_at", "2017-08-22 18:42:01.156567"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 14"], ["site_name", "Test Site Name 14"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 973], ["sub_sub_category_id", 574], ["created_at", "2017-08-22 18:42:01.159038"], ["updated_at", "2017-08-22 18:42:01.159038"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.160789"], ["updated_at", "2017-08-22 18:42:01.160789"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 15"], ["site_name", "Test Site Name 15"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 974], ["sub_sub_category_id", 574], ["created_at", "2017-08-22 18:42:01.162932"], ["updated_at", "2017-08-22 18:42:01.162932"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" ORDER BY "oneclick_refernet_sub_sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Processing by OneclickRefernet::ServicesController#index as HTML
+  Parameters: {"sub_sub_category"=>"Test SubSubCategory 1"}
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."name" = $1 LIMIT $2[0m  [["name", "Test SubSubCategory 1"], ["LIMIT", 1]]
+  [1m[36mOneclickRefernet::Service Load (0.3ms)[0m  [1m[34mSELECT "oneclick_refernet_services".* FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 570]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.09ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" ORDER BY "oneclick_refernet_sub_sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 570]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_services"."agency_name" FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 570]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 1"], ["created_at", "2017-08-22 18:42:01.206171"], ["updated_at", "2017-08-22 18:42:01.206171"], ["refernet_category_id", 999]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Building new sub_sub_category with name: Alcohol Use Related Hotlines
+Building new sub_sub_category with name: Crisis Pregnancy Hotlines
+Building new sub_sub_category with name: Domestic Violence Hotlines
+Building new sub_sub_category with name: Drug Use Related Hotlines
+Building new sub_sub_category with name: General Crisis Intervention Hotlines
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 1"], ["created_at", "2017-08-22 18:42:01.216393"], ["updated_at", "2017-08-22 18:42:01.216393"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 2"], ["created_at", "2017-08-22 18:42:01.217913"], ["updated_at", "2017-08-22 18:42:01.217913"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 3"], ["created_at", "2017-08-22 18:42:01.219059"], ["updated_at", "2017-08-22 18:42:01.219059"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 4"], ["created_at", "2017-08-22 18:42:01.220201"], ["updated_at", "2017-08-22 18:42:01.220201"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 5"], ["created_at", "2017-08-22 18:42:01.221313"], ["updated_at", "2017-08-22 18:42:01.221313"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 6"], ["created_at", "2017-08-22 18:42:01.222880"], ["updated_at", "2017-08-22 18:42:01.222880"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 575]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 575]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 577]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 577]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 579]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 579]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "confirmed" = 't' WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 7"], ["created_at", "2017-08-22 18:42:01.240207"], ["updated_at", "2017-08-22 18:42:01.240207"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 8"], ["created_at", "2017-08-22 18:42:01.241569"], ["updated_at", "2017-08-22 18:42:01.241569"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 9"], ["created_at", "2017-08-22 18:42:01.242610"], ["updated_at", "2017-08-22 18:42:01.242610"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 10"], ["created_at", "2017-08-22 18:42:01.243669"], ["updated_at", "2017-08-22 18:42:01.243669"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 11"], ["created_at", "2017-08-22 18:42:01.244723"], ["updated_at", "2017-08-22 18:42:01.244723"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 12"], ["created_at", "2017-08-22 18:42:01.245823"], ["updated_at", "2017-08-22 18:42:01.245823"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 13"], ["created_at", "2017-08-22 18:42:01.249038"], ["updated_at", "2017-08-22 18:42:01.249038"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 14"], ["created_at", "2017-08-22 18:42:01.250330"], ["updated_at", "2017-08-22 18:42:01.250330"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 15"], ["created_at", "2017-08-22 18:42:01.251531"], ["updated_at", "2017-08-22 18:42:01.251531"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 16"], ["created_at", "2017-08-22 18:42:01.252698"], ["updated_at", "2017-08-22 18:42:01.252698"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 17"], ["created_at", "2017-08-22 18:42:01.253905"], ["updated_at", "2017-08-22 18:42:01.253905"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 18"], ["created_at", "2017-08-22 18:42:01.255079"], ["updated_at", "2017-08-22 18:42:01.255079"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 588]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 588]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 590]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 590]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::ServicesSubSubCategory Load (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_services_sub_sub_categories".* FROM "oneclick_refernet_services_sub_sub_categories" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 592]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."id" = $1[0m  [["id", 592]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories"."id" FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 19"], ["created_at", "2017-08-22 18:42:01.269587"], ["updated_at", "2017-08-22 18:42:01.269587"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 20"], ["created_at", "2017-08-22 18:42:01.276239"], ["updated_at", "2017-08-22 18:42:01.276239"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 21"], ["created_at", "2017-08-22 18:42:01.277631"], ["updated_at", "2017-08-22 18:42:01.277631"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 22"], ["created_at", "2017-08-22 18:42:01.278886"], ["updated_at", "2017-08-22 18:42:01.278886"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubSubCategory 23"], ["created_at", "2017-08-22 18:42:01.280092"], ["updated_at", "2017-08-22 18:42:01.280092"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 24"], ["created_at", "2017-08-22 18:42:01.281288"], ["updated_at", "2017-08-22 18:42:01.281288"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 25"], ["created_at", "2017-08-22 18:42:01.288803"], ["updated_at", "2017-08-22 18:42:01.288803"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.290973"], ["updated_at", "2017-08-22 18:42:01.290973"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 1"], ["site_name", "Test Site Name 1"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 975], ["sub_sub_category_id", 599], ["created_at", "2017-08-22 18:42:01.294218"], ["updated_at", "2017-08-22 18:42:01.294218"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.296208"], ["updated_at", "2017-08-22 18:42:01.296208"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 2"], ["site_name", "Test Site Name 2"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 976], ["sub_sub_category_id", 599], ["created_at", "2017-08-22 18:42:01.298555"], ["updated_at", "2017-08-22 18:42:01.298555"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.301351"], ["updated_at", "2017-08-22 18:42:01.301351"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 3"], ["site_name", "Test Site Name 3"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 977], ["sub_sub_category_id", 599], ["created_at", "2017-08-22 18:42:01.303802"], ["updated_at", "2017-08-22 18:42:01.303802"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" WHERE "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = $1[0m  [["sub_sub_category_id", 599]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 1"], ["created_at", "2017-08-22 18:42:01.320347"], ["updated_at", "2017-08-22 18:42:01.320347"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by OneclickRefernet::CategoriesController#index as HTML
+  [1m[36mOneclickRefernet::Category Load (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_categories".* FROM "oneclick_refernet_categories"[0m
+[active_model_serializers]   [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" INNER JOIN "oneclick_refernet_sub_categories" ON "oneclick_refernet_sub_sub_categories"."sub_category_id" = "oneclick_refernet_sub_categories"."id" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 601]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.98ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."name" FROM "oneclick_refernet_categories"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory"], ["created_at", "2017-08-22 18:42:01.336017"], ["updated_at", "2017-08-22 18:42:01.336017"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Updating or building new service with name: agency_name}
+  [1m[36mOneclickRefernet::Service Load (0.1ms)[0m  [1m[34mSELECT  "oneclick_refernet_services".* FROM "oneclick_refernet_services" WHERE "oneclick_refernet_services"."confirmed" = $1 AND "oneclick_refernet_services"."agency_name" = $2 AND "oneclick_refernet_services"."site_name" = $3 AND "oneclick_refernet_services"."confirmed" = $4 LIMIT $5[0m  [["confirmed", "f"], ["agency_name", "BOYS TOWN NATIONAL HOTLINE"], ["site_name", "BOYS TOWN NATIONAL HOTLINE"], ["confirmed", "f"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Building new category with name: Housing
+Building new category with name: Financial Aid, Clothing and Material Goods
+Building new category with name: Food and Transportation
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 1"], ["created_at", "2017-08-22 18:42:01.367956"], ["updated_at", "2017-08-22 18:42:01.367956"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 2"], ["created_at", "2017-08-22 18:42:01.369605"], ["updated_at", "2017-08-22 18:42:01.369605"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 3"], ["created_at", "2017-08-22 18:42:01.370831"], ["updated_at", "2017-08-22 18:42:01.370831"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 4"], ["created_at", "2017-08-22 18:42:01.372094"], ["updated_at", "2017-08-22 18:42:01.372094"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 5"], ["created_at", "2017-08-22 18:42:01.373249"], ["updated_at", "2017-08-22 18:42:01.373249"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 6"], ["created_at", "2017-08-22 18:42:01.374433"], ["updated_at", "2017-08-22 18:42:01.374433"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 7"], ["created_at", "2017-08-22 18:42:01.378517"], ["updated_at", "2017-08-22 18:42:01.378517"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 8"], ["created_at", "2017-08-22 18:42:01.379648"], ["updated_at", "2017-08-22 18:42:01.379648"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 9"], ["created_at", "2017-08-22 18:42:01.380669"], ["updated_at", "2017-08-22 18:42:01.380669"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 10"], ["created_at", "2017-08-22 18:42:01.381678"], ["updated_at", "2017-08-22 18:42:01.381678"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 11"], ["created_at", "2017-08-22 18:42:01.382769"], ["updated_at", "2017-08-22 18:42:01.382769"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 12"], ["created_at", "2017-08-22 18:42:01.384407"], ["updated_at", "2017-08-22 18:42:01.384407"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::Category Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories".* FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 609]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 609]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 611]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 611]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 613]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 613]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 13"], ["created_at", "2017-08-22 18:42:01.399951"], ["updated_at", "2017-08-22 18:42:01.399951"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 14"], ["created_at", "2017-08-22 18:42:01.401351"], ["updated_at", "2017-08-22 18:42:01.401351"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 15"], ["created_at", "2017-08-22 18:42:01.403081"], ["updated_at", "2017-08-22 18:42:01.403081"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 16"], ["created_at", "2017-08-22 18:42:01.404678"], ["updated_at", "2017-08-22 18:42:01.404678"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 17"], ["created_at", "2017-08-22 18:42:01.405877"], ["updated_at", "2017-08-22 18:42:01.405877"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 18"], ["created_at", "2017-08-22 18:42:01.407093"], ["updated_at", "2017-08-22 18:42:01.407093"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::Category Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_categories".* FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 614]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 614]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.3ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 616]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 616]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 618]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."id" = $1[0m  [["id", 618]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_categories" SET "confirmed" = 't' WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "oneclick_refernet_categories"."id" FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 19"], ["created_at", "2017-08-22 18:42:01.426930"], ["updated_at", "2017-08-22 18:42:01.426930"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 20"], ["created_at", "2017-08-22 18:42:01.428253"], ["updated_at", "2017-08-22 18:42:01.428253"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 21"], ["created_at", "2017-08-22 18:42:01.429475"], ["updated_at", "2017-08-22 18:42:01.429475"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 22"], ["created_at", "2017-08-22 18:42:01.430609"], ["updated_at", "2017-08-22 18:42:01.430609"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at", "confirmed") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Category 23"], ["created_at", "2017-08-22 18:42:01.431976"], ["updated_at", "2017-08-22 18:42:01.431976"], ["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 24"], ["created_at", "2017-08-22 18:42:01.434054"], ["updated_at", "2017-08-22 18:42:01.434054"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 25"], ["created_at", "2017-08-22 18:42:01.438861"], ["updated_at", "2017-08-22 18:42:01.438861"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 1"], ["created_at", "2017-08-22 18:42:01.440290"], ["updated_at", "2017-08-22 18:42:01.440290"], ["refernet_category_id", 701]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 1"], ["created_at", "2017-08-22 18:42:01.441693"], ["updated_at", "2017-08-22 18:42:01.441693"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.443526"], ["updated_at", "2017-08-22 18:42:01.443526"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 1"], ["site_name", "Test Site Name 1"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 978], ["sub_sub_category_id", 601], ["created_at", "2017-08-22 18:42:01.446231"], ["updated_at", "2017-08-22 18:42:01.446231"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.447767"], ["updated_at", "2017-08-22 18:42:01.447767"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 2"], ["site_name", "Test Site Name 2"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 979], ["sub_sub_category_id", 601], ["created_at", "2017-08-22 18:42:01.449740"], ["updated_at", "2017-08-22 18:42:01.449740"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.451256"], ["updated_at", "2017-08-22 18:42:01.451256"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 3"], ["site_name", "Test Site Name 3"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 980], ["sub_sub_category_id", 601], ["created_at", "2017-08-22 18:42:01.453222"], ["updated_at", "2017-08-22 18:42:01.453222"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 425], ["updated_at", "2017-08-22 18:42:01.454659"], ["id", 601]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 2"], ["created_at", "2017-08-22 18:42:01.456437"], ["updated_at", "2017-08-22 18:42:01.456437"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.458005"], ["updated_at", "2017-08-22 18:42:01.458005"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 4"], ["site_name", "Test Site Name 4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 981], ["sub_sub_category_id", 602], ["created_at", "2017-08-22 18:42:01.463484"], ["updated_at", "2017-08-22 18:42:01.463484"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.465409"], ["updated_at", "2017-08-22 18:42:01.465409"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 5"], ["site_name", "Test Site Name 5"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 982], ["sub_sub_category_id", 602], ["created_at", "2017-08-22 18:42:01.467637"], ["updated_at", "2017-08-22 18:42:01.467637"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.469243"], ["updated_at", "2017-08-22 18:42:01.469243"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 6"], ["site_name", "Test Site Name 6"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 983], ["sub_sub_category_id", 602], ["created_at", "2017-08-22 18:42:01.471856"], ["updated_at", "2017-08-22 18:42:01.471856"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 425], ["updated_at", "2017-08-22 18:42:01.473159"], ["id", 602]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 3"], ["created_at", "2017-08-22 18:42:01.474810"], ["updated_at", "2017-08-22 18:42:01.474810"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.476487"], ["updated_at", "2017-08-22 18:42:01.476487"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 7"], ["site_name", "Test Site Name 7"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 984], ["sub_sub_category_id", 603], ["created_at", "2017-08-22 18:42:01.479198"], ["updated_at", "2017-08-22 18:42:01.479198"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.480938"], ["updated_at", "2017-08-22 18:42:01.480938"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 8"], ["site_name", "Test Site Name 8"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 985], ["sub_sub_category_id", 603], ["created_at", "2017-08-22 18:42:01.484199"], ["updated_at", "2017-08-22 18:42:01.484199"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.486087"], ["updated_at", "2017-08-22 18:42:01.486087"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 9"], ["site_name", "Test Site Name 9"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 986], ["sub_sub_category_id", 603], ["created_at", "2017-08-22 18:42:01.488402"], ["updated_at", "2017-08-22 18:42:01.488402"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 425], ["updated_at", "2017-08-22 18:42:01.489683"], ["id", 603]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 626], ["updated_at", "2017-08-22 18:42:01.491826"], ["id", 425]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 2"], ["created_at", "2017-08-22 18:42:01.493477"], ["updated_at", "2017-08-22 18:42:01.493477"], ["refernet_category_id", 702]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 4"], ["created_at", "2017-08-22 18:42:01.494858"], ["updated_at", "2017-08-22 18:42:01.494858"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.496454"], ["updated_at", "2017-08-22 18:42:01.496454"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 10"], ["site_name", "Test Site Name 10"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 987], ["sub_sub_category_id", 604], ["created_at", "2017-08-22 18:42:01.498985"], ["updated_at", "2017-08-22 18:42:01.498985"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.500708"], ["updated_at", "2017-08-22 18:42:01.500708"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 11"], ["site_name", "Test Site Name 11"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 988], ["sub_sub_category_id", 604], ["created_at", "2017-08-22 18:42:01.503258"], ["updated_at", "2017-08-22 18:42:01.503258"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.504886"], ["updated_at", "2017-08-22 18:42:01.504886"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 12"], ["site_name", "Test Site Name 12"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 989], ["sub_sub_category_id", 604], ["created_at", "2017-08-22 18:42:01.506874"], ["updated_at", "2017-08-22 18:42:01.506874"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 426], ["updated_at", "2017-08-22 18:42:01.508245"], ["id", 604]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 5"], ["created_at", "2017-08-22 18:42:01.509830"], ["updated_at", "2017-08-22 18:42:01.509830"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.511414"], ["updated_at", "2017-08-22 18:42:01.511414"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 13"], ["site_name", "Test Site Name 13"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 990], ["sub_sub_category_id", 605], ["created_at", "2017-08-22 18:42:01.513913"], ["updated_at", "2017-08-22 18:42:01.513913"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.515443"], ["updated_at", "2017-08-22 18:42:01.515443"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 14"], ["site_name", "Test Site Name 14"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 991], ["sub_sub_category_id", 605], ["created_at", "2017-08-22 18:42:01.517371"], ["updated_at", "2017-08-22 18:42:01.517371"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.518861"], ["updated_at", "2017-08-22 18:42:01.518861"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 15"], ["site_name", "Test Site Name 15"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 992], ["sub_sub_category_id", 605], ["created_at", "2017-08-22 18:42:01.520944"], ["updated_at", "2017-08-22 18:42:01.520944"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 426], ["updated_at", "2017-08-22 18:42:01.522194"], ["id", 605]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 6"], ["created_at", "2017-08-22 18:42:01.523710"], ["updated_at", "2017-08-22 18:42:01.523710"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.525397"], ["updated_at", "2017-08-22 18:42:01.525397"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 16"], ["site_name", "Test Site Name 16"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 993], ["sub_sub_category_id", 606], ["created_at", "2017-08-22 18:42:01.528082"], ["updated_at", "2017-08-22 18:42:01.528082"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.530302"], ["updated_at", "2017-08-22 18:42:01.530302"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 17"], ["site_name", "Test Site Name 17"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 994], ["sub_sub_category_id", 606], ["created_at", "2017-08-22 18:42:01.533010"], ["updated_at", "2017-08-22 18:42:01.533010"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.534959"], ["updated_at", "2017-08-22 18:42:01.534959"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 18"], ["site_name", "Test Site Name 18"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 995], ["sub_sub_category_id", 606], ["created_at", "2017-08-22 18:42:01.537338"], ["updated_at", "2017-08-22 18:42:01.537338"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 426], ["updated_at", "2017-08-22 18:42:01.538583"], ["id", 606]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 626], ["updated_at", "2017-08-22 18:42:01.540050"], ["id", 426]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 3"], ["created_at", "2017-08-22 18:42:01.543832"], ["updated_at", "2017-08-22 18:42:01.543832"], ["refernet_category_id", 703]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 7"], ["created_at", "2017-08-22 18:42:01.545308"], ["updated_at", "2017-08-22 18:42:01.545308"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.546981"], ["updated_at", "2017-08-22 18:42:01.546981"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 19"], ["site_name", "Test Site Name 19"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 996], ["sub_sub_category_id", 607], ["created_at", "2017-08-22 18:42:01.549550"], ["updated_at", "2017-08-22 18:42:01.549550"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.551195"], ["updated_at", "2017-08-22 18:42:01.551195"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 20"], ["site_name", "Test Site Name 20"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 997], ["sub_sub_category_id", 607], ["created_at", "2017-08-22 18:42:01.553435"], ["updated_at", "2017-08-22 18:42:01.553435"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.555097"], ["updated_at", "2017-08-22 18:42:01.555097"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 21"], ["site_name", "Test Site Name 21"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 998], ["sub_sub_category_id", 607], ["created_at", "2017-08-22 18:42:01.557191"], ["updated_at", "2017-08-22 18:42:01.557191"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 427], ["updated_at", "2017-08-22 18:42:01.558624"], ["id", 607]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 8"], ["created_at", "2017-08-22 18:42:01.560125"], ["updated_at", "2017-08-22 18:42:01.560125"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.561774"], ["updated_at", "2017-08-22 18:42:01.561774"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 22"], ["site_name", "Test Site Name 22"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 999], ["sub_sub_category_id", 608], ["created_at", "2017-08-22 18:42:01.564375"], ["updated_at", "2017-08-22 18:42:01.564375"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.566161"], ["updated_at", "2017-08-22 18:42:01.566161"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 23"], ["site_name", "Test Site Name 23"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1000], ["sub_sub_category_id", 608], ["created_at", "2017-08-22 18:42:01.568243"], ["updated_at", "2017-08-22 18:42:01.568243"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.569843"], ["updated_at", "2017-08-22 18:42:01.569843"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 24"], ["site_name", "Test Site Name 24"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1001], ["sub_sub_category_id", 608], ["created_at", "2017-08-22 18:42:01.571909"], ["updated_at", "2017-08-22 18:42:01.571909"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 427], ["updated_at", "2017-08-22 18:42:01.573132"], ["id", 608]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 9"], ["created_at", "2017-08-22 18:42:01.574621"], ["updated_at", "2017-08-22 18:42:01.574621"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.576291"], ["updated_at", "2017-08-22 18:42:01.576291"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 25"], ["site_name", "Test Site Name 25"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1002], ["sub_sub_category_id", 609], ["created_at", "2017-08-22 18:42:01.578902"], ["updated_at", "2017-08-22 18:42:01.578902"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.580729"], ["updated_at", "2017-08-22 18:42:01.580729"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 26"], ["site_name", "Test Site Name 26"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1003], ["sub_sub_category_id", 609], ["created_at", "2017-08-22 18:42:01.582816"], ["updated_at", "2017-08-22 18:42:01.582816"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.584385"], ["updated_at", "2017-08-22 18:42:01.584385"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 27"], ["site_name", "Test Site Name 27"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1004], ["sub_sub_category_id", 609], ["created_at", "2017-08-22 18:42:01.586526"], ["updated_at", "2017-08-22 18:42:01.586526"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 427], ["updated_at", "2017-08-22 18:42:01.587754"], ["id", 609]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 626], ["updated_at", "2017-08-22 18:42:01.589132"], ["id", 427]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" INNER JOIN "oneclick_refernet_sub_categories" ON "oneclick_refernet_sub_sub_categories"."sub_category_id" = "oneclick_refernet_sub_categories"."id" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 626]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 1"], ["created_at", "2017-08-22 18:42:01.605145"], ["updated_at", "2017-08-22 18:42:01.605145"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 1"], ["created_at", "2017-08-22 18:42:01.606825"], ["updated_at", "2017-08-22 18:42:01.606825"], ["refernet_category_id", 701]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 627], ["updated_at", "2017-08-22 18:42:01.608479"], ["id", 428]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 2"], ["created_at", "2017-08-22 18:42:01.609932"], ["updated_at", "2017-08-22 18:42:01.609932"], ["refernet_category_id", 702]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 627], ["updated_at", "2017-08-22 18:42:01.611032"], ["id", 429]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 3"], ["created_at", "2017-08-22 18:42:01.612386"], ["updated_at", "2017-08-22 18:42:01.612386"], ["refernet_category_id", 703]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 627], ["updated_at", "2017-08-22 18:42:01.613440"], ["id", 430]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 2"], ["created_at", "2017-08-22 18:42:01.614948"], ["updated_at", "2017-08-22 18:42:01.614948"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 4"], ["created_at", "2017-08-22 18:42:01.617512"], ["updated_at", "2017-08-22 18:42:01.617512"], ["refernet_category_id", 704]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 628], ["updated_at", "2017-08-22 18:42:01.619782"], ["id", 431]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 5"], ["created_at", "2017-08-22 18:42:01.621496"], ["updated_at", "2017-08-22 18:42:01.621496"], ["refernet_category_id", 705]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 628], ["updated_at", "2017-08-22 18:42:01.622978"], ["id", 432]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 6"], ["created_at", "2017-08-22 18:42:01.624447"], ["updated_at", "2017-08-22 18:42:01.624447"], ["refernet_category_id", 706]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 628], ["updated_at", "2017-08-22 18:42:01.625783"], ["id", 433]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 3"], ["created_at", "2017-08-22 18:42:01.627344"], ["updated_at", "2017-08-22 18:42:01.627344"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 7"], ["created_at", "2017-08-22 18:42:01.631263"], ["updated_at", "2017-08-22 18:42:01.631263"], ["refernet_category_id", 707]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 629], ["updated_at", "2017-08-22 18:42:01.632875"], ["id", 434]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 8"], ["created_at", "2017-08-22 18:42:01.634298"], ["updated_at", "2017-08-22 18:42:01.634298"], ["refernet_category_id", 708]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 629], ["updated_at", "2017-08-22 18:42:01.635486"], ["id", 435]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 9"], ["created_at", "2017-08-22 18:42:01.636801"], ["updated_at", "2017-08-22 18:42:01.636801"], ["refernet_category_id", 709]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 629], ["updated_at", "2017-08-22 18:42:01.638009"], ["id", 436]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 4"], ["created_at", "2017-08-22 18:42:01.639906"], ["updated_at", "2017-08-22 18:42:01.639906"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 10"], ["created_at", "2017-08-22 18:42:01.641201"], ["updated_at", "2017-08-22 18:42:01.641201"], ["refernet_category_id", 710]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 630], ["updated_at", "2017-08-22 18:42:01.642535"], ["id", 437]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 11"], ["created_at", "2017-08-22 18:42:01.643793"], ["updated_at", "2017-08-22 18:42:01.643793"], ["refernet_category_id", 711]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 630], ["updated_at", "2017-08-22 18:42:01.644851"], ["id", 438]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 12"], ["created_at", "2017-08-22 18:42:01.646095"], ["updated_at", "2017-08-22 18:42:01.646095"], ["refernet_category_id", 712]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 630], ["updated_at", "2017-08-22 18:42:01.647232"], ["id", 439]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category 5"], ["created_at", "2017-08-22 18:42:01.649014"], ["updated_at", "2017-08-22 18:42:01.649014"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 13"], ["created_at", "2017-08-22 18:42:01.652025"], ["updated_at", "2017-08-22 18:42:01.652025"], ["refernet_category_id", 713]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 631], ["updated_at", "2017-08-22 18:42:01.653821"], ["id", 440]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 14"], ["created_at", "2017-08-22 18:42:01.655217"], ["updated_at", "2017-08-22 18:42:01.655217"], ["refernet_category_id", 714]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 631], ["updated_at", "2017-08-22 18:42:01.656366"], ["id", 441]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 15"], ["created_at", "2017-08-22 18:42:01.657663"], ["updated_at", "2017-08-22 18:42:01.657663"], ["refernet_category_id", 715]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_categories"."id" = $3[0m  [["category_id", 631], ["updated_at", "2017-08-22 18:42:01.658739"], ["id", 442]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::Category Load (0.1ms)[0m  [1m[34mSELECT  "oneclick_refernet_categories".* FROM "oneclick_refernet_categories" ORDER BY "oneclick_refernet_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Processing by OneclickRefernet::SubCategoriesController#index as HTML
+  Parameters: {"category"=>"Test Category 1"}
+  [1m[36mOneclickRefernet::Category Load (0.2ms)[0m  [1m[34mSELECT  "oneclick_refernet_categories".* FROM "oneclick_refernet_categories" WHERE "oneclick_refernet_categories"."name" = $1 LIMIT $2[0m  [["name", "Test Category 1"], ["LIMIT", 1]]
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 627]]
+[active_model_serializers]   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 428]]
+[active_model_serializers]   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 429]]
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 430]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.97ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.4ms)
+  [1m[36mOneclickRefernet::Category Load (0.1ms)[0m  [1m[34mSELECT  "oneclick_refernet_categories".* FROM "oneclick_refernet_categories" ORDER BY "oneclick_refernet_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 627]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."name" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."category_id" = $1[0m  [["category_id", 627]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test Category"], ["created_at", "2017-08-22 18:42:01.692278"], ["updated_at", "2017-08-22 18:42:01.692278"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Building new sub_category with name: Crisis Hotlines
+Building new sub_category with name: Mental Health Care Services
+Building new sub_category with name: Substance Abuse Treatment Services
+Building new sub_category with name: Counseling Services
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 1"], ["created_at", "2017-08-22 18:42:01.710651"], ["updated_at", "2017-08-22 18:42:01.710651"], ["confirmed", "t"], ["refernet_category_id", 701]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 2"], ["created_at", "2017-08-22 18:42:01.712177"], ["updated_at", "2017-08-22 18:42:01.712177"], ["refernet_category_id", 702]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 3"], ["created_at", "2017-08-22 18:42:01.715547"], ["updated_at", "2017-08-22 18:42:01.715547"], ["confirmed", "t"], ["refernet_category_id", 703]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 4"], ["created_at", "2017-08-22 18:42:01.716917"], ["updated_at", "2017-08-22 18:42:01.716917"], ["refernet_category_id", 704]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 5"], ["created_at", "2017-08-22 18:42:01.718142"], ["updated_at", "2017-08-22 18:42:01.718142"], ["confirmed", "t"], ["refernet_category_id", 705]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 6"], ["created_at", "2017-08-22 18:42:01.719356"], ["updated_at", "2017-08-22 18:42:01.719356"], ["refernet_category_id", 706]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 7"], ["created_at", "2017-08-22 18:42:01.724037"], ["updated_at", "2017-08-22 18:42:01.724037"], ["confirmed", "t"], ["refernet_category_id", 707]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 8"], ["created_at", "2017-08-22 18:42:01.725300"], ["updated_at", "2017-08-22 18:42:01.725300"], ["refernet_category_id", 708]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 9"], ["created_at", "2017-08-22 18:42:01.726353"], ["updated_at", "2017-08-22 18:42:01.726353"], ["confirmed", "t"], ["refernet_category_id", 709]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 10"], ["created_at", "2017-08-22 18:42:01.727452"], ["updated_at", "2017-08-22 18:42:01.727452"], ["refernet_category_id", 710]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 11"], ["created_at", "2017-08-22 18:42:01.728513"], ["updated_at", "2017-08-22 18:42:01.728513"], ["confirmed", "t"], ["refernet_category_id", 711]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 12"], ["created_at", "2017-08-22 18:42:01.729647"], ["updated_at", "2017-08-22 18:42:01.729647"], ["refernet_category_id", 712]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 449]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 449]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 451]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 451]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 453]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 453]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_categories" SET "confirmed" = 't' WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 13"], ["created_at", "2017-08-22 18:42:01.746418"], ["updated_at", "2017-08-22 18:42:01.746418"], ["confirmed", "t"], ["refernet_category_id", 713]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 14"], ["created_at", "2017-08-22 18:42:01.747693"], ["updated_at", "2017-08-22 18:42:01.747693"], ["refernet_category_id", 714]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 15"], ["created_at", "2017-08-22 18:42:01.748811"], ["updated_at", "2017-08-22 18:42:01.748811"], ["confirmed", "t"], ["refernet_category_id", 715]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 16"], ["created_at", "2017-08-22 18:42:01.749896"], ["updated_at", "2017-08-22 18:42:01.749896"], ["refernet_category_id", 716]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 17"], ["created_at", "2017-08-22 18:42:01.751037"], ["updated_at", "2017-08-22 18:42:01.751037"], ["confirmed", "t"], ["refernet_category_id", 717]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 18"], ["created_at", "2017-08-22 18:42:01.752375"], ["updated_at", "2017-08-22 18:42:01.752375"], ["refernet_category_id", 718]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 19"], ["created_at", "2017-08-22 18:42:01.759880"], ["updated_at", "2017-08-22 18:42:01.759880"], ["confirmed", "t"], ["refernet_category_id", 719]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 20"], ["created_at", "2017-08-22 18:42:01.761433"], ["updated_at", "2017-08-22 18:42:01.761433"], ["refernet_category_id", 720]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 21"], ["created_at", "2017-08-22 18:42:01.762726"], ["updated_at", "2017-08-22 18:42:01.762726"], ["confirmed", "t"], ["refernet_category_id", 721]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 22"], ["created_at", "2017-08-22 18:42:01.764013"], ["updated_at", "2017-08-22 18:42:01.764013"], ["refernet_category_id", 722]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "confirmed", "refernet_category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Test SubCategory 23"], ["created_at", "2017-08-22 18:42:01.765289"], ["updated_at", "2017-08-22 18:42:01.765289"], ["confirmed", "t"], ["refernet_category_id", 723]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 24"], ["created_at", "2017-08-22 18:42:01.766540"], ["updated_at", "2017-08-22 18:42:01.766540"], ["refernet_category_id", 724]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[36mOneclickRefernet::SubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories".* FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 462]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 462]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 464]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 464]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOneclickRefernet::SubSubCategory Load (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_sub_categories".* FROM "oneclick_refernet_sub_sub_categories" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 466]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."id" = $1[0m  [["id", 466]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "oneclick_refernet_sub_categories"."id" FROM "oneclick_refernet_sub_categories" WHERE "oneclick_refernet_sub_categories"."confirmed" = $1[0m  [["confirmed", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_categories" ("name", "created_at", "updated_at", "refernet_category_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test SubCategory 25"], ["created_at", "2017-08-22 18:42:01.780825"], ["updated_at", "2017-08-22 18:42:01.780825"], ["refernet_category_id", 725]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 1"], ["created_at", "2017-08-22 18:42:01.782714"], ["updated_at", "2017-08-22 18:42:01.782714"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.784882"], ["updated_at", "2017-08-22 18:42:01.784882"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 1"], ["site_name", "Test Site Name 1"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1005], ["sub_sub_category_id", 610], ["created_at", "2017-08-22 18:42:01.787985"], ["updated_at", "2017-08-22 18:42:01.787985"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.789784"], ["updated_at", "2017-08-22 18:42:01.789784"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 2"], ["site_name", "Test Site Name 2"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1006], ["sub_sub_category_id", 610], ["created_at", "2017-08-22 18:42:01.791999"], ["updated_at", "2017-08-22 18:42:01.791999"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.793736"], ["updated_at", "2017-08-22 18:42:01.793736"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 3"], ["site_name", "Test Site Name 3"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1007], ["sub_sub_category_id", 610], ["created_at", "2017-08-22 18:42:01.795927"], ["updated_at", "2017-08-22 18:42:01.795927"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 467], ["updated_at", "2017-08-22 18:42:01.797481"], ["id", 610]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 2"], ["created_at", "2017-08-22 18:42:01.799334"], ["updated_at", "2017-08-22 18:42:01.799334"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.801441"], ["updated_at", "2017-08-22 18:42:01.801441"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 4"], ["site_name", "Test Site Name 4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1008], ["sub_sub_category_id", 611], ["created_at", "2017-08-22 18:42:01.804335"], ["updated_at", "2017-08-22 18:42:01.804335"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.807143"], ["updated_at", "2017-08-22 18:42:01.807143"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 5"], ["site_name", "Test Site Name 5"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1009], ["sub_sub_category_id", 611], ["created_at", "2017-08-22 18:42:01.809458"], ["updated_at", "2017-08-22 18:42:01.809458"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.811075"], ["updated_at", "2017-08-22 18:42:01.811075"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 6"], ["site_name", "Test Site Name 6"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1010], ["sub_sub_category_id", 611], ["created_at", "2017-08-22 18:42:01.817998"], ["updated_at", "2017-08-22 18:42:01.817998"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 467], ["updated_at", "2017-08-22 18:42:01.819425"], ["id", 611]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_sub_sub_categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test SubSubCategory 3"], ["created_at", "2017-08-22 18:42:01.821476"], ["updated_at", "2017-08-22 18:42:01.821476"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.823261"], ["updated_at", "2017-08-22 18:42:01.823261"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 7"], ["site_name", "Test Site Name 7"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1011], ["sub_sub_category_id", 612], ["created_at", "2017-08-22 18:42:01.825836"], ["updated_at", "2017-08-22 18:42:01.825836"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.827380"], ["updated_at", "2017-08-22 18:42:01.827380"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 8"], ["site_name", "Test Site Name 8"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1012], ["sub_sub_category_id", 612], ["created_at", "2017-08-22 18:42:01.829433"], ["updated_at", "2017-08-22 18:42:01.829433"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services" ("created_at", "updated_at", "details", "latlng", "agency_name", "site_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2017-08-22 18:42:01.831160"], ["updated_at", "2017-08-22 18:42:01.831160"], ["details", "---\nName_Agency: Test Agency Name\nName_Site: Test Site Name\notherDetails: blahblahblah\nLatitude: '28.0'\nLongitude: '82.0'\n"], ["latlng", "0020000001000010e6403c000000000000c054800000000000"], ["agency_name", "Test Agency Name 9"], ["site_name", "Test Site Name 9"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "oneclick_refernet_services_sub_sub_categories" ("service_id", "sub_sub_category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1013], ["sub_sub_category_id", 612], ["created_at", "2017-08-22 18:42:01.835318"], ["updated_at", "2017-08-22 18:42:01.835318"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "oneclick_refernet_sub_sub_categories" SET "sub_category_id" = $1, "updated_at" = $2 WHERE "oneclick_refernet_sub_sub_categories"."id" = $3[0m  [["sub_category_id", 467], ["updated_at", "2017-08-22 18:42:01.837161"], ["id", 612]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services" INNER JOIN "oneclick_refernet_services_sub_sub_categories" ON "oneclick_refernet_services"."id" = "oneclick_refernet_services_sub_sub_categories"."service_id" INNER JOIN "oneclick_refernet_sub_sub_categories" ON "oneclick_refernet_services_sub_sub_categories"."sub_sub_category_id" = "oneclick_refernet_sub_sub_categories"."id" WHERE "oneclick_refernet_sub_sub_categories"."sub_category_id" = $1[0m  [["sub_category_id", 467]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "oneclick_refernet_services"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

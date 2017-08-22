@@ -4,6 +4,7 @@ module OneclickRefernet
     ### INCLUDES ###
     include OneclickRefernet::Categorical
     include OneclickRefernet::Confirmable
+    include OneclickRefernet::RefernetServiceable
     
     ### ASSOCIATIONS ###
     has_many :sub_categories, dependent: :destroy

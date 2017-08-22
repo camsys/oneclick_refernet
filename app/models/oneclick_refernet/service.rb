@@ -3,6 +3,7 @@ module OneclickRefernet
     
     ### INCLUDES ###
     include OneclickRefernet::Confirmable
+    include OneclickRefernet::RefernetServiceable
     
     ### ATTRIBUTES ###
     serialize :details
