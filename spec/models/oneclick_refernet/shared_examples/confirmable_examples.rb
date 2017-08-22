@@ -15,10 +15,10 @@ module OneclickRefernet
     let(:unconfirmed_ids) { described_class.unconfirmed.pluck(:id) }
     
     # Attributes
-    it { should respond_to :confirmed }
+    it { expect respond_to :confirmed }
     
     # Class Methods & Scopes
-    it { described_class.should respond_to :confirm_all,
+    it { expect(described_class).to respond_to :confirm_all,
           :unconfirm_all, :destroy_confirmed, :destroy_unconfirmed,
           :confirm_unconfirmed, :approve_changes, :reject_changes,
           :confirmed, :unconfirmed }
