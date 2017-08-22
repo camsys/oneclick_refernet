@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  service: one
-  sub_sub_category: one
-
-two:
-  service: two
-  sub_sub_category: two
