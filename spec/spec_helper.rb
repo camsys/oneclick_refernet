@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'factory_girl_rails'
 require 'support/factory_girl'
+require 'support/spec_helpers'
 require 'shoulda/matchers'
 
 Rails.backtrace_cleaner.remove_silencers!
@@ -20,15 +21,17 @@ ActiveRecord::Migration.maintain_test_schema!
 
 # Configure RSpec
 RSpec.configure do |config|
- config.mock_with :rspec
- config.use_transactional_fixtures = true
- config.infer_base_class_for_anonymous_controllers = false
- config.order = "random"
- 
- config.before(:all) do
-   FactoryGirl.definition_file_paths = %w(spec/factories/oneclick_refernet) # Load the factories directory
-   FactoryGirl.reload # Reload factory definitions
- end
+  config.mock_with :rspec
+  config.use_transactional_fixtures = true
+  config.infer_base_class_for_anonymous_controllers = false
+  config.order = "random"
+  config.include OneclickRefernet::SpecHelpers
+
+  config.before(:all) do
+    FactoryGirl.definition_file_paths = %w(spec/factories/oneclick_refernet) # Load the factories directory
+    FactoryGirl.reload # Reload factory definitions
+  end
+
 end
 
 # Configure shoulda matchers
