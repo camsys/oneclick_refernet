@@ -18,10 +18,6 @@ module OneclickRefernet
     # Shared categorical module examples
     it_behaves_like "categorical"
     it_behaves_like "confirmable"
-    
-    it "test category factory" do
-      puts category.ai
-    end
 
   end
 end

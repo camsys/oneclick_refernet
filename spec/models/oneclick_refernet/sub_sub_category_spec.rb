@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module OneclickRefernet
   RSpec.describe SubSubCategory, type: :model do
-    let(:sub_sub_category) { create(:sub_sub_category, :with_sub_category) }
+    let(:sub_sub_category) { create(:sub_sub_category, :with_sub_category, :with_services) }
 
     # Attributes
     it { should respond_to :name }
@@ -19,6 +19,6 @@ module OneclickRefernet
     # Shared categorical module examples
     it_behaves_like "categorical"
     it_behaves_like "confirmable"
-    
+        
   end
 end
