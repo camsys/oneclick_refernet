@@ -74,7 +74,11 @@ module OneclickRefernet
 		# Pulls JSON response out of ReferNET XML response and parses it
 		def unpack(response)
 			if response.code == '200'
-				return JSON.parse(Hash.from_xml(response.body)["anyType"]) || []
+				begin
+					return JSON.parse(Hash.from_xml(response.body)["anyType"]) || []
+				rescue JSON::ParserError
+					return []
+				end
 			else
 				return []
 			end
