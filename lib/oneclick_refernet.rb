@@ -1,5 +1,8 @@
 require "oneclick_refernet/engine"
 
 module OneclickRefernet
-  # Your code goes here...
+
+  # Refernet API Token Config Variable  #'KIXUUKWX'
+  mattr_accessor :api_token
+
 end
