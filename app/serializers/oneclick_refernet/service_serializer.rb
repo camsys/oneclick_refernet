@@ -2,15 +2,14 @@
 module OneclickRefernet
   class ServiceSerializer < ActiveModel::Serializer
     
-    attributes :agency_name,
+    attributes :name,
                :site_name,
-               :lat,
-               :lng,
-               :address,
-               :place
+               :formatted_address,
+               :geometry
+               
 
-    def place
-    	{name: object.site_name, formatted_address: formatted_address, geometry: geometry}
+    def name
+    	object.site_name
     end
 
     def address_components
