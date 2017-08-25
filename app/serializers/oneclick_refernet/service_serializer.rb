@@ -10,8 +10,7 @@ module OneclickRefernet
                :place
 
     def place
-    	formatted_address
-    	geometry
+    	{name: object.site_name, formatted_address: formatted_address, geometry: geometry}
     end
 
     def address_components
