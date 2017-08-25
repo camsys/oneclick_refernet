@@ -4,6 +4,7 @@ module OneclickRefernet
     ### INCLUDES ###
     include OneclickRefernet::Confirmable
     include OneclickRefernet::RefernetServiceable
+    require 'street_address'
     
     ### ATTRIBUTES ###
     serialize :details
@@ -64,8 +65,14 @@ module OneclickRefernet
       details.values_at(*%w(Address1 Address2 City State)).compact.join(', ') + 
       " #{details['ZipCode']}"
     end
-    
-     
+
+    def street_number
+      StreetAddress::US.parse(address).number
+    end
+
+    def route
+      "#{StreetAddress::US.parse(address).street} #{StreetAddress::US.parse(address).street_type}"
+    end
     
     ## Geometry Helper Methods
     

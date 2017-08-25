@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Declare your gem's dependencies in oneclick_refernet.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -13,3 +13,6 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 gem 'awesome_print'
+
+# Parse Address into Components
+gem 'street_address'

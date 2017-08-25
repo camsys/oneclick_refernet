@@ -5,6 +5,7 @@ module OneclickRefernet
     attributes :name,
                :site_name,
                :formatted_address,
+               :address_components,
                :geometry
                
 
@@ -27,17 +28,17 @@ module OneclickRefernet
 
       #City
       if object.city
-        address_components << {long_name: object.city, short_name: object.city, types: ["locality", "political"]}
+        address_components << {long_name: object.details['City'], short_name: object.details['City'], types: ["locality", "political"]}
       end
 
       #State
       if object.state
-        address_components << {long_name: object.zip, short_name: object.zip, types: ["postal_code"]}
+        address_components << {long_name: object.details['ZipCode'], short_name: object.details['ZipCode'], types: ["postal_code"]}
       end
 
       #Zip
       if object.zip
-        address_components << {long_name: object.state, short_name: object.state, types: ["administrative_area_level_1","political"]}
+        address_components << {long_name: object.details['State'], short_name: object.details['State'], types: ["administrative_area_level_1","political"]}
       end
 
       return address_components
