@@ -19,8 +19,8 @@ $ bundle install
 ## Sample Usage
 Open a rails console in your project and then execute:
 ```
-include OneclickRefernet::RefernetServices
-rs = RefernetService.new('<YOUR REFERNET API KEY>')
+include OneclickRefernet
+rs = OneclickRefernet::RefernetService.new('<YOUR REFERNET API KEY>')
 response = rs.search_keyword('hospital')
 ```
 
