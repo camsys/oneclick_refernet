@@ -6,7 +6,12 @@ module OneclickRefernet
                :site_name,
                :lat,
                :lng,
-               :address
+               :address,
+               :test
+
+    def test
+      "testing"
+    end
     
   end
 end
