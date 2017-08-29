@@ -6,7 +6,12 @@ module OneclickRefernet
                :site_name,
                :lat,
                :lng,
-               :address
+               :address,
+               :url
+
+        def url
+        	object.details["url"]
+        end
     
   end
 end
