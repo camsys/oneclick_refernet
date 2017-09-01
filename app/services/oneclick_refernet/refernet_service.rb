@@ -67,27 +67,25 @@ module OneclickRefernet
 		end
 		
 
-	  ## Send the Requests
-	  def send(url)
-	  	Rails.logger.info(url)
-	    begin
-	      uri = URI.parse(url)
-	      req = Net::HTTP::Get.new(uri)
-	      http = Net::HTTP.new(uri.host, uri.port)
-	      http.use_ssl = false
-	      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-	      http.start {|http| http.request(req)}
-	    rescue Exception=>e
-	      nil
-	    end
-	  end #send
+		## Send the Requests
+	    def send(url)
+	  	  Rails.logger.info(url)
+	      begin
+	        uri = URI.parse(url)
+	        req = Net::HTTP::Get.new(uri)
+	        http = Net::HTTP.new(uri.host, uri.port)
+	        http.use_ssl = false
+	        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+	        http.start {|http| http.request(req)}
+	      rescue Exception=>e
+	        nil
+	      end
+	    end #send
 		
 		# Pulls JSON response out of ReferNET XML response and parses it
 		def unpack(response)
-
 			if response.code == '200'
 				begin
-					Rails.logger.info(JSON.parse(Hash.from_xml(response.body)["anyType"]).ai)
 					return JSON.parse(Hash.from_xml(response.body)["anyType"]) || []
 				rescue JSON::ParserError
 					return []
