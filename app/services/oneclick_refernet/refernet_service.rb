@@ -21,7 +21,7 @@ module OneclickRefernet
 			}
 			unpack(self.send(refernet_url("Keyword_Name_Search", params)))
 		end
-		
+
 		# Gets all top-level categories (array of hashes)
 		def get_categories
 			unpack(self.send(refernet_url("Category")))
@@ -47,6 +47,17 @@ module OneclickRefernet
 			unpack(self.send(refernet_url("MatchList", params)))
 		end
 
+	    # Add details for each Service
+	    # The labels are found in a separate call
+		def get_service_details(loc_id, service_site_id, service_id)
+			params = {
+				locid: loc_id,
+				servicesiteid: service_site_id,
+				serviceid: service_id
+			}
+			unpack(self.send(refernet_url("DetailPage", params)))
+		end
+
 		protected
 		
 		# Builds a ReferNET URL string
@@ -56,7 +67,7 @@ module OneclickRefernet
 		end
 		
 
-		## Send the Requests
+	  ## Send the Requests
 	  def send(url)
 	  	Rails.logger.info(url)
 	    begin
@@ -73,8 +84,10 @@ module OneclickRefernet
 		
 		# Pulls JSON response out of ReferNET XML response and parses it
 		def unpack(response)
+
 			if response.code == '200'
 				begin
+					Rails.logger.info(JSON.parse(Hash.from_xml(response.body)["anyType"]).ai)
 					return JSON.parse(Hash.from_xml(response.body)["anyType"]) || []
 				rescue JSON::ParserError
 					return []

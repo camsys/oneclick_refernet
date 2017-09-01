@@ -58,6 +58,18 @@ namespace :oneclick_refernet do
         errors += save_and_log_errors(services)
         next services
       end
+
+      ### SERVICE DESCRIPTIONS ###
+      ### NOTE: Pull in the labels
+      OCR::Service.unconfirmed.each do |s|
+        Rails.logger.info "Getting Labels for #{s.agency_name} #{s.id}"
+        s.get_details.each do |detail|
+          if detail["Label"]
+            s.details["Label_#{detail["Label"]}"] = detail["Text"]
+            s.save
+          end
+        end
+      end
       
       # Check to see if any errors occurred. If not, approve the new categories and services.
       # Otherwise, raise an exception.

@@ -42,7 +42,11 @@ module OneclickRefernet
       end.compact
 
     end
-    
+
+    # Get Details
+    def get_details
+      RefernetService.new.get_service_details(self.details['Location_ID'], self.details['ServiceSite_ID'], self.details['Service_ID'])
+    end    
     
     ### INSTANCE METHODS ###
     
