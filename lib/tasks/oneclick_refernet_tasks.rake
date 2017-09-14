@@ -33,6 +33,8 @@ namespace :oneclick_refernet do
       ### CATEGORIES ###
       new_categories = OCR::Category.fetch_all.compact
       errors += save_and_log_errors(new_categories)
+      
+      raise "ERROR LOADING REFERNET CATEGORIES" unless errors.empty?
             
       ### SUB CATEGORIES ###
       new_sub_categories = new_categories.flat_map do |cat|
@@ -41,6 +43,9 @@ namespace :oneclick_refernet do
         errors += save_and_log_errors(sub_cats)
         next sub_cats
       end
+
+      raise "ERROR LOADING REFERNET SUB-CATEGORIES" unless errors.empty?
+
             
       ### SUB SUB CATEGORIES ###
       new_sub_sub_categories = new_sub_categories.flat_map do |sub_cat|
@@ -50,6 +55,9 @@ namespace :oneclick_refernet do
         next sub_sub_cats
       end
       
+      raise "ERROR LOADING REFERNET SUB-SUB-CATEGORIES" unless errors.empty?
+
+      
       ### SERVICES ###
       new_sub_sub_categories.each do |sub_sub_cat|
         Rails.logger.info "Getting services for #{sub_sub_cat.name}..."
@@ -58,7 +66,9 @@ namespace :oneclick_refernet do
         errors += save_and_log_errors(services)
         next services
       end
-
+      
+      raise "ERROR LOADING REFERNET SERVICES" unless errors.empty?
+      
       ### SERVICE DESCRIPTIONS ###
       ### NOTE: Pull in the labels
       OCR::Service.unconfirmed.each do |s|
@@ -66,10 +76,11 @@ namespace :oneclick_refernet do
         s.get_details.each do |detail|
           if detail["Label"]
             s.details["Label_#{detail["Label"]}"] = detail["Text"]
-            s.save
+            errors += save_and_log_errors([s])
           end
         end
       end
+
       
       # Check to see if any errors occurred. If not, approve the new categories and services.
       # Otherwise, raise an exception.
