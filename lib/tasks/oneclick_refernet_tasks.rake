@@ -15,6 +15,17 @@ namespace :oneclick_refernet do
 
   end
   
+  desc "Load database if it's more than a week old"
+  task load_database_on_sunday: :prepare_environment do
+    # Runs load_database only if it's Sunday
+    if DateTime.now.wday == 0
+      Rails.logger.info "It's Sunday! Running the load database task..."
+      Rake::Task["oneclick_refernet:load_database"].invoke
+    else
+      Rails.logger.info "Not running the load database task because it isn't Sunday."
+    end
+  end
+  
   desc "Load Categories Structure from Refernet"
   task load_database: :prepare_environment do
     Rails.logger.info "Loading Categories and Services..."
