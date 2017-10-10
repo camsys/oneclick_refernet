@@ -24,9 +24,6 @@ namespace :oneclick_refernet do
 
         # Make sure translations exist for those objects
         cats.each do |cat|
-          puts cat.ai 
-          puts cat.translated_name(:en)
-          puts cat.name 
           if cat.translated_name(:en) == cat.name
             next
           else
