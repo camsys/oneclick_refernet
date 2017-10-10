@@ -1,5 +1,11 @@
 namespace :oneclick_refernet do
   namespace :translate do
+
+    desc "Translate All"
+    task all: :environment do
+      Rake::Task["oneclick_refernet:translate:categories"].invoke
+      Rake::Task["oneclick_refernet:translate:services"].invoke
+    end
     
     desc "Translate Categories"
     task categories: :environment do 
@@ -40,22 +46,23 @@ namespace :oneclick_refernet do
 
     end#Task
 
+    desc "Translate Services"
     task services: :environment do 
       services_translated = 0
       OneclickRefernet::Service.all.each do |service|
         new_description = service['details']["Label_Service Description"]
-        old_description = SimpleTranslationEngine.translate(:en, "REFERNET_SERVICE_#{service['details']['Service_ID']}+#{service['details']['ServiceSite_ID']}_description")
+        old_description = service.translated_description
         
         if old_description == new_description
           next
         else
-          puts "Translating REFERNET_SERVICE_#{service['details']['Service_ID']}+#{service['details']['ServiceSite_ID']}_description ------------------"
+          puts "------------------Translating SERVICE_#{service['details']['Service_ID']}+#{service['details']['ServiceSite_ID']}_description ------------------"
           I18n.available_locales.each do |locale|
 
             ### Replace THIS with GOOGLE 
             translated = (locale == :en) ? new_description : locale.to_s + new_description.to_s
             ########################################
-            SimpleTranslationEngine.set_translation(locale, "REFERNET_SERVICE_#{service['details']['Service_ID']}+#{service['details']['ServiceSite_ID']}_description", translated)
+            service.set_translated_description(locale, translated)
           end
           services_translated += 1  
           puts new_description

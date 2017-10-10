@@ -116,6 +116,8 @@ namespace :oneclick_refernet do
       end
     end
   
+    Rake::Task["oneclick_refernet:translate:all"].invoke
+
   end
   
 end
