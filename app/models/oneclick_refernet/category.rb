@@ -5,6 +5,7 @@ module OneclickRefernet
     include OneclickRefernet::Categorical
     include OneclickRefernet::Confirmable
     include OneclickRefernet::RefernetServiceable
+    include OneclickRefernet::CategoryTranslatable
     
     ### ASSOCIATIONS ###
     has_many :sub_categories, dependent: :destroy
@@ -24,6 +25,6 @@ module OneclickRefernet
         self.new(name: name, confirmed: false)
       end.compact
     end
-    
+
   end
 end
