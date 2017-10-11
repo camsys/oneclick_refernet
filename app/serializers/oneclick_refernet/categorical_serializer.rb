@@ -5,7 +5,7 @@ module OneclickRefernet
     attributes :name, :service_count
 
     def name
-      object.translated_name(:en)
+      object.translated_name(scope[:locale])
     end
     
   end
