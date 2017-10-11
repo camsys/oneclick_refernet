@@ -4,6 +4,8 @@ module OneclickRefernet
     before_action :get_locale 
 
     def get_locale
+    	puts 'doing this'
+    	puts params.ai 
     	@locale = params[:locale] || :en
     end
   end
