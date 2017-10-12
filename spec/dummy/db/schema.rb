@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821135337) do
+ActiveRecord::Schema.define(version: 20171010210558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20170821135337) do
 
   create_table "oneclick_refernet_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "confirmed",  default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "confirmed",    default: false
+    t.integer  "sequence_nbr"
     t.index ["name"], name: "index_oneclick_refernet_categories_on_name", using: :btree
   end
 
@@ -63,6 +64,15 @@ ActiveRecord::Schema.define(version: 20170821135337) do
     t.boolean  "confirmed",       default: false
     t.index ["name"], name: "index_oneclick_refernet_sub_sub_categories_on_name", using: :btree
     t.index ["sub_category_id"], name: "index_oneclick_refernet_sub_sub_categories_on_sub_category_id", using: :btree
+  end
+
+  create_table "oneclick_refernet_translations", force: :cascade do |t|
+    t.string   "key"
+    t.string   "locale"
+    t.text     "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_oneclick_refernet_translations_on_key", using: :btree
   end
 
   add_foreign_key "oneclick_refernet_services_sub_sub_categories", "oneclick_refernet_services", column: "service_id"

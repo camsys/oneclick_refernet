@@ -68,7 +68,6 @@ module OneclickRefernet
       details.values_at(*%w(Address1 Address2 City State)).compact.join(', ') + 
       " #{details['ZipCode']}"
     end
-    
      
     
     ## Geometry Helper Methods
@@ -92,6 +91,19 @@ module OneclickRefernet
     def set_names
       self.agency_name ||= details["Name_Agency"]
       self.site_name ||= details["Name_Site"]
+    end
+
+
+    ## Translation Helper Methods
+    
+    # Set Description
+    def translated_description locale=:en
+      OneclickRefernet::TranslationService.new.get("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale)
+    end
+    
+    # Get Description
+    def set_translated_description locale=:en, value 
+      OneclickRefernet::TranslationService.new.set("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale, value)
     end
     
     
