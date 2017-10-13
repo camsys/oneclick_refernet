@@ -18,4 +18,10 @@ FactoryGirl.define do
       cat.sub_categories << create(:sub_category, :recursive)
     end
   end
+  
+  # Create a translation for this category
+  after(:create) do |cat|
+    cat.set_translated_name(cat.name) if cat.class == OneclickRefernet::Category
+  end
+  
 end

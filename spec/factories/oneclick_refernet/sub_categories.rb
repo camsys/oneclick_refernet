@@ -22,5 +22,11 @@ FactoryGirl.define do
         sub_cat.sub_sub_categories << create(:sub_sub_category, :recursive)
       end
     end
+    
+    # Create a translation for this subcategory
+    after(:create) do |sc|
+      sc.set_translated_name(sc.name)
+    end
+    
   end
 end

@@ -50,6 +50,10 @@ module OneclickRefernet
     
     ### INSTANCE METHODS ###
     
+    # Returns the service's name
+    def to_s
+      agency_name || site_name || "OneclickRefernet::Service #{id}"
+    end
     
     ## Calculated Methods (for API)
       

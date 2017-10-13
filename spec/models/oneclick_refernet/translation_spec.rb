@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 module OneclickRefernet
   RSpec.describe Translation, type: :model do
     pending "add some examples to (or delete) #{__FILE__}"

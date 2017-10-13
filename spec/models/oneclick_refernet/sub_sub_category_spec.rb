@@ -24,7 +24,7 @@ module OneclickRefernet
     # Stub RefernetService methods
     before(:each) { stub_refernet_service }
     
-    it "fetches sub-sub-categories from refernet by sub-category" do
+    it "fetches sub-sub-categories from refernet by sub-category" do      
       sub_sub_cats = SubSubCategory.fetch_by_sub_category(sub_category)
       expect(sub_sub_cats.count).to eq(5)
       expect(sub_sub_cats.all? {|ssc| ssc.is_a?(OneclickRefernet::SubSubCategory)}).to be true

@@ -32,5 +32,15 @@ module OneclickRefernet
             ).to eq([])      
     end
     
+    it "returns implements to_s" do      
+      expect(service.to_s).to eq(service.agency_name)
+      
+      service.agency_name = nil
+      expect(service.to_s).to eq(service.site_name)
+      
+      service.site_name = nil
+      expect(service.to_s).to eq("OneclickRefernet::Service #{service.id}")
+    end
+    
   end
 end

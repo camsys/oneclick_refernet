@@ -18,5 +18,10 @@ FactoryGirl.define do
       with_services
     end
     
+    # Create a translation for this subsubcategory
+    after(:create) do |ssc|
+      ssc.set_translated_name(ssc.name)
+    end
+    
   end
 end
