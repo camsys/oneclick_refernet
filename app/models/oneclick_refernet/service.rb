@@ -4,6 +4,13 @@ module OneclickRefernet
     ### INCLUDES ###
     include OneclickRefernet::Confirmable
     include OneclickRefernet::RefernetServiceable
+
+    ### SCOPES ###
+    #OneclickRefernet::Service.where("ST_DWithin(latlng::geography, ST_GeomFromText('POINT(28.539969 -81.373368)', 4326)::geography, 1000);")
+    scope :within_X_meters, -> (lat,lng,meters) do
+      #where(id: joins(:origin).where('ST_Within(waypoints.geom, ?)', geom).pluck(:id))
+      where("ST_DWithin(latlng::geography, ST_GeomFromText('POINT(#{lat} #{lng})', 4326)::geography, #{meters})")
+    end
     
     ### ATTRIBUTES ###
     serialize :details
