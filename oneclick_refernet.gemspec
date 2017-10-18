@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   
   # Keyword Search
   s.add_dependency 'sunspot_rails'
-  s.add_dependency 'sunspot_solr'
+  s.requirements << "Must directly add sunspot_rails gem to app's Gemfile"
   
   # Testing
   s.add_development_dependency 'rspec-rails'
