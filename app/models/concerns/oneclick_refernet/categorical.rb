@@ -7,7 +7,7 @@ module OneclickRefernet
       
       # Keyword Search
       searchable do
-        text :name
+        text :name, as: :name_subtext
       end
       
     end
