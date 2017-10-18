@@ -1,4 +1,3 @@
-# Parent class for category, sub-category, and sub-sub-category serializers
 module OneclickRefernet
   class ServiceSerializer < ActiveModel::Serializer
     

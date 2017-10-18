@@ -5,22 +5,34 @@ module OneclickRefernet
     include OneclickRefernet::Confirmable
     include OneclickRefernet::RefernetServiceable
     
+    
     ### ATTRIBUTES ###
     serialize :details
     before_save :set_latlng # Before saving, set latlng value based on details hash
     before_validation :set_names # Set names from details if not set already
+    
     
     ### ASSOCIATIONS ###
     has_many :services_sub_sub_categories, dependent: :destroy
     has_many :sub_sub_categories, through: :services_sub_sub_categories
     has_many :sub_categories, through: :sub_sub_categories
     has_many :categories, through: :sub_categories
-    
+  
+  
     ### VALIDATIONS ###
     validates :agency_name, presence: true
     validates :site_name, presence: true
     
+    
     ### CLASS METHODS ###
+    
+    # Keyword Search Configuration
+    searchable do
+      text :agency_name
+      text :site_name
+      text :description { |svc| svc.details["Label_Service Description"] }
+    end
+    
     
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)

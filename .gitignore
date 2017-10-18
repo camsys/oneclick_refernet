@@ -5,4 +5,7 @@ spec/dummy/db/*.sqlite3
 spec/dummy/db/*.sqlite3-journal
 spec/dummy/log/*.log
 spec/dummy/tmp/
+config/sunspot.yml
+spec/dummy/solr/
+spec/dummy/config/sunspot.yml
 *~

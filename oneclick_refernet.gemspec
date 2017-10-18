@@ -27,6 +27,10 @@ Gem::Specification.new do |s|
   # API/Serialization
   s.add_dependency 'active_model_serializers'
   
+  # Keyword Search
+  s.add_dependency 'sunspot_rails'
+  s.add_dependency 'sunspot_solr'
+  
   # Testing
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rails-controller-testing'
