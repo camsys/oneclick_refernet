@@ -118,8 +118,17 @@ namespace :oneclick_refernet do
       end
     end  
 
+    # Translate database tables
     Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
+    
+    # Prepare database tables for keyword search
+    Rake::Task['oneclick_refernet:prepare_keyword_search'].invoke
 
+  end
+  
+  desc "Have sunspot index the tables for keyword search"
+  task prepare_keyword_search: :environment do
+    Rake::Task['sunspot:reindex'].invoke
   end
   
 end

@@ -13,3 +13,7 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 gem 'awesome_print'
+
+# For Keyword Search -- have to include these in the gemfile so they work in the dummy app
+gem 'sunspot_rails' 
+gem 'sunspot_solr'

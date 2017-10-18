@@ -6,4 +6,6 @@ OneclickRefernet::Engine.routes.draw do
   
   resources :services, only: [:index]
   
+  get 'search' => 'search#search'
+  
 end
