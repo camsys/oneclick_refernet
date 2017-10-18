@@ -126,6 +126,7 @@ namespace :oneclick_refernet do
 
   end
   
+  desc "Have sunspot index the tables for keyword search"
   task prepare_keyword_search: :environment do
     Rake::Task['sunspot:reindex'].invoke
   end
