@@ -28,9 +28,11 @@ module OneclickRefernet
     
     # Keyword Search Configuration
     searchable do
-      text :agency_name
-      text :site_name
-      text :description { |svc| svc.details["Label_Service Description"] }
+      text :agency_name, as: :agency_name_subtext
+      text :site_name, as: :site_name_subtext
+      text :description, as: :description_subtext do |svc| 
+        svc.details["Label_Service Description"]
+      end
     end
     
     

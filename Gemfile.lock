@@ -8,7 +8,6 @@ PATH
       rails (~> 5.0.3)
       rgeo
       sunspot_rails
-      sunspot_solr
 
 GEM
   remote: https://rubygems.org/
