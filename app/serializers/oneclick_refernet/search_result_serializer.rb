@@ -4,6 +4,8 @@ module OneclickRefernet
     
     attributes :id, :type, :label, :score
     
+    belongs_to :result { object.result }
+    
     # Result record id
     def id
       object.result.id
