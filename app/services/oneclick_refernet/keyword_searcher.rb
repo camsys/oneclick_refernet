@@ -12,7 +12,7 @@ module OneclickRefernet
 		
     def initialize(opts={})
 			@opts = opts
-			@limit = opts[:limit] || 100 # By default, limit search to 10 results
+			@limit = opts[:limit] || 20 # By default, limit search to 10 results
     end
     
     # Search method takes a keyword string and searches across all configured tables/columns
