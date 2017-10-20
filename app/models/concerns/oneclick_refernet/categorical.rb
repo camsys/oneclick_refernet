@@ -3,13 +3,7 @@ module OneclickRefernet
     extend ActiveSupport::Concern
 
     included do
-      validates :name, presence: true #, uniqueness: true
-      
-      # Keyword Search
-      searchable do
-        text :name, as: :name_subtext
-      end
-      
+      validates :name, presence: true #, uniqueness: true      
     end
 
     def service_count
