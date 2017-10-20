@@ -2,39 +2,34 @@
 module OneclickRefernet
   class SearchResultSerializer < ActiveModel::Serializer
     
-    attributes :id, :type, :label, :score
+    attributes :id, :type, :label
     
     belongs_to :result do
-      object.result
+      object
     end
     
     # Result record id
     def id
-      object.result.id
+      object.id
     end
     
     # Result model class name
     def type
-      return object.result.class.name
+      return object.class.name
     end
 
     # Label the result differently depending on its model class
     def label
-      case object.result.class.name
+      case object.class.name
       when "OneclickRefernet::Category", 
            "OneclickRefernet::SubCategory", 
            "OneclickRefernet::SubSubCategory"
-        return object.result.name
+        return object.name
       when "OneclickRefernet::Service"
-        return object.result.site_name || object.result.agency_name
+        return object.site_name || object.agency_name
       else
-        return object.result.to_s
+        return object.to_s
       end
-    end
-    
-    # Search result match score
-    def score
-      object.score
     end
     
   end
