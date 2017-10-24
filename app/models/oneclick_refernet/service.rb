@@ -7,7 +7,7 @@ module OneclickRefernet
 
     ### SCOPES ###
     scope :within_X_meters, -> (lat,lng,meters) do
-      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
+      where("ST_DWithin(latlngg::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
     end
     
     ### ATTRIBUTES ###
@@ -36,7 +36,7 @@ module OneclickRefernet
         site_name = svc_hash["Name_Site"].try(:strip)
         next nil unless agency_name.present? && site_name.present?
         
-        Rails.logger.info "Updating or building new service with name: agency_name}"
+        Rails.logger.info "Updating or building new service with name: #{agency_name}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           agency_name: agency_name,
           site_name: site_name,
