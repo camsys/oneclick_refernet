@@ -7,7 +7,7 @@ module OneclickRefernet
 
     ### SCOPES ###
     scope :within_X_meters, -> (lat,lng,meters) do
-      where("ST_DWithin(latlng, ST_GeomFromText(TEXT 'POINT(#{lat} #{lng})', 4326), #{meters}, false)")
+      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
     end
     
     ### ATTRIBUTES ###
