@@ -6,10 +6,20 @@ module OneclickRefernet
                :lat,
                :lng,
                :address,
-               :url
+               :url,
+               :phone,
+               :description
 
         def url
-        	object.details["url"]
+        	object.details["url"] ||
+          object.details["PUrl"] ||
+          object.details["LUrl"]
+        end
+        
+        def phone
+          object.details["Number_Phone1"] ||
+          object.details["Number_Phone2"] ||
+          object.details["Number_Phone3"]          
         end
     
   end
