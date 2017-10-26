@@ -1,7 +1,9 @@
 module OneclickRefernet
   class ServiceSerializer < ActiveModel::Serializer
     
-    attributes :agency_name,
+    attributes :id,
+               :refernet_id,
+               :agency_name,
                :site_name,
                :lat,
                :lng,
@@ -10,6 +12,11 @@ module OneclickRefernet
                :display_url,
                :phone,
                :description
+
+        # Pulls the refernet Service_ID out of the details hash
+        def refernet_id
+          object.details["Service_ID"]
+        end
 
         # Get whatever URL is available, and prepend http:// if necessary
         def url
