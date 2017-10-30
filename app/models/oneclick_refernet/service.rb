@@ -6,11 +6,11 @@ module OneclickRefernet
     include OneclickRefernet::RefernetServiceable
 
     ### SCOPES ###
-    scope :within_X_meters, -> (lat,lng,meters) do
+    scope :within_XX_meters, -> (lat,lng,meters) do
       where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
     end
 
-    scope :within_XX_meters, -> (lat,lng,meters) do 
+    scope :within_X_meters, -> (lat,lng,meters) do 
       where("ST_Distance_Sphere(latlng, ST_MakePoint(#{lat},#{lng})) <= #{meters} * 1")
     end
     
