@@ -6,12 +6,19 @@ module OneclickRefernet
     include OneclickRefernet::RefernetServiceable
 
     ### SCOPES ###
+    scope :within_X_meters, -> (lat,lng,meters) do 
+      where("ST_Distance_Sphere(latlng, ST_MakePoint(#{lat},#{lng})) <= #{meters} * 1")
+    end
+
+    #Does the same thing as within_x_meters, but in a different way
     scope :within_XX_meters, -> (lat,lng,meters) do
       where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
     end
 
-    scope :within_X_meters, -> (lat,lng,meters) do 
-      where("ST_Distance_Sphere(latlng, ST_MakePoint(#{lat},#{lng})) <= #{meters} * 1")
+    #Creates a bounding box centered on a point.
+    scope :within_box, -> (lat, lng, meters) do 
+      #where("latlng && ST_MakeEnvelope(min_lat,min_lng,max_lat,max_lng,SRID)")
+      where("latlng && ST_MakeEnvelope(#{lat - meters*0.000008994},#{lng - meters*0.0000102259},#{lat + meters*0.000008994},#{lng + meters*0.000102259},4326)")
     end
     
     ### ATTRIBUTES ###
