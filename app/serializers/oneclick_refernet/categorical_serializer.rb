@@ -9,7 +9,7 @@ module OneclickRefernet
     end
 
     def service_count
-      object.service_count(scope[:lat], scope[:lng] 30000)
+      object.service_count(scope[:lat], scope[:lng], 30000)
     end
     
   end
