@@ -18,7 +18,7 @@ module OneclickRefernet
     #Creates a bounding box centered on a point.
     scope :within_box, -> (lat, lng, meters) do 
       #where("latlng && ST_MakeEnvelope(min_lat,min_lng,max_lat,max_lng,SRID)")
-      where("latlng && ST_MakeEnvelope(#{(lat||0) - meters*0.000008994},#{(lng||0) - meters*0.0000102259},#{(lat||0) + meters*0.000008994},#{(lng||0) + meters*0.000102259},4326)")
+      where("latlng && ST_MakeEnvelope(#{(lat.to_f||0) - meters*0.000008994},#{(lng.to_f||0) - meters*0.0000102259},#{(lat.to_f||0) + meters*0.000008994},#{(lng.to_f||0) + meters*0.000102259},4326)")
     end
     
     ### ATTRIBUTES ###
