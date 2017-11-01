@@ -9,7 +9,6 @@ module OneclickRefernet
     end
 
     def service_count
-      puts scope.ai 
       object.service_count(scope[:lat], scope[:lng], scope[:meters])
     end
     
