@@ -6,8 +6,8 @@ module OneclickRefernet
       validates :name, presence: true #, uniqueness: true
     end
 
-    def service_count lat=nil, lng=nil, meters=nil
-      if lat and lng and meters
+    def service_count lat=nil, lng=nil, meters=30000
+      if lat and lng
         services.within_box(lat, lng, meters).count
       else
         services.count
