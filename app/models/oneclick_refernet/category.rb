@@ -11,8 +11,7 @@ module OneclickRefernet
     has_many :sub_categories, dependent: :destroy
     has_many :sub_sub_categories, through: :sub_categories
     has_many :services, through: :sub_sub_categories
-    
-    
+        
     ### CLASS METHODS ###
     
     # Downloads categories from ReferNET

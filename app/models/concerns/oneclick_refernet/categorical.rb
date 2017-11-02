@@ -3,7 +3,7 @@ module OneclickRefernet
     extend ActiveSupport::Concern
 
     included do
-      validates :name, presence: true #, uniqueness: true
+      validates :name, presence: true #, uniqueness: true      
     end
 
     def service_count lat=nil, lng=nil, meters=30000

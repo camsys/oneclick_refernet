@@ -118,6 +118,7 @@ namespace :oneclick_refernet do
       end
     end  
 
+    # Translate database tables
     Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
 
   end

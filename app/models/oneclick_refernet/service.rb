@@ -26,23 +26,33 @@ module OneclickRefernet
     end
 
     
+    
     ### ATTRIBUTES ###
     serialize :details
-    before_save :set_latlng # Before saving, set latlng value based on details hash
-    before_validation :set_names # Set names from details if not set already
+    
+    # Before validating, set fields based on details hash
+    before_validation :set_latlng, :set_names, :set_description
+    
     
     ### ASSOCIATIONS ###
     has_many :services_sub_sub_categories, dependent: :destroy
     has_many :sub_sub_categories, through: :services_sub_sub_categories
     has_many :sub_categories, through: :sub_sub_categories
     has_many :categories, through: :sub_categories
-    
+  
+  
     ### VALIDATIONS ###
     validates :agency_name, presence: true
     validates :site_name, presence: true
     
+<<<<<<< HEAD
     ### CLASS METHODS ###
 
+=======
+    
+    ### CLASS METHODS ###    
+    
+>>>>>>> master
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
@@ -61,15 +71,19 @@ module OneclickRefernet
         new_service.assign_attributes(details: svc_hash)
         next new_service
       end.compact
-
     end
+    
+    # Saves all services. Useful for refreshing their attributes from the details hash
+    def self.save_all
+      self.all.each {|svc| svc.save}
+    end
+    
+    ### INSTANCE METHODS ###
 
     # Get Details
     def get_details
       RefernetService.new.get_service_details(self.details['Location_ID'], self.details['ServiceSite_ID'], self.details['Service_ID'])
-    end    
-    
-    ### INSTANCE METHODS ###
+    end
     
     # Returns the service's name
     def to_s
@@ -80,12 +94,12 @@ module OneclickRefernet
       
     # Pulls lat out of point
     def lat
-      latlng.x
+      latlng.try(:x)
     end
 
     # Pulls lng out of point    
     def lng
-      latlng.y
+      latlng.try(:y)
     end
     
     # Constructs a formatted address
@@ -116,6 +130,11 @@ module OneclickRefernet
     def set_names
       self.agency_name ||= details["Name_Agency"]
       self.site_name ||= details["Name_Site"]
+    end
+    
+    # Sets the service description based on the Service Description label, if available and not already set
+    def set_description
+      self.description ||= details["Label_Service Description"] if details["Label_Service Description"]
     end
 
 
