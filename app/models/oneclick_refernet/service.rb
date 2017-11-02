@@ -4,6 +4,27 @@ module OneclickRefernet
     ### INCLUDES ###
     include OneclickRefernet::Confirmable
     include OneclickRefernet::RefernetServiceable
+
+    ### SCOPES ###
+    scope :within_X_meters, -> (lat,lng,meters) do 
+      where("ST_Distance_Sphere(latlng, ST_MakePoint(#{lat},#{lng})) <= #{meters} * 1")
+    end
+
+    #Does the same thing as within_x_meters, but in a different way
+    scope :within_XX_meters, -> (lat,lng,meters) do
+      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
+    end
+
+    #Creates a bounding box centered on a point.
+    scope :within_box, -> (lat, lng, meters) do 
+      #where("latlng && ST_MakeEnvelope(min_lat,min_lng,max_lat,max_lng,SRID)")
+      where("latlng && ST_MakeEnvelope(#{(lat.to_f||0) - meters*0.000008994},#{(lng.to_f||0) - meters*0.0000102259},#{(lat.to_f||0) + meters*0.000008994},#{(lng.to_f||0) + meters*0.000102259},4326)")
+    end
+
+    scope :closest, -> (lat, lng) do 
+      order("ST_Distance(latlng, ST_GeomFromText(TEXT 'POINT(#{lat} #{lng})')::geography)")
+    end
+
     
     
     ### ATTRIBUTES ###
@@ -24,9 +45,14 @@ module OneclickRefernet
     validates :agency_name, presence: true
     validates :site_name, presence: true
     
+<<<<<<< HEAD
+    ### CLASS METHODS ###
+
+=======
     
     ### CLASS METHODS ###    
     
+>>>>>>> master
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
@@ -36,7 +62,7 @@ module OneclickRefernet
         site_name = svc_hash["Name_Site"].try(:strip)
         next nil unless agency_name.present? && site_name.present?
         
-        Rails.logger.info "Updating or building new service with name: agency_name}"
+        Rails.logger.info "Updating or building new service with name: #{agency_name}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           agency_name: agency_name,
           site_name: site_name,

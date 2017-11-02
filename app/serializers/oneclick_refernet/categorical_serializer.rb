@@ -7,6 +7,10 @@ module OneclickRefernet
     def name
       object.translated_name(scope[:locale] || "en")
     end
+
+    def service_count
+      object.service_count(scope[:lat], scope[:lng], scope[:meters])
+    end
     
   end
 end
