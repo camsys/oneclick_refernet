@@ -45,14 +45,8 @@ module OneclickRefernet
     validates :agency_name, presence: true
     validates :site_name, presence: true
     
-<<<<<<< HEAD
     ### CLASS METHODS ###
 
-=======
-    
-    ### CLASS METHODS ###    
-    
->>>>>>> master
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
