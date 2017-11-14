@@ -3,7 +3,7 @@ module OneclickRefernet
     
     # GET /search
     def search
-      @locale = params[:locale] || :en
+      @locale = params[:locale] || I18n.default_locale
       @results = OneclickRefernet::KeywordSearcher.new.search(params[:term])
       
       serialized_results = @results.map do |result|

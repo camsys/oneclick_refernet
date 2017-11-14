@@ -50,7 +50,7 @@ module OneclickRefernet
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
-      .get_services_by_category_and_county(sub_sub_cat.name)
+      .get_services_by_category_and_county(sub_sub_cat.name.titleize)
       .try(:map) do |svc_hash|
         agency_name = svc_hash["Name_Agency"].try(:strip)
         site_name = svc_hash["Name_Site"].try(:strip)
@@ -135,15 +135,24 @@ module OneclickRefernet
     ## Translation Helper Methods
     
     # Set Description
-    def translated_description locale=:en
+    def translated_description locale=I18n.default_locale
       OneclickRefernet::TranslationService.new.get("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale)
     end
     
     # Get Description
-    def set_translated_description locale=:en, value 
+    def set_translated_description locale=I18n.default_locale, value 
       OneclickRefernet::TranslationService.new.set("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale, value)
     end
     
+    # All translations associated with this service
+    def translations
+      OneclickRefernet::Translation.where(key: "SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description")
+    end
+    
+    # All translations with a non-empty value
+    def present_translations
+      translations.where("value <> ''").where.not(value: nil)
+    end
     
   end
 end

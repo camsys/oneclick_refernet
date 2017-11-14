@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020192050) do
+ActiveRecord::Schema.define(version: 20171114162806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "locales", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "oneclick_refernet_categories", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171020192050) do
     t.datetime "updated_at",                   null: false
     t.boolean  "confirmed",    default: false
     t.integer  "sequence_nbr"
+    t.string   "code"
     t.index ["name"], name: "index_oneclick_refernet_categories_on_name", using: :btree
   end
 
@@ -53,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171020192050) do
     t.datetime "updated_at",                           null: false
     t.boolean  "confirmed",            default: false
     t.integer  "refernet_category_id"
+    t.string   "code"
     t.index ["category_id"], name: "index_oneclick_refernet_sub_categories_on_category_id", using: :btree
     t.index ["name"], name: "index_oneclick_refernet_sub_categories_on_name", using: :btree
   end
@@ -63,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171020192050) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "confirmed",       default: false
+    t.string   "code"
     t.index ["name"], name: "index_oneclick_refernet_sub_sub_categories_on_name", using: :btree
     t.index ["sub_category_id"], name: "index_oneclick_refernet_sub_sub_categories_on_sub_category_id", using: :btree
   end
@@ -74,6 +83,20 @@ ActiveRecord::Schema.define(version: 20171020192050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key"], name: "index_oneclick_refernet_translations_on_key", using: :btree
+  end
+
+  create_table "translation_keys", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.integer  "locale_id"
+    t.integer  "translation_key_id"
+    t.text     "value"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_foreign_key "oneclick_refernet_services_sub_sub_categories", "oneclick_refernet_services", column: "service_id"

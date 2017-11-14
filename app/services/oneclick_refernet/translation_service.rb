@@ -6,9 +6,9 @@ module OneclickRefernet
 			translation = OneclickRefernet::Translation.where(key: key, locale: locale.to_s).first_or_initialize
 			translation.value = value
 			translation.save 
-		end	
+		end
 
-		def get key, locale=:en
+		def get key, locale=I18n.default_locale
 			OneclickRefernet::Translation.find_by(key: key, locale: locale.to_s).try(:value)
 		end	
 	end
