@@ -4,23 +4,29 @@ module OneclickRefernet
   # KeywordSearcher class returns results across Category and Service tables based on a search term
   class KeywordSearcher
 		SEARCHES = [
-			{ table: OneclickRefernet::Category, columns: [:name] },
-			{ table: OneclickRefernet::SubCategory, columns: [:name] },
-			{ table: OneclickRefernet::SubSubCategory, columns: [:name] },
-			{ table: OneclickRefernet::Service, columns: [:site_name, :agency_name, :description] }
+			{ table: OneclickRefernet::Category, columns: [:name], type: :category },
+			{ table: OneclickRefernet::SubCategory, columns: [:name], type: :category },
+			{ table: OneclickRefernet::SubSubCategory, columns: [:name], type: :category },
+			{ table: OneclickRefernet::Service, columns: [:site_name, :agency_name, :description], type: :service }
 		].freeze
 		
     def initialize(opts={})
 			@opts = opts
 			@limit = opts[:limit] || 20 # By default, limit search to 10 results
+			@type = opts[:type].try(:to_sym)
+			if @type.present? # if a type has been set, filter searches by it
+				@searches = SEARCHES.select { |srch| srch[:type] == @type }
+			else
+				@searches = SEARCHES
+			end
     end
-    
+	
     # Search method takes a keyword string and searches across all configured tables/columns
     def search(term)
 			return [] unless term
 			
 			# Combine the searches for the various columns and tables into one array
-			return SEARCHES.flat_map do |search| 
+			return @searches.flat_map do |search| 
 				search_table_column(search[:table], search[:columns], term).to_a
 			end.take(@limit) # Limit the results
     end
