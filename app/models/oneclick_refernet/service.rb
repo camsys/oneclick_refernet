@@ -51,12 +51,14 @@ module OneclickRefernet
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
       .get_services_by_category_and_county(sub_sub_cat.name.titleize)
+      .try(:uniq) { |svc| [ svc["Name_Agency"], svc["Name_Site"] ] } # Get uniq service by site and agency name
       .try(:map) do |svc_hash|
         agency_name = svc_hash["Name_Agency"].try(:strip)
         site_name = svc_hash["Name_Site"].try(:strip)
         next nil unless agency_name.present? && site_name.present?
         
         Rails.logger.info "Updating or building new service with name: #{agency_name}"
+        svcs = OneclickRefernet::Service.unconfirmed.where(agency_name: agency_name, site_name: site_name, confirmed: false)
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           agency_name: agency_name,
           site_name: site_name,

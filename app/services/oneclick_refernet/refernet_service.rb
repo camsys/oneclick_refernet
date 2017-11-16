@@ -58,7 +58,7 @@ module OneclickRefernet
 			unpack(self.send(refernet_url("DetailPage", params)))
 		end
 
-		protected
+		# protected
 		
 		# Builds a ReferNET URL string
 		def refernet_url(root, query_params={})
