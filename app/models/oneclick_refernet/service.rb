@@ -142,9 +142,9 @@ module OneclickRefernet
       "Eligibility",
       "Intake Procedure",
       "Fees",
-      "Services",
-      "Area Served",
-      "Site Hours"
+      "Program Service Hours",
+      "Documents Required",
+      "Payment Options"
     ]
 
 
