@@ -11,9 +11,8 @@ module OneclickRefernet
                :url,
                :display_url,
                :phone,
-               :details,
-               :description
-
+               :details
+               
     # Pulls the refernet Service_ID out of the details hash
     def refernet_id
       object.details["Service_ID"]
@@ -47,11 +46,6 @@ module OneclickRefernet
       OneclickRefernet::Service::LABELS.map do |label| 
         [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
-    end
-    
-    # Returns the description translated for the current locale (passed to the controller action)
-    def description
-      object.translated_description(scope[:locale])
     end
     
   end

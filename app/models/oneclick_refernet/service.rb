@@ -171,16 +171,6 @@ module OneclickRefernet
       OneclickRefernet::TranslationService.new.destroy_all(translation_key(label))
     end
     
-    # Get Description
-    def translated_description locale=I18n.default_locale
-      translated_label("description", locale)
-    end
-    
-    # Set Description
-    def set_translated_description locale=I18n.default_locale, value 
-      set_translated_label("description", locale, value)
-    end
-    
     # All translations associated with this service for a given label
     def translations(label)
       OneclickRefernet::Translation.where(key: translation_key(label))
