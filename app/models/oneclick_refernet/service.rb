@@ -122,6 +122,9 @@ module OneclickRefernet
       self.latlng = rgeo_factory.point(lat, lng) unless (lat.zero? || lng.zero?)
     end
     
+    
+    ## Attribute Helper Methods
+    
     # Sets agency and site names from details, if not already set
     def set_names
       self.agency_name ||= details["Name_Agency"]
@@ -132,28 +135,60 @@ module OneclickRefernet
     def set_description
       self.description ||= details["Label_Service Description"] if details["Label_Service Description"]
     end
+    
+    # Relevant labels contained in the details hash
+    LABELS = [
+      "Service Description",
+      "Eligibility",
+      "Intake Procedure",
+      "Fees",
+      "Services",
+      "Area Served",
+      "Site Hours"
+    ]
 
 
     ## Translation Helper Methods
     
-    # Set Description
-    def translated_description locale=I18n.default_locale
-      OneclickRefernet::TranslationService.new.get("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale)
+    # Builds a translation key for this service and the passed label
+    def translation_key(label)
+      label = label.to_s.parameterize.underscore # Make label a snake_case string
+      "SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_#{label}"
+    end
+    
+    # Get translated label by label name and locale
+    def translated_label(label, locale=I18n.default_locale)
+      OneclickRefernet::TranslationService.new.get(translation_key(label), locale)
+    end
+    
+    # Set translated label by label name and locale
+    def set_translated_label(label, locale=I18n.default_locale, value)
+      OneclickRefernet::TranslationService.new.set(translation_key(label), locale, value)
+    end
+    
+    # Destroys all translations for the given label
+    def destroy_label_translations(label)
+      OneclickRefernet::TranslationService.new.destroy_all(translation_key(label))
     end
     
     # Get Description
+    def translated_description locale=I18n.default_locale
+      translated_label("description", locale)
+    end
+    
+    # Set Description
     def set_translated_description locale=I18n.default_locale, value 
-      OneclickRefernet::TranslationService.new.set("SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description", locale, value)
+      set_translated_label("description", locale, value)
     end
     
-    # All translations associated with this service
-    def translations
-      OneclickRefernet::Translation.where(key: "SERVICE_#{self['details']['Service_ID']}+#{self['details']['ServiceSite_ID']}_description")
+    # All translations associated with this service for a given label
+    def translations(label)
+      OneclickRefernet::Translation.where(key: translation_key(label))
     end
     
-    # All translations with a non-empty value
-    def present_translations
-      translations.where("value <> ''").where.not(value: nil)
+    # All translations of a given label with a non-empty value
+    def present_translations(label)
+      translations(label).where("value <> ''").where.not(value: nil)
     end
     
   end
