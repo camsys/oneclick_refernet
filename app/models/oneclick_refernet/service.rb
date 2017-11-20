@@ -144,7 +144,11 @@ module OneclickRefernet
       "Fees",
       "Program Service Hours",
       "Documents Required",
-      "Payment Options"
+      "Payment Options",
+      "Site Hours",
+      "LANGUAGES SPOKEN",
+      "TRAVEL INSTRUCTIONS" #,
+      # "Area Served"
     ]
 
 
