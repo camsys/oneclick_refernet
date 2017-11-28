@@ -1,0 +1,22 @@
+
+-@services.each do |service|
+  %h1
+    =service[:agency_name]
+  -unless service[:address].blank?
+    %h2
+      =service[:address]
+  -unless service[:url].blank?
+    %h2
+      =link_to service[:display_url], service[:url]
+  -unless service[:phone].blank?
+    %h2
+      =number_to_phone(service[:phone])
+
+  -service[:details].each do |key, val|
+    -unless val.blank?
+      %strong
+        =key
+      =val
+      %br
+  %hr
+
