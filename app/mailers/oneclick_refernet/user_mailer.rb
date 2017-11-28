@@ -9,7 +9,7 @@ module OneclickRefernet
         ).serializable_hash
       end
       I18n.locale = locale
-      mail(to: email, subject: I18n('services')).deliver
+      mail(to: email, subject: I18n.translate('services')).deliver
     end
   end
 end
