@@ -13,9 +13,9 @@
       =number_to_phone(service[:phone])
 
   -service[:details].each do |key, val|
-    -unless val.blank?
+    -unless false #val.blank?
       %strong
-        =key
+        =I18n.translate(key)
       =val
       %br
   %hr
