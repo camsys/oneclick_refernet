@@ -1,2 +1,11 @@
 en:
   service_description: "Service Description"
+  eligibility: "Eligibility"
+  intake_procedure: "Intake Procedure"
+  fees: "Fees"
+  program_service_hours: "Program Service Hours"
+  documents_required: "Documents Required"
+  payment_options: "Payment Options"
+  site_hours: "Site Hours"
+  languages_spoken: "Languages Spoken"
+  travel_instructions: "Travel Instructions" 

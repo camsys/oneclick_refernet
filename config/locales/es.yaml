@@ -1,0 +1,11 @@
+es:
+  service_description: "Descripción del servicio"
+  eligibility: "Elegibilidad"
+  intake_procedure: "Procedimiento de admisión"
+  fees: "Matrícula"
+  program_service_hours: "Horario de servicio del programa"
+  documents_required: "Documentos requeridos"
+  payment_options: "Opciones de pago"
+  site_hours: "Horas del sitio"
+  languages_spoken: "Idiomas hablados"
+  travel_instructions: "Instrucciones de viaje" 
