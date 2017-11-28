@@ -1,4 +1,5 @@
 en:
+  services: "Services"
   service_description: "Service Description"
   eligibility: "Eligibility"
   intake_procedure: "Intake Procedure"

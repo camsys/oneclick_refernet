@@ -1,4 +1,5 @@
 es:
+  services: "Servicios"
   service_description: "Descripción del servicio"
   eligibility: "Elegibilidad"
   intake_procedure: "Procedimiento de admisión"
