@@ -13,7 +13,7 @@
       =number_to_phone(service[:phone])
 
   -service[:details].each do |key, val|
-    -unless false #val.blank?
+    -unless val.blank?
       %strong
         =I18n.translate(key)
       =val
