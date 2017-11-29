@@ -1,6 +1,6 @@
 module OneclickRefernet
   class ApplicationMailer < ActionMailer::Base
-    default from: 'from@example.com'
+    default from: (ENV['SMTP_FROM_ADDRESS'] || "test.oneclick@gmail.com")
     layout 'mailer'
   end
 end
