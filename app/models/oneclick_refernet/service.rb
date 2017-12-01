@@ -147,8 +147,8 @@ module OneclickRefernet
       "Payment Options",
       "Site Hours",
       "LANGUAGES SPOKEN",
-      "TRAVEL INSTRUCTIONS" #,
-      # "Area Served"
+      "TRAVEL INSTRUCTIONS",
+      "Area Served"
     ]
 
 
