@@ -31,7 +31,7 @@ module OneclickRefernet
     serialize :details
     
     # Before validating, set fields based on details hash
-    before_validation :set_latlng, :set_names, :set_description
+    before_validation :set_latlng, :set_names, :set_description, :set_refernet_ids
     
     
     ### ASSOCIATIONS ###
@@ -51,20 +51,21 @@ module OneclickRefernet
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
       .get_services_by_category_and_county(sub_sub_cat.name.titleize)
-      .try(:uniq) { |svc| [ svc["Name_Agency"], svc["Name_Site"] ] } # Get uniq service by site and agency name
-      .try(:map) do |svc_hash|
-        agency_name = svc_hash["Name_Agency"].try(:strip)
-        site_name = svc_hash["Name_Site"].try(:strip)
-        next nil unless agency_name.present? && site_name.present?
+      .try(:uniq) { |svc| [ svc["Service_ID"], svc["Location_ID" ], svc["ServiceSite_ID"] ] } # Get uniq service by refernet ids 
+      .try(:map) do |svc|
+        service_id = svc["Service_ID"]
+        location_id = svc["Location_ID"]
+        servicesite_id = svc["ServiceSite_ID"]
+        next nil unless service_id.present? && location_id.present? && servicesite_id.present?
         
-        Rails.logger.info "Updating or building new service with name: #{agency_name}"
-        svcs = OneclickRefernet::Service.unconfirmed.where(agency_name: agency_name, site_name: site_name, confirmed: false)
+        Rails.logger.info "Updating or building new service with name: #{svc['Name_Site']}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
-          agency_name: agency_name,
-          site_name: site_name,
+          refernet_service_id: service_id,
+          refernet_location_id: location_id,
+          refernet_servicesite_id: servicesite_id,
           confirmed: false
         )
-        new_service.assign_attributes(details: svc_hash)
+        new_service.assign_attributes(details: svc)
         next new_service
       end.compact
     end
@@ -134,6 +135,13 @@ module OneclickRefernet
     # Sets the service description based on the Service Description label, if available and not already set
     def set_description
       self.description ||= details["Label_Service Description"] if details["Label_Service Description"]
+    end
+    
+    # Set ReferNET Service_ID, Location_ID, and ServiceSite_ID
+    def set_refernet_ids
+      self.refernet_service_id ||= details["Service_ID"].try(:to_i)
+      self.refernet_location_id ||= details["Location_ID"].try(:to_i)
+      self.refernet_servicesite_id ||= details["ServiceSite_ID"].try(:to_i)
     end
     
     # Relevant labels contained in the details hash

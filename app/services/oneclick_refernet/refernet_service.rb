@@ -47,8 +47,8 @@ module OneclickRefernet
 			unpack(self.send(refernet_url("MatchList", params)))
 		end
 
-	    # Add details for each Service
-	    # The labels are found in a separate call
+    # Add details for each Service
+    # The labels are found in a separate call
 		def get_service_details(loc_id, service_site_id, service_id)
 			params = {
 				locid: loc_id,
