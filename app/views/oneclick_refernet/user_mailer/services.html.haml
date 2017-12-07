@@ -12,7 +12,6 @@
     %h2
       =number_to_phone(service[:phone])
 
-  =service[:details]
   -service[:details].each do |key, val|
     -unless val.blank?
       %strong
