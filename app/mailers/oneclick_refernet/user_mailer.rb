@@ -5,7 +5,7 @@ module OneclickRefernet
       @services = OneclickRefernet::Service.find(services).map do |result|
         OneclickRefernet::ServiceSerializer.new(
           result, 
-          scope: { locale: @locale}
+          scope: { locale: locale || "en"}
         ).serializable_hash
       end
       I18n.locale = locale

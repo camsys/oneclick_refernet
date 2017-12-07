@@ -44,7 +44,7 @@ module OneclickRefernet
     # Returns a hash of the translated details labels
     def details
       OneclickRefernet::Service::LABELS.map do |label| 
-        [label.parameterize.underscore, object.translated_label(label, params[:locale] || "en")]
+        [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
     end
     

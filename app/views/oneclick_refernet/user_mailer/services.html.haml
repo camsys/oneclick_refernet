@@ -12,14 +12,12 @@
     %h2
       =number_to_phone(service[:phone])
 
-  ID
-  =service[:id]
-  -service[:details].each do |val|
-    =val 
+  =service[:details]
+  -service[:details].each do |key, val|
     //-unless val.blank?
-    //%strong
-    //  =I18n.translate(key)
-    //=val
+    %strong
+      =I18n.translate(key)
+    =val
     %br
   %hr
 
