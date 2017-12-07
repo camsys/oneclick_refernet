@@ -14,10 +14,10 @@
 
   =service[:details]
   -service[:details].each do |key, val|
-    //-unless val.blank?
-    %strong
-      =I18n.translate(key)
-    =val
-    %br
+    -unless val.blank?
+      %strong
+        =I18n.translate(key)
+      =val
+      %br
   %hr
 
