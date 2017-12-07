@@ -12,7 +12,8 @@
     %h2
       =number_to_phone(service[:phone])
 
-  -service[:details].each do |key, val|
+  -service[:details].each do |val|
+    =val 
     //-unless val.blank?
     %strong
       =I18n.translate(key)
