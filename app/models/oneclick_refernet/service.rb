@@ -114,7 +114,7 @@ module OneclickRefernet
     end
     
     def point_from_latlng(lat, lng)
-      rgeo_factory.point(lat, lng)
+      rgeo_factory.point(lng, lat)
     end
     
     # Sets the latlng point from lat and lng in the details
