@@ -120,7 +120,7 @@ module OneclickRefernet
     # Sets the latlng point from lat and lng in the details
     def set_latlng
       lat, lng = details["Latitude"].to_f, details["Longitude"].to_f * -1
-      self.latlng = rgeo_factory.point(lat, lng) unless (lat.zero? || lng.zero?)
+      self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
     
     
