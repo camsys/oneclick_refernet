@@ -12,7 +12,7 @@ module OneclickRefernet
 
     #Does the same thing as within_x_meters, but in a different way
     scope :within_XX_meters, -> (lat,lng,meters) do
-      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
+      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lng} #{lat})')::geography, #{meters}, false)")
     end
 
     #Creates a bounding box centered on a point.
@@ -22,7 +22,7 @@ module OneclickRefernet
     end
 
     scope :closest, -> (lat, lng) do 
-      order("ST_Distance(latlng, ST_GeomFromText(TEXT 'POINT(#{lat} #{lng})')::geography)")
+      order("ST_Distance(latlng, ST_GeomFromText(TEXT 'POINT(#{lng} #{lat})')::geography)")
     end
 
     
@@ -113,6 +113,7 @@ module OneclickRefernet
       RGeo::Geos::CAPIFactory.new(:srid => 4326)
     end
     
+    # RGeo point factory takes x (lng), y (lat)
     def point_from_latlng(lat, lng)
       rgeo_factory.point(lng, lat)
     end

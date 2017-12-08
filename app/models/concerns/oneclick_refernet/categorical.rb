@@ -7,12 +7,12 @@ module OneclickRefernet
     end
 
     def service_count lat=nil, lng=nil, meters=30000
-      services.count
-      # if lat and lng
-      #   services.within_box(lat, lng, meters).count
-      # else
-      #   services.count
-      # end
+      if lat && lng
+        services.within_XX_meters(lat, lng, meters).count
+        # services.within_box(lat, lng, meters).count
+      else
+        services.count
+      end
     end
 
   end
