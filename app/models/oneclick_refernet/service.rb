@@ -91,12 +91,12 @@ module OneclickRefernet
       
     # Pulls lat out of point
     def lat
-      latlng.try(:x)
+      latlng.try(:y)
     end
 
     # Pulls lng out of point    
     def lng
-      latlng.try(:y)
+      latlng.try(:x)
     end
     
     # Constructs a formatted address
