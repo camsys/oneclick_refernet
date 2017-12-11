@@ -49,11 +49,11 @@ module OneclickRefernet
 
     # Add details for each Service
     # The labels are found in a separate call
-		def get_service_details(loc_id, service_site_id, service_id)
+		def get_service_details(loc_id, service_id, service_site_id)
 			params = {
 				locid: loc_id,
-				servicesiteid: service_site_id,
-				serviceid: service_id
+				serviceid: service_id,
+				servicesiteid: service_site_id
 			}
 			unpack(self.send(refernet_url("DetailPage", params)))
 		end

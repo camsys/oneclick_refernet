@@ -43,18 +43,16 @@ module OneclickRefernet
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
       .get_services_by_category_and_county(sub_sub_cat.name.titleize)
-      .try(:uniq) { |svc| [ svc["Service_ID"], svc["Location_ID" ], svc["ServiceSite_ID"] ] } # Get uniq service by refernet ids 
+      .try(:uniq) { |svc| [ svc["Service_ID"], svc["Location_ID" ] ] } # Get uniq service by refernet ids 
       .try(:map) do |svc|
         service_id = svc["Service_ID"]
         location_id = svc["Location_ID"]
-        servicesite_id = svc["ServiceSite_ID"]
-        next nil unless service_id.present? && location_id.present? && servicesite_id.present?
+        next nil unless service_id.present? && location_id.present?
         
         Rails.logger.info "Updating or building new service with name: #{svc['Name_Site']}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           refernet_service_id: service_id,
           refernet_location_id: location_id,
-          refernet_servicesite_id: servicesite_id,
           confirmed: false
         )
         new_service.assign_attributes(details: svc)
@@ -71,7 +69,7 @@ module OneclickRefernet
 
     # Get Details
     def get_details
-      RefernetService.new.get_service_details(self.details['Location_ID'], self.details['ServiceSite_ID'], self.details['Service_ID'])
+      RefernetService.new.get_service_details(self.details['Location_ID'], self.details['Service_ID'], self.details['ServiceSite_ID'])
     end
     
     # Returns the service's name
