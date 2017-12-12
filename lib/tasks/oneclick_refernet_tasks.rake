@@ -84,8 +84,11 @@ namespace :oneclick_refernet do
       
       ### SERVICE DESCRIPTIONS ###
       ### NOTE: Pull in the labels
+      total_svcs_count = OCR::Service.unconfirmed.count
+      svcs_loaded_count = 0
       OCR::Service.unconfirmed.each do |s|
-        Rails.logger.info "Getting Labels for #{s.agency_name} #{s.id}"
+        svcs_loaded_count += 1
+        Rails.logger.info "Getting Labels for Service #{svcs_loaded_count}/#{total_svcs_count} (#{s.agency_name}, #{s.id})"
         s.get_details.each do |detail|
           if detail["Label"]
             s.details["Label_#{detail["Label"]}"] = detail["Text"]
@@ -105,6 +108,9 @@ namespace :oneclick_refernet do
       else
         raise "ERROR LOADING REFERNET DATABASE"
       end
+      
+      # Translate database tables
+      Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
     
     # If there were any errors at all, display a notification and roll back the changes.
     rescue => e
@@ -117,9 +123,6 @@ namespace :oneclick_refernet do
         Rails.logger.error "THERE WAS A PROBLEM ROLLING BACK CHANGES"
       end
     end  
-
-    # Translate database tables
-    Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
 
   end
   
