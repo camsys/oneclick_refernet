@@ -19,16 +19,16 @@ module RefernetTaskHelpers
   
   # Rolls back all unconfirmed changes in the table
   def reject_table(table)
-    Rails.logger.warn "REJECTING UNCONFIRMED #{table_name(table)}"
+    Rails.logger.warn "REJECTING UNCONFIRMED #{pretty_table_name(table)}"
     if table.reject_changes.present?
-      Rails.logger.warn "SUCCESSFULLY ROLLED BACK CHANGES TO #{table_name(table)}"
+      Rails.logger.warn "SUCCESSFULLY ROLLED BACK CHANGES TO #{pretty_table_name(table)}"
     else
-      Rails.logger.error "COULD NOT ROLL BACK CHANGES TO #{table_name(table)}"
+      Rails.logger.error "COULD NOT ROLL BACK CHANGES TO #{pretty_table_name(table)}"
     end
   end
   
   # Returns a pretty, pluralized, capitalized table name
-  def table_name(table)
+  def pretty_pretty_table_name(table)
     table.name.pluralize.upcase.split('::').last
   end
 
