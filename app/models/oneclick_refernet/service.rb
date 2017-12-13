@@ -49,7 +49,7 @@ module OneclickRefernet
         location_id = svc["Location_ID"]
         next nil unless service_id.present? && location_id.present?
         
-        Rails.logger.info "Updating or building new service with name: #{svc['Name_Site']}"
+        Rails.logger.debug "Updating or building new service with name: #{svc['Name_Site']}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           refernet_service_id: service_id,
           refernet_location_id: location_id,

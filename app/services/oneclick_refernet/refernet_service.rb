@@ -69,7 +69,7 @@ module OneclickRefernet
 
 		## Send the Requests
 	    def send(url)
-	  	  Rails.logger.info(url)
+	  	  Rails.logger.debug(url)
 	      begin
 	        uri = URI.parse(url)
 	        req = Net::HTTP::Get.new(uri)

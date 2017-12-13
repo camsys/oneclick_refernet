@@ -16,114 +16,190 @@ namespace :oneclick_refernet do
   end
   
   desc "Load database if it's more than a week old"
-  task :load_database_on_sunday, [:google_api_key] =>  [:environment] do |t,args| 
+  task :load_database_on_sunday, [:google_api_key] =>  [:prepare_environment] do |t,args| 
     # Runs load_database only if it's Sunday
     if DateTime.now.wday == 0
       Rails.logger.info "It's Sunday! Running the load database task..."
-      Rake::Task["oneclick_refernet:load_database"].invoke
-      Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
+      Rake::Task["oneclick_refernet:load:database"].invoke(args[:google_api_key])
     else
       Rails.logger.info "Not running the load database task because it isn't Sunday."
     end
   end
   
-  desc "Load Categories Structure from Refernet"
-  task :load_database, [:google_api_key] =>  [:environment] do |t,args| 
-    Rake::Task["oneclick_refernet:prepare_environment"].invoke 
-    Rails.logger.info "Loading Categories and Services..."
-    rs = OCR::RefernetService.new
-    errors = []
-    tables = [OCR::Category, OCR::SubCategory, OCR::SubSubCategory, OCR::Service]
+  desc "Alias for load:database task"
+  task :load_database, [:google_api_key] => ["load:database"]
+  
+  ### TASKS FOR LOADING REFERNET DATA ###
+  namespace :load do
     
-    # Start mucking with the database, but catch any errors.
-    begin
+    desc "Prepare to Load ReferNET Database"
+    task prepare: :prepare_environment do
+      @errors ||= []
+      @tables = [OCR::Category, OCR::SubCategory, OCR::SubSubCategory, OCR::Service]
+    end    
     
-      # First, clear out all unconfirmed categories
-      tables.map(&:destroy_unconfirmed)
+    desc "Load, Confirm, and Translate all ReferNET Tables"
+    task :database, [:google_api_key] => [:prepare] do |t,args|
+
+      Rails.logger.info "*** LOADING REFERNET CATEGORIES AND SERVICES ***"
+
+      ### LOAD ALL DATABASE TABLES ###
+      Rake::Task["oneclick_refernet:load:all"].invoke
       
-      # Build the whole tree of categories, sub-categories, and sub-sub-categories
+      ### CONFIRM CHANGES ###
+      Rake::Task["oneclick_refernet:load:confirm"].invoke
       
-      ### CATEGORIES ###
-      new_categories = OCR::Category.fetch_all.compact
-      errors += save_and_log_errors(new_categories)
+      ### LOAD SERVICE DETAILS ###
+      Rake::Task["oneclick_refernet:load:service_descriptions"].invoke
+
+      ### TRANSLATE ALL TABLES ###
+      Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
       
-      raise "ERROR LOADING REFERNET CATEGORIES" unless errors.empty?
-            
-      ### SUB CATEGORIES ###
-      new_sub_categories = new_categories.flat_map do |cat|
-        Rails.logger.info "Getting subcategories for #{cat.name}..."
-        sub_cats = OCR::SubCategory.fetch_by_category(cat)
-        errors += save_and_log_errors(sub_cats)
-        next sub_cats
+      Rails.logger.info "*** COMPLETED LOADING REFERNET DATABASE ***"
+    end
+    
+    desc "Loads all Tables"
+    task all: [
+      :categories,
+      :sub_categories,
+      :sub_sub_categories,
+      :services
+    ]
+  
+    desc "Load Categories from ReferNET"
+    task categories: :prepare do
+      
+      begin
+      
+        OCR::Category.destroy_unconfirmed # First, clear out all unconfirmed categories before loading new ones
+        new_categories = OCR::Category.fetch_all.compact
+        @errors += save_and_log_errors(new_categories)
+        raise "ERROR LOADING REFERNET CATEGORIES" unless @errors.empty?
+        
+        Rails.logger.info "*** Successfully Loaded #{OCR::Category.unconfirmed.count} Categories ***"
+
+      rescue => e
+        catch_refernet_load_errors(e, OCR::Category, @errors)
       end
 
-      raise "ERROR LOADING REFERNET SUB-CATEGORIES" unless errors.empty?
-
-            
-      ### SUB SUB CATEGORIES ###
-      new_sub_sub_categories = new_sub_categories.flat_map do |sub_cat|
-        Rails.logger.info "Getting sub_sub_categories for #{sub_cat.name}: #{sub_cat.refernet_category_id}..."
-        sub_sub_cats = OCR::SubSubCategory.fetch_by_sub_category(sub_cat)
-        errors += save_and_log_errors(sub_sub_cats)
-        next sub_sub_cats
+    end
+    
+    desc "Load SubCategories from ReferNET"
+    task sub_categories: :prepare do
+      begin
+      
+        cat_count = 0
+        total_cat_count = OCR::Category.unconfirmed.count
+        OCR::SubCategory.destroy_unconfirmed # First, clear out all unconfirmed subcategories before loading new ones
+        OCR::Category.unconfirmed.each do |cat|
+          cat_count += 1
+          sub_cats = OCR::SubCategory.fetch_by_category(cat)
+          Rails.logger.info "Category #{cat_count}/#{total_cat_count} (#{cat.name}): Getting #{sub_cats.count} SubCategories..."
+          @errors += save_and_log_errors(sub_cats)
+          raise "ERROR LOADING REFERNET SUB-CATEGORIES" unless @errors.empty?
+        end
+        
+        Rails.logger.info "*** Successfully Loaded #{OCR::SubCategory.unconfirmed.count} SubCategories ***"
+        
+      rescue => e
+        catch_refernet_load_errors(e, OCR::SubCategory, @errors)
       end
-      
-      raise "ERROR LOADING REFERNET SUB-SUB-CATEGORIES" unless errors.empty?
+        
+    end
+    
+    desc "Load SubSubCategories from ReferNET"
+    task sub_sub_categories: :prepare do
+      begin
+        
+        sub_cat_count = 0
+        total_sub_cat_count = OCR::SubCategory.unconfirmed.count
+        OCR::SubSubCategory.destroy_unconfirmed # First, clear out all unconfirmed subsubcategories before loading new ones
+        OCR::SubCategory.unconfirmed.each do |sub_cat|
+          sub_cat_count += 1
+          sub_sub_cats = OCR::SubSubCategory.fetch_by_sub_category(sub_cat)
+          Rails.logger.info "SubCat #{sub_cat_count}/#{total_sub_cat_count} (#{sub_cat.name}): Getting #{sub_sub_cats.count} SubSubCategories..."
+          @errors += save_and_log_errors(sub_sub_cats)
 
+          raise "ERROR LOADING REFERNET SUB-SUB-CATEGORIES" unless @errors.empty?
+        end
       
-      ### SERVICES ###
-      new_sub_sub_categories.each do |sub_sub_cat|
-        Rails.logger.info "Getting services for #{sub_sub_cat.name}..."
-        services = OCR::Service.fetch_by_sub_sub_category(sub_sub_cat)
-        sub_sub_cat.services << services
-        errors += save_and_log_errors(services)
-        next services
+        Rails.logger.info "*** Successfully Loaded #{OCR::SubSubCategory.unconfirmed.count} SubSubCategories ***"
+        
+      rescue => e
+        catch_refernet_load_errors(e, OCR::SubSubCategory, @errors)
       end
+
+    end
+    
+    desc "Load Services from ReferNET"
+    task services: :prepare do
+      begin
+        
+        sscat_count = 0
+        total_sscat_count = OCR::SubSubCategory.unconfirmed.count
+        OCR::Service.destroy_unconfirmed # First, clear out all unconfirmed subsubcategories before loading new ones
+        OCR::SubSubCategory.unconfirmed.each do |sub_sub_cat|
+          sscat_count += 1
+          services = OCR::Service.fetch_by_sub_sub_category(sub_sub_cat)
+          Rails.logger.info "SubSubCat #{sscat_count}/#{total_sscat_count} (#{sub_sub_cat.name}): Getting #{services.count} Services..."
+          sub_sub_cat.services << services
+          @errors += save_and_log_errors(services)
+          raise "ERROR LOADING REFERNET SERVICES" unless @errors.empty?
+        end
+        
+        Rails.logger.info "*** Successfully Loaded #{OCR::Service.unconfirmed.count} Services ***"
       
-      raise "ERROR LOADING REFERNET SERVICES" unless errors.empty?
-      
-      ### SERVICE DESCRIPTIONS ###
-      ### NOTE: Pull in the labels
-      total_svcs_count = OCR::Service.unconfirmed.count
-      svcs_loaded_count = 0
-      OCR::Service.unconfirmed.each do |s|
-        svcs_loaded_count += 1
-        Rails.logger.info "Getting Labels for Service #{svcs_loaded_count}/#{total_svcs_count} (#{s.agency_name}, #{s.id})"
-        s.get_details.each do |detail|
-          if detail["Label"]
-            s.details["Label_#{detail["Label"]}"] = detail["Text"]
-            errors += save_and_log_errors([s])
+      rescue => e
+        catch_refernet_load_errors(e, OCR::Service, @errors)
+      end
+
+    end
+    
+    desc "Confirms All Tables"
+    task confirm: :prepare do
+      if @errors.empty?
+        Rails.logger.info "Confirming New Categories and Services..."
+        @tables.each do |table|
+          if table.unconfirmed.count > 0
+            updated_rows = table.approve_changes
+            Rails.logger.info "*** SUCCESSFULLY CONFIRMED #{updated_rows} ROWS IN #{table.name.upcase} TABLE ***"
+          else
+            Rails.logger.warn "*** NO UNCONFIRMED ROWS FOR #{table.name.upcase} TABLE, SKIPPING CONFIRMATION ***"
           end
         end
       end
-
-      
-      # Check to see if any errors occurred. If not, approve the new categories and services.
-      # Otherwise, raise an exception.
-      if errors.empty?
-        Rails.logger.info "Confirming New Categories and Services..."
-        tables.each do |table|
-          table.approve_changes and Rails.logger.info "Created #{table.count} #{table.to_s.pluralize}."
-        end
-      else
-        raise "ERROR LOADING REFERNET DATABASE"
-      end
-      
-      # Translate database tables
-      Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
+    end
     
-    # If there were any errors at all, display a notification and roll back the changes.
-    rescue => e
-      Rails.logger.error e
-      Rails.logger.error errors.ai
-      Rails.logger.warn "Rejecting New Categories and Services..."
-      if tables.map(&:reject_changes)
-        Rails.logger.warn "REJECTION COMPLETE"
-      else
-        Rails.logger.error "THERE WAS A PROBLEM ROLLING BACK CHANGES"
+    desc "Rejects Changes to All Tables, if not yet confirmed"
+    task reject: :prepare do
+      @tables.each do |table|
+        reject_table(table)
       end
-    end  
-
+    end
+    
+    desc "Pulls in Service Descriptions from ReferNET"
+    task service_descriptions: :prepare do
+      begin
+        
+        svc_count = 0
+        total_svc_count = OCR::Service.confirmed.count
+        OCR::Service.confirmed.each do |s|
+          svc_count += 1
+          Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
+          s.get_details.each do |detail|
+            if detail["Label"]
+              s.details["Label_#{detail["Label"]}"] = detail["Text"]
+              @errors += save_and_log_errors([s])
+            end
+          end
+        end
+        
+      rescue => e
+        catch_refernet_load_errors(e, OCR::Service, @errors)
+      end
+      
+    end
+    
   end
   
 end
