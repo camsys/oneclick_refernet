@@ -2,7 +2,6 @@ module OneclickRefernet
   class ServicesController < ApplicationController
     
     def index
-      @locale = params[:locale] || I18n.default_locale
       @sub_sub_category = SubSubCategory.find_by(code: params[:sub_sub_category])
       render json: (@sub_sub_category.try(:services).try(:confirmed) || []), 
              scope: {locale: @locale}
@@ -11,9 +10,7 @@ module OneclickRefernet
     # GET services/:id
     # GET services/details
     # Gets service details by ID or by ReferNET service_id and location_id
-    def show
-      @locale = params[:locale] || I18n.default_locale
-      
+    def show      
       if params[:id].to_i.nonzero?
         @service = OneclickRefernet::Service.find_by(id: params[:id])
       elsif params[:service_id] && params[:location_id]

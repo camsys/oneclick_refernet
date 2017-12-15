@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oneclick_refernet (0.5.4)
+    oneclick_refernet (0.5.5)
       active_model_serializers
       activerecord-postgis-adapter
       pg
