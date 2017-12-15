@@ -10,7 +10,9 @@ module OneclickRefernet
     # GET services/:id
     # GET services/details
     # Gets service details by ID or by ReferNET service_id and location_id
-    def show      
+    def show
+      set_locale unless @locale
+          
       if params[:id].to_i.nonzero?
         @service = OneclickRefernet::Service.find_by(id: params[:id])
       elsif params[:service_id] && params[:location_id]
