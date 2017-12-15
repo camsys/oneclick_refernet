@@ -1,5 +1,5 @@
 module OneclickRefernet
-  class SearchController < ApplicationController
+  class SearchController < RefernetBaseController
     
     # GET /search
     def search

@@ -1,5 +1,5 @@
 module OneclickRefernet
-  class SubCategoriesController < ApplicationController
+  class SubCategoriesController < RefernetBaseController
     
     def index
       @category = Category.find_by(code: params[:category])
