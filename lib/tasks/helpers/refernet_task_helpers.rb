@@ -28,7 +28,7 @@ module RefernetTaskHelpers
   end
   
   # Returns a pretty, pluralized, capitalized table name
-  def pretty_pretty_table_name(table)
+  def pretty_table_name(table)
     table.name.pluralize.upcase.split('::').last
   end
 
