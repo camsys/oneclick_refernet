@@ -2,6 +2,7 @@ module OneclickRefernet
   class SmsService
 
     def send_sms(phone, services, locale)
+      require 'aws-sdk-sns'
       @services = OneclickRefernet::Service.find(services).map do |result|
         OneclickRefernet::ServiceSerializer.new(
           result, 
