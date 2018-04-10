@@ -1,7 +1,7 @@
 module OneclickRefernet
   class SmsService
 
-    def send(phone, services, locale)
+    def send_sms(phone, services, locale)
       @services = OneclickRefernet::Service.find(services).map do |result|
         OneclickRefernet::ServiceSerializer.new(
           result, 
