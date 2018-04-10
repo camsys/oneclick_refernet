@@ -16,3 +16,6 @@ gem 'awesome_print'
 gem "haml-rails", "~> 1.0"
 
 gem "letter_opener", :group => :development
+
+# Used for sending SMS
+gem 'aws-sdk-sns'

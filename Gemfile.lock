@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oneclick_refernet (0.5.8)
+    oneclick_refernet (0.5.9)
       active_model_serializers
       activerecord-postgis-adapter
       pg
@@ -48,7 +48,7 @@ GEM
       activemodel (= 5.0.5)
       activesupport (= 5.0.5)
       arel (~> 7.0)
-    activerecord-postgis-adapter (4.1.0)
+    activerecord-postgis-adapter (4.1.2)
       activerecord (~> 5.0.0)
       rgeo-activerecord (~> 6.0)
     activesupport (5.0.5)
@@ -60,6 +60,15 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (7.1.4)
     awesome_print (1.7.0)
+    aws-partitions (1.79.0)
+    aws-sdk-core (3.19.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-sns (1.1.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.2)
     builder (3.2.3)
     case_transform (0.2)
       activesupport
@@ -88,6 +97,7 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.8.6)
+    jmespath (1.4.0)
     jsonapi-renderer (0.2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -101,10 +111,10 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
-    nio4r (2.1.0)
+    nio4r (2.3.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
-    pg (0.21.0)
+    pg (1.0.0)
     public_suffix (3.0.1)
     rack (2.0.3)
     rack-test (0.6.3)
@@ -185,6 +195,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-sdk-sns
   factory_girl_rails
   haml-rails (~> 1.0)
   letter_opener
@@ -194,4 +205,4 @@ DEPENDENCIES
   shoulda-matchers
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
