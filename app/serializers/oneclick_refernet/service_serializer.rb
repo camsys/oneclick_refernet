@@ -11,7 +11,9 @@ module OneclickRefernet
                :url,
                :display_url,
                :phone,
-               :details
+               :details,
+               :service_id,
+               :location_id
                
     # Pulls the refernet Service_ID out of the details hash
     def refernet_id
@@ -46,6 +48,14 @@ module OneclickRefernet
       OneclickRefernet::Service::LABELS.map do |label| 
         [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
+    end
+    
+    def service_id
+      object.refernet_service_id
+    end
+    
+    def location_id
+      object.refernet_location_id
     end
     
   end

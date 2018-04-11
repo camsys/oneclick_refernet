@@ -1,9 +1,8 @@
 module OneclickRefernet
-  class SearchController < ApplicationController
+  class SearchController < RefernetBaseController
     
     # GET /search
     def search
-      @locale = params[:locale] || I18n.default_locale
       @type = params[:type]
       @results = OneclickRefernet::KeywordSearcher.new(type: @type).search(params[:term])
       

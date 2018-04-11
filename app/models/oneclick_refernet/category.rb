@@ -20,7 +20,7 @@ module OneclickRefernet
       .get_categories.map do |cat|
         name = cat["Category_Name"]
         next nil unless name.present?
-        Rails.logger.info "Building new category with name: #{name}"
+        Rails.logger.debug "Building new category with name: #{name}"
         self.new(
           name: name, 
           code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string

@@ -6,23 +6,15 @@ module OneclickRefernet
     include OneclickRefernet::RefernetServiceable
 
     ### SCOPES ###
-    scope :within_X_meters, -> (lat,lng,meters) do 
-      where("ST_Distance_Sphere(latlng, ST_MakePoint(#{lat},#{lng})) <= #{meters} * 1")
+
+    # Finds all services within X meters
+    scope :within_x_meters, -> (lat, lng, meters) do
+      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lng} #{lat})')::geography, #{meters}, false)")
     end
 
-    #Does the same thing as within_x_meters, but in a different way
-    scope :within_XX_meters, -> (lat,lng,meters) do
-      where("ST_DWithin(latlng::geography, ST_GeogFromText(TEXT 'POINT(#{lat} #{lng})')::geography, #{meters}, false)")
-    end
-
-    #Creates a bounding box centered on a point.
-    scope :within_box, -> (lat, lng, meters) do 
-      #where("latlng && ST_MakeEnvelope(min_lat,min_lng,max_lat,max_lng,SRID)")
-      where("latlng && ST_MakeEnvelope(#{(lat.to_f||0) - meters*0.000008994},#{(lng.to_f||0) - meters*0.0000102259},#{(lat.to_f||0) + meters*0.000008994},#{(lng.to_f||0) + meters*0.000102259},4326)")
-    end
-
+    # Orders services by distance
     scope :closest, -> (lat, lng) do 
-      order("ST_Distance(latlng, ST_GeomFromText(TEXT 'POINT(#{lat} #{lng})')::geography)")
+      order("ST_Distance(latlng, ST_GeomFromText(TEXT 'POINT(#{lng} #{lat})')::geography)")
     end
 
     
@@ -51,18 +43,16 @@ module OneclickRefernet
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
       .get_services_by_category_and_county(sub_sub_cat.name.titleize)
-      .try(:uniq) { |svc| [ svc["Service_ID"], svc["Location_ID" ], svc["ServiceSite_ID"] ] } # Get uniq service by refernet ids 
+      .try(:uniq) { |svc| [ svc["Service_ID"], svc["Location_ID" ] ] } # Get uniq service by refernet ids 
       .try(:map) do |svc|
         service_id = svc["Service_ID"]
         location_id = svc["Location_ID"]
-        servicesite_id = svc["ServiceSite_ID"]
-        next nil unless service_id.present? && location_id.present? && servicesite_id.present?
+        next nil unless service_id.present? && location_id.present?
         
-        Rails.logger.info "Updating or building new service with name: #{svc['Name_Site']}"
+        Rails.logger.debug "Updating or building new service with name: #{svc['Name_Site']}"
         new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
           refernet_service_id: service_id,
           refernet_location_id: location_id,
-          refernet_servicesite_id: servicesite_id,
           confirmed: false
         )
         new_service.assign_attributes(details: svc)
@@ -79,7 +69,7 @@ module OneclickRefernet
 
     # Get Details
     def get_details
-      RefernetService.new.get_service_details(self.details['Location_ID'], self.details['ServiceSite_ID'], self.details['Service_ID'])
+      RefernetService.new.get_service_details(self.details['Location_ID'], self.details['Service_ID'], self.details['ServiceSite_ID'])
     end
     
     # Returns the service's name
@@ -91,12 +81,12 @@ module OneclickRefernet
       
     # Pulls lat out of point
     def lat
-      latlng.try(:x)
+      latlng.try(:y)
     end
 
     # Pulls lng out of point    
     def lng
-      latlng.try(:y)
+      latlng.try(:x)
     end
     
     # Constructs a formatted address
@@ -119,14 +109,15 @@ module OneclickRefernet
       RGeo::Geos::CAPIFactory.new(:srid => 4326)
     end
     
+    # RGeo point factory takes x (lng), y (lat)
     def point_from_latlng(lat, lng)
-      rgeo_factory.point(lat, lng)
+      rgeo_factory.point(lng, lat)
     end
     
     # Sets the latlng point from lat and lng in the details
     def set_latlng
       lat, lng = details["Latitude"].to_f, details["Longitude"].to_f * -1
-      self.latlng = rgeo_factory.point(lat, lng) unless (lat.zero? || lng.zero?)
+      self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
     
     

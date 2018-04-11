@@ -23,7 +23,7 @@ module OneclickRefernet
       .try(:map) do |sub_sub_cat|
         name = sub_sub_cat["Name"]
         next nil unless name.present?
-        Rails.logger.info "Building new sub_sub_category with name: #{name}"
+        Rails.logger.debug "Building new sub_sub_category with name: #{name}"
         sub_category.sub_sub_categories.build(
           name: name,
           code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string,
