@@ -104,7 +104,13 @@ module OneclickRefernet
       details.values_at(*%w(Address1 Address2 City State)).compact.join(', ') + 
       " #{details['ZipCode']}"
     end
-     
+
+    # Returns whatever phone number can be found
+    def phone
+      details["Number_Phone1"] ||
+      details["Number_Phone2"] ||
+      details["Number_Phone3"]          
+    end
     
     ## Geometry Helper Methods
     
