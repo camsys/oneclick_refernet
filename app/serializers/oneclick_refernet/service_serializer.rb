@@ -9,6 +9,7 @@ module OneclickRefernet
                :lng,
                :address,
                :url,
+               :email,
                :display_url,
                :phone,
                :details,
@@ -31,9 +32,18 @@ module OneclickRefernet
     
     # Returns the URL without http:// on the front
     def display_url
-      (object.details["url"] ||
-      object.details["PUrl"] ||
-      object.details["LUrl"]).to_s
+      (
+        object.details["PUrl"] ||
+        object.details["LUrl"] ||
+        object.details["url"]
+      ).to_s
+    end
+
+    # Returns the Email
+    def email
+      (object.details["PEmail"] ||
+      object.details["LEmail"] ||
+      object.details["email"]).to_s
     end
 
     # Returns whatever phone number can be found
