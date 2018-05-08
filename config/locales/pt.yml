@@ -1,0 +1,13 @@
+pt:
+  services: "Serviço"
+  service_description: "Descrição do Serviço"
+  eligibility: "elegibilidade"
+  intake_procedure: "Procedimento de admissão"
+  fees: "Honorários"
+  program_service_hours: "Horas de serviço"
+  documents_required: "Documentos necessários"
+  payment_options: "Opções de pagamento"
+  site_hours: "Horas do site"
+  languages_spoken: "Línguas faladas"
+  travel_instructions: "Instruções de viagem" 
+  area_served: "Área servida"

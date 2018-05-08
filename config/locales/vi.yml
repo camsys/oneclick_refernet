@@ -1,0 +1,13 @@
+vi:
+  services: "Dịch vụ"
+  service_description: "Dịch vụ Mô tả"
+  eligibility: "Đủ điều kiện"
+  intake_procedure: "Thủ tục nạp"
+  fees: "Phí"
+  program_service_hours: "Giờ phục vụ"
+  documents_required: "Tài liệu cần thiết"
+  payment_options: "Các lựa chọn thanh toán"
+  site_hours: "Giờ của trang web"
+  languages_spoken: "Ngôn ngữ nói"
+  travel_instructions: "Hướng dẫn du lịch" 
+  area_served: "Khu vực được phục vụ"
