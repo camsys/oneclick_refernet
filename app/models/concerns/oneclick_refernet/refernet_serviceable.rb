@@ -4,7 +4,11 @@ module OneclickRefernet
 
     included do
       def self.refernet_service
-        OneclickRefernet::RefernetService.new
+        if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+          OneclickRefernet::RefernetService.new
+        elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+          OneclickRefernet::AzureService.new
+        end
       end
     end
 

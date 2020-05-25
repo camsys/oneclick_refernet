@@ -20,13 +20,13 @@ module OneclickRefernet
       refernet_service
       .get_sub_categories(category.name.titleize)
       .try(:map) do |sub_cat|
-        name = sub_cat["Subcategory_Name"]
+        name = sub_cat[0]
         next nil unless name.present?
         Rails.logger.debug "Building new sub_category with name: #{name}"
         category.sub_categories.build(
           name: name, 
           code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string
-          refernet_category_id: sub_cat["Category_ID"],
+          refernet_category_id: sub_cat[1],
           confirmed: false
         )
       end.compact

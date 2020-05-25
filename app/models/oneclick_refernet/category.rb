@@ -17,8 +17,7 @@ module OneclickRefernet
     # Downloads categories from ReferNET
     def self.fetch_all  
       refernet_service
-      .get_categories.map do |cat|
-        name = cat["Category_Name"]
+      .get_categories.map do |name|
         next nil unless name.present?
         Rails.logger.debug "Building new category with name: #{name}"
         self.new(

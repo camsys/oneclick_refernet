@@ -18,7 +18,7 @@ module OneclickRefernet
                
     # Pulls the refernet Service_ID out of the details hash
     def refernet_id
-      object.details["Service_ID"]
+      object.refernet_service_id
     end
 
     # Get whatever URL is available, and prepend http:// if necessary

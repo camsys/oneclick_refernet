@@ -11,6 +11,27 @@ module OneclickRefernet
 			@api_key = api_key
 		end
 
+		# mapping to parse response from returned API data
+		# different services will call similar data by different names
+		def column_name_mappings
+			{
+					service_id_column_name: 'Service_ID',
+					location_id_column_name: 'Location_ID',
+					service_site_id_column_name: 'ServiceSite_ID',
+					site_name_column_name: 'Name_Site',
+					agency_name_column_name: 'Name_Agency',
+					address1_column_name: 'Address1',
+					address2_column_name: 'Address2',
+					city_column_name: 'City',
+					state_column_name: 'State',
+					zipcode_column_name: 'ZipCode',
+					latitude_column_name: 'Latitude',
+					longitude_column_name: 'Longitude',
+					description_column_name: 'Label_Service Description',
+					phone_column_name: "Number_Phone"
+			}
+		end
+
 		# Keyword Search
 		# Returns an array of Hashes of ReferNET Services
 		def search_keyword keyword
@@ -24,17 +45,17 @@ module OneclickRefernet
 
 		# Gets all top-level categories (array of hashes)
 		def get_categories
-			unpack(self.send(refernet_url("Category")))
+			unpack(self.send(refernet_url("Category"))).map{ |cat| cat["Category_Name"] }
 		end
 				
 		# Gets all sub-categories for a given category name
 		def get_sub_categories(category_name)
-			unpack(self.send(refernet_url("Sub_Category", category_name: category_name)))
+			unpack(self.send(refernet_url("Sub_Category", category_name: category_name))).map{ |sub_cat| [sub_cat["Subcategory_Name"], sub_cat["Category_ID"]] }
 		end
 	
 		# Gets all sub-sub-categories for a given sub-category name
 		def get_sub_sub_categories(sub_category_id)
-			unpack(self.send(refernet_url("SubCat_Links", category_id: sub_category_id)))
+			unpack(self.send(refernet_url("SubCat_Links", category_id: sub_category_id))).map{ |cat| cat["Name"] }
 		end
 		
 		# Gets all services for a given sub-sub-category and county

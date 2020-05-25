@@ -50,7 +50,7 @@ namespace :oneclick_refernet do
       Rake::Task["oneclick_refernet:load:confirm"].invoke
       
       ### LOAD SERVICE DETAILS ###
-      Rake::Task["oneclick_refernet:load:service_descriptions"].invoke
+      Rake::Task["oneclick_refernet:load:service_details"].invoke
 
       ### TRANSLATE ALL TABLES ###
       Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
@@ -177,10 +177,14 @@ namespace :oneclick_refernet do
       end
     end
     
+    desc "Pulls in Service Descriptions"
+    task service_details: :prepare do
+      Rake::Task["oneclick_refernet:load:#{OCR::Service.refernet_service.class.to_s.underscore}_service_details"].invoke
+    end
+
     desc "Pulls in Service Descriptions from ReferNET"
-    task service_descriptions: :prepare do
+    task refernet_service_service_details: :prepare do
       begin
-        
         svc_count = 0
         total_svc_count = OCR::Service.confirmed.count
         OCR::Service.confirmed.each do |s|
@@ -193,11 +197,60 @@ namespace :oneclick_refernet do
             end
           end
         end
-        
+
       rescue => e
         catch_refernet_load_errors(e, OCR::Service, @errors)
       end
-      
+    end
+
+    desc "Pulls in Service Descriptions from Azure"
+    task azure_service_service_details: :prepare do
+      begin
+        svc_count = 0
+        total_svc_count = OCR::Service.confirmed.count
+        OCR::Service.confirmed.each do |s|
+          svc_count += 1
+          Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
+          s.get_details.each do |detail|
+            {
+                service_description: 'description',
+                eligibility: 'eligibility',
+                intake_procedure: 'applicationProcess',
+                fees: 'fees',
+                program_service_hours: 'schedule',
+                documents_required: 'document',
+                payment_options: '',
+                site_hours: 'locations.schedule',
+                languages_spoken: 'language',
+                travel_instructions: 'locations.transportation',
+            }.each do |translation_key, api_column_name|
+              cols = api_column_name.split('.')
+              col_value = detail['services'][0]
+              cols.each do |col|
+                col_value = col_value[col]
+              end
+              s.details["Label_#{translation_key}"] = col_value
+            end
+
+            s.details["Label_area_served"] = detail['services'][0]['serviceArea'].map{|area| "#{area.city} #{area.state}"}.join(', ')
+
+            s.details = s.details.merge(detail['locations'][0]['address'].find{|address| address['type'] == 'physical'}) if detail['locations'][0]['address']
+
+            unless detail['services'][0]['phone'].empty?
+              detail['services'][0]['phone'].each_with_index do |phone_num, idx|
+                s.details["Number_Phone#{idx+1}"] = phone_num['number']
+              end
+            end
+
+            s.details["email"] = detail['services'][0]['email'] if detail['services'][0]['email'].present?
+            s.details["url"] = detail['services'][0]['url'] if detail['services'][0]['url'].present?
+            @errors += save_and_log_errors([s])
+          end
+        end
+
+      rescue => e
+        catch_refernet_load_errors(e, OCR::Service, @errors)
+      end
     end
     
   end

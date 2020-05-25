@@ -20,8 +20,7 @@ module OneclickRefernet
     def self.fetch_by_sub_category(sub_category)
       refernet_service
       .get_sub_sub_categories(sub_category.refernet_category_id)
-      .try(:map) do |sub_sub_cat|
-        name = sub_sub_cat["Name"]
+      .try(:map) do |name|
         next nil unless name.present?
         Rails.logger.debug "Building new sub_sub_category with name: #{name}"
         sub_category.sub_sub_categories.build(
