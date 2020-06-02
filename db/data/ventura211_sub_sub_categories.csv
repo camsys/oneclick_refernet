@@ -1,0 +1,250 @@
+Sub-Category,Search (as shown on page),Search (taxonomy term)
+Housing Expense Assistance,Rent Payment Assistance,Rent Payment Assistance
+Housing Expense Assistance,Rental Deposit Assistance,Rental Deposit Assistance
+Housing Expense Assistance,Home Maintenance and Minor Repair Services,Home Maintenance And Minor Repair Services
+Housing Expense Assistance,Energy Efficient Home Improvement Assistance,Weatherization Programs
+Housing Expense Assistance,Home Renovation Programs,Home Rehabilitation Programs
+Housing Expense Assistance,Disability Related Home Modifications,Home Barrier Evaluation/Removal Services
+Emergency Housing & Services for Homeless Individuals & Families,Emergency Shelters for Homeless Individuals and Families,Homeless Shelters
+Emergency Housing & Services for Homeless Individuals & Families,Homeless Safe Parking Programs,Homeless Safe Parking Programs
+Emergency Housing & Services for Homeless Individuals & Families,Transitional Housing (Temporary Housing),Transitional Housing Shelters
+Emergency Housing & Services for Homeless Individuals & Families,Homeless Drop In Centers,Homeless Drop In Centers
+Emergency Housing & Services for Homeless Individuals & Families,Laundry Facilities,Laundry Facilities
+Emergency Housing & Services for Homeless Individuals & Families,Bathing Facilities,Bathing Facilities
+Emergency Housing & Services for Homeless Individuals & Families,Temporary Mailing Address,Temporary Mailing Address
+Emergency Housing & Services for Homeless Individuals & Families,Hot Meal Programs,Soup Kitchens
+Affordable Housing Options,Low Income/Subsidized Rental Housing,Low Income/Subsidized Rental Housing
+Affordable Housing Options,Subsidized Home Purchase,Subsidized Home Purchase
+Affordable Housing Options,Housing Counseling,Housing Counseling
+Affordable Housing Options,Senior Housing Information & Referral,Senior Housing Information And Referral
+Landlord/Tenant Assistance,Tenant Rights Information/Counseling,Tenant Rights Information/Counseling
+Landlord/Tenant Assistance,Landlord/Tenant Dispute,Landlord Tenant Dispute Resolution
+Landlord/Tenant Assistance,Landlord Rights Information/Counseling,Landlord Rights Information Counseling
+Landlord/Tenant Assistance,Housing Code Enforcement,Building and Safety
+Employment,Job Assistance Centers,Comprehensive Job Assistance Centers
+Employment,Employment Preparation,Employment Preparation
+Employment,Job Finding Assistance,Job Finding Assistance
+Employment,Youth Employment Programs,Youth Employment Programs
+Employment,Veteran Employment Programs,Veteran Employment Programs
+Money Management,Credit Counseling,Credit Counseling
+Public Assistance & Benefits,CalWORKS Temporary Assistance for Families with Children,CalWORKS
+Public Assistance & Benefits,General Relief,General Relief
+Public Assistance & Benefits,Social Security Disability Insurance,Social Security Disability Insurance
+Public Assistance & Benefits,Social Security Retirement Benefits,Social Security Retirement Benefits
+Public Assistance & Benefits,State Disability Insurance,State Disability Insurance
+Public Assistance & Benefits,State Unemployment Insurance,State Unemployment Insurance
+Public Assistance & Benefits,Cal-Fresh (formerly Food Stamps),Food Stamps/SNAP
+Public Assistance & Benefits,Medi-Cal,Medicaid
+Public Assistance & Benefits,Medicare,Medicare
+Public Assistance & Benefits,Veteran Benefits Assistance,Veteran Benefits Assistance
+Utility Assistance,Electric Service Payment Assistance,Electric Service Payment Assistance
+Utility Assistance,Gas Service Payment Assistance,Gas Service Payment Assistance
+Utility Assistance,Water Service Payment Assistance,Water Service Payment Assistance
+Utility Assistance,Telephone Service Payment Assistance,Cell Phones
+Utility Assistance,Discounted Utility Services,Discounted Utility Services
+Housing,Rent Payment Assistance,Rent Payment Assistance
+Housing,Rental Deposit Assistance,Rental Deposit Assistance
+Housing,Energy Efficient Home Improvement Assistance,Weatherization programs
+Housing,Home Maintenance & Minor Repair Services,Home Maintenance and Minor Repair Services
+Personal/Household Items & Other Expenses,Clothing,General Clothing Provision
+Personal/Household Items & Other Expenses,Baby Clothing,Baby Clothing
+Personal/Household Items & Other Expenses,Baby Furniture,Baby Furniture
+Personal/Household Items & Other Expenses,Appliances,Refrigerators
+Food Expense Assistance,Cal-Fresh (Food Stamps),Food Stamps/SNAP
+Food Expense Assistance,Food Assistance for Pregnant Women & Young Children,WIC
+Groceries,Groceries,Food Pantries
+Groceries,Groceries for Seniors,Brown Bag Food Programs
+Groceries,Farmer’s Markets,Farmers Markets
+Groceries,Errand Running/Shopping Assistance,Errand Running Shopping Assistance
+Meals,Hot Meal Programs,Soup Kitchens
+Meals,Senior Meal Sites,Congregate Meals/Nutrition Sites
+Meals,Home Delivered Meals for Seniors,Home Delivered Meals
+Law Enforcement/Emergency Services,City Police,Municipal Police
+Law Enforcement/Emergency Services,Sheriff,Sheriff
+Law Enforcement/Emergency Services,Fire Department,Fire Services
+Medical Facilities,Medical Clinics,Outpatient Health Facilities
+Medical Facilities,Emergency Rooms,Hospitals
+Health Insurance & Medical Expense Assistance,Covered California,Affordable Care Act Insurance Information/Counseling
+Health Insurance & Medical Expense Assistance,Medi-Cal,Medicaid
+Health Insurance & Medical Expense Assistance,Medicare,Medicare
+Health Insurance & Medical Expense Assistance,General Health Insurance Information/Counseling,General Health Insurance Information/Counseling
+Health Insurance & Medical Expense Assistance,Medical Care Expense Assistance,Medical Care Expense Assistance
+Health Insurance & Medical Expense Assistance,Prescription Expense Assistance,Prescription Expense Assistance
+Specialty Screenings & Services,Blood Pressure Screening,Blood Pressure Screening
+Specialty Screenings & Services,Eye Screening,Eye Screening
+Specialty Screenings & Services,Hearing Screening,Hearing Screening
+Specialty Screenings & Services,Tuberculosis Screening,Tuberculosis Screening
+Specialty Screenings & Services,Diabetes Screening,Diabetes Screening
+Specialty Screenings & Services,Mammograms,Mammograms
+Specialty Screenings & Services,Developmental Screening for Children,Developmental Screening
+Specialty Screenings & Services,Physician Referral Services,Physician Referral Services
+Specialty Screenings & Services,Tattoo Removal,Tattoo Removal
+Specialty Screenings & Services,Medical Appointments Transportation,Medical Appointments Transportation
+Dental Care,Dental Care,Dental Care
+Immunizations,Immunizations,Immunizations
+Sexual & Reproductive Health,Birth Control,Birth Control
+Sexual & Reproductive Health,Pregnancy Testing,Pregnancy Testing
+Sexual & Reproductive Health,Sexually Transmitted Disease Screening,Sexually Transmitted Disease Screening
+Sexual & Reproductive Health,HIV Testing,HIV Testing
+Sexual & Reproductive Health,Prenatal Care,Prenatal Care
+Home Nursing & Caregiving,In Home Supportive Services,In Home Supportive Services Subsidies
+Home Nursing & Caregiving,Adult in Home Respite Care,Adult In Home Respite Care
+Home Nursing & Caregiving,Personal Care,Personal Care
+Home Nursing & Caregiving,Caregiver/Care Receiver Support Groups,Caregiver Care Receiver Support Groups
+End of Life Care,Hospice Care,Hospice Care
+End of Life Care,Hospice Care Referrals,Hospice Care Referrals
+Counseling,General Adult Counseling ,General Counseling Services
+Counseling,Group Counseling,Group Counseling
+Counseling,Adolescent/Youth Counseling ,Adolescent Youth Counseling
+Counseling,Counseling for Children,Child Guidance
+Counseling,Marriage Counseling,Marriage Counseling
+Counseling,Anger Management,Anger Management
+Counseling,Psychiatric Disorder Counseling,Psychiatric Disorder Counseling
+Grief & Loss,Grief & Loss Counseling,Bereavement Counseling
+Grief & Loss,General Grief & Loss Support Groups,General Bereavement Support Groups
+Grief & Loss,Grief & Loss Child Support Groups,Bereaved Child Support Groups
+Grief & Loss,Grief & Loss Parent Support Groups,Bereaved Parent Support Groups
+Grief & Loss,Pet Loss Support Groups,Pet Loss Support Groups
+Addiction,Drug Use Disorder Counseling ,Drug Use Disorder Counseling
+Addiction,Alcohol Dependency Support Groups,Alcohol Use Disorder Support Groups
+Addiction,Drug Dependency Support Groups,Drug Dependency Support Groups
+Addiction,Families/Friends of Alcoholics Support Groups,Families/Friends of Alcoholics Support Groups
+Addiction,Adult Children of Alcoholics Support Groups,Adult Children of Alcoholics Support Groups
+Addiction,Families/Friends of Drug Use Disorderrs Support Groups,Families/Friends of Drug Abusers Support Groups
+Addiction,Gambling Support Groups,Gambling Addiction Support Groups
+Addiction,Sexual/Love Addiction Support Groups,Sexual/Love Addiction Support Groups
+Abuse,Child Abuse Counseling,Child Abuse Counseling
+Abuse,Child Sexual Abuse Counseling,Child Sexual Abuse Counseling
+Abuse,Counseling for Children Affected by Domestic Violence,Counseling for Children Affected by Domestic Violence
+Abuse,Domestic Violence Support Groups,Domestic Violence Support Groups
+Abuse,Sexual Assault/Incest Support Groups,Sexual Assault Counseling
+Other Support Groups,Health/Disability Related Support Groups,Health/Disability Related Support Groups
+Other Support Groups,Mental Health Related Support Groups,Mental Health Related Support Groups
+Other Support Groups,Parent Support Groups,Parent Support Groups
+Other Support Groups,Caregiver & Care Receiver Support Groups,Caregiver Care Receiver Support Groups
+Other Support Groups,Adoption and Foster/Kinship Care Support Groups,Adoption Foster Kinship Care Support Groups
+Other Support Groups,Military Family Support Groups,Military Family Support Groups
+Other Support Groups,Women’s Advocacy Groups,Women's Advocacy Groups
+Other Support Groups,Youth/Student Support Groups,Youth/Student Support Groups
+Other Support Groups,Separation/Divorce Support Groups,Separation/Divorce Support Groups
+Other Support Groups,Weight Related Support Groups,Weight Related Support Groups
+Other Support Groups,Gay/Lesbian/Bisexual/Transgender Support Groups,LGBTQ Support Groups
+Other Support Groups,Domestic Violence Support Groups,Domestic Violence Support Groups
+Psychiatric Services,Psychiatric Medication Services,Psychiatric Medication Services
+Psychiatric Services,Adult Psychiatric Hospitals,Adult Psychiatric Hospitals
+Psychiatric Services,Children’s Adolescent Psychiatric Hospitals,Children's/Adolescent Psychiatric Hospitals
+Education & Prevention,Alcohol Use Disorder Education & Prevention,Alcohol Use Disorder Education/Prevention
+Education & Prevention,Drug Use Disorder Education & Prevention,Drug Use Disorder Education/Prevention
+Alcohol Treatment & Facilities,Alcohol Use Disorder Counseling,Alcohol Use Disorder Counseling
+Alcohol Treatment & Facilities,Alcohol Use Disorder Support Groups,Alcohol Use Disorder Support Groups
+Alcohol Treatment & Facilities,Alcohol Use Disorder Hotlines,Alcohol Use Related Hotlines
+Alcohol Treatment & Facilities,Comprehensive Outpatient Alcohol Use Disorder Treatment,Comprehensive Outpatient Alcohol Use Disorder Treatment
+Alcohol Treatment & Facilities,Residential Alcohol Use Disorder Treatment Facilities,Residential Alcohol Use Disorder Treatment Facilities
+Alcohol Treatment & Facilities,Inpatient Alcohol Use Disorder Treatment Facilities,Inpatient Alcohol Use Disorder Treatment Facilities
+Alcohol Treatment & Facilities,Alcohol Detoxification,Alcohol Detoxification
+Alcohol Treatment & Facilities,Alcohol & Drug Free Housing/Sober Living Environments,Alcohol and Drug Free Housing
+Alcohol Treatment & Facilities,Alcohol Use Disorder Treatment for Pregnant Women,Perinatal Alcohol Use Disorder Treatment
+Drug Treatment & Facilities,Drug Use Disorder Counseling,Drug Use Disorder Counseling
+Drug Treatment & Facilities,Opioid Overdose Prevention Kits,Opioid Antidote Distribution Programs
+Drug Treatment & Facilities,Drug Dependency Support Groups (Substance Use Disorder and Dependency Support Groups),Drug Dependency Support Groups
+Drug Treatment & Facilities,Drug Use Disorder Hotlines,Drug Use Related Hotlines
+Drug Treatment & Facilities,Comprehensive Outpatient Substance Use Disorder Treatment,Comprehensive Outpatient Drug Use Disorder Treatment
+Drug Treatment & Facilities,Residential Drug Use Disorder Treatment Facilities,Residential Drug Use Disorder Treatment Facilities
+Drug Treatment & Facilities,Inpatient Drug Use Disorder Treatment Facilities,Inpatient Drug Use Disorder Treatment Facilities
+Drug Treatment & Facilities,Drug Detoxification,Drug Detoxification
+Drug Treatment & Facilities,Alcohol & Drug Free Housing/Sober Living Environments,Alcohol and Drug Free Housing
+Drug Treatment & Facilities,Drug Use Disorder Treatment for Pregnant Women,Perinatal Drug Use Disorder Treatment
+Family Resource Centers,Family Resource Centers,Family Support Centers/Outreach
+Parenting Resources,Parent / Child Activity Groups,Parent/Child Activity Groups
+Parenting Resources,Parenting Skills Classes,Parenting Skills Classes
+Parenting Resources,Parent Support Groups,Parent Support Groups
+Parenting Resources,Co-Parenting Workshops,Co-Parenting Workshops
+Parenting Resources,Court Ordered Parenting Programs,Court Ordered Parenting Programs
+Parenting Resources,Disability Related Sports,Disability Related Sports
+Expectant & New Parents,Expectant & New Parent Assistance,Expectant/New Parent Assistance
+Expectant & New Parents,Breastfeeding Support Programs,Breastfeeding Support Programs
+Expectant & New Parents,Food Assistance for Young Children & Pregnant Women,WIC
+Expectant & New Parents,Childbirth Classes,Childbirth Education
+Expectant & New Parents,Diapers,Diapers
+Expectant & New Parents,Baby Furniture,Baby Furniture
+Expectant & New Parents,Well Baby Care,Well Baby Care
+Expectant & New Parents,Developmental Screening,Developmental Screening
+Expectant & New Parents,Postpartum Depression Support,Perinatal/Postpartum Depression Counseling
+Expectant & New Parents,Infant Massage Instruction,Infant Massage Instruction
+Expectant & New Parents,Infant & Child Safety Education,Infant and Child Safety Education
+Expectant & New Parents,Car Seat Safety Inspections,Car Seat Safety Inspections
+Expectant & New Parents,CPR Instruction,CPR Instruction
+Expectant & New Parents,Maternity Homes,Maternity Homes
+Expectant & New Parents,Prenatal Care,Prenatal Care
+Child Care & Early Education,Child Care Provider Referrals,Child Care Provider Referrals
+Child Care & Early Education,Child Care Expense Assistance,Child Care Expense Assistance
+Child Care & Early Education,Preschool Referrals,Child Care Provider Referrals
+Child Care & Early Education,Early Literacy Programs,Early Literacy Development Programs
+Child Care & Early Education,Early Head Start,Early Head Start
+Foster Care & Adoption,Adoption Counseling and Support,Adoption Counseling And Support
+Foster Care & Adoption,Adoption and Foster / Kinship Care Support Groups,Adoption Foster Kinship Care Support Groups
+Foster Care & Adoption,Foster Home Licensing,Foster Home Licensing
+Family Counseling,Marriage Counseling,Marriage Counseling
+Family Counseling,Counseling for Children,Child Guidance
+Family Counseling,Adolescent/Youth Counseling (Youth Counseling),Adolescent Youth Counseling
+Military Families,Military Family Service / Support Centers,Military Family Service/Support Centers
+Youth Programs,Child & Youth Mentoring Programs,Adult/Child Mentoring Programs
+Youth Programs,Youth Enrichment,Youth Development
+Youth Programs,Leadership Development,Leadership Development
+Youth Programs,Youth Centers,Youth Centers
+Youth Programs,Recreational Programs,General Recreational Activities/Sports
+Prevention & Intervention,Drop Out Prevention,Truancy Counseling
+Prevention & Intervention,Counseling for Youth,Adolescent/Youth Counseling
+Teen Pregnancy,School Based Expectant & Parenting Program,School Based Teen Parent/Pregnant Teen Programs
+Senior Centers,Senior Centers,Senior Centers
+Senior Support Services,Senior Organizations,Area Agencies On Aging
+Senior Support Services,Senior Counseling,Senior Counseling
+Senior Support Services,Adult Day Programs,Adult Day Programs
+Senior Support Services,In Home Supportive Services Subsidies,In Home Supportive Services Subsidies
+Senior Support Services,Errand Running / Shopping Assistance,Errand Running Shopping Assistance
+Senior Support Services,Home Maintenance & Minor Repair Assistance,Home Maintenance And Minor Repair Services
+Senior Support Services,Caregiver / Care Receiver Support Groups,Caregiver Care Receiver Support Groups
+Senior Health Care,Medicare,Medicare
+Senior Housing,Senior Housing Information and Referral,Senior Housing Information And Referral
+Senior Meals,Meals at Centers,Congregate Meals/Nutrition Sites
+Education Programs,GED / High School Equivalency,GED/High School Equivalency Test Instruction
+Education Programs,English as a Second Language,English As A Second Language
+Education Programs,Adult Literacy,Adult Literacy Programs
+Education Programs,Continuing Education,Adult Basic Education
+Education Programs,Migrant Education Programs,Migrant Education Programs
+Educational Services,Tutoring Services,Tutoring Services
+Educational Services,Special Education Advocacy,Special Education Advocacy
+Schools & Libraries,School Districts,School Districts
+Schools & Libraries,Public Libraries,Public Libraries
+Computer Literacy,Computer Classes,Computer And Related Technology Classes
+Records & Certificates,Birth Certificates,Birth Certificates
+Records & Certificates,Death Certificates,Death Certificates
+Records & Certificates,Motor Vehicle Registration,Motor Vehicle Registration
+Records & Certificates,Identification Cards,Identification Cards
+Records & Certificates,Marriage Licenses,Marriage Licenses
+Records & Certificates,Divorce Records,Divorce Records
+Records & Certificates,Passports,Passports
+Records & Certificates,Social Security Numbers,Social Security Numbers
+Records & Certificates,Individual Taxpayer Identification Numbers (ITIN),Individual Taxpayer Identification Numbers
+General Legal Services,General Legal Aid,General Legal Aid
+General Legal Services,Lawyer Referral Services,Lawyer Referral Services
+General Legal Services,Legal Self Help Programs,Legal Self Help Programs
+Family Law,Child Custody / Visitation Assistance,Child Custody/Visitation Assistance
+Family Law,Divorce Assistance,Divorce Assistance
+Family Law,Child Support Assistance / Enforcement,Child Support Assistance/Enforcement
+Citizenship and Immigration,Citizenship and Immigration,Immigration/Naturalization Legal Services
+Victim Assistance,Domestic Violence Legal Services,Domestic/Family Violence Legal Services
+Victim Assistance,Restraining Orders,Protective/Restraining Orders
+Victim Assistance,Crime Victim Assistance,General Crime Victim Assistance
+Victim Assistance,Employment Discrimination,Employment Discrimination Assistance
+Victim Assistance,Housing Discrimination,Housing Discrimination Assistance
+Victim Assistance,Tenant Rights Information / Counseling,Tenant Rights Information/Counseling
+Victim Assistance,Landlord Rights Information / Counseling,Landlord Rights Information Counseling
+Victim Assistance,Landlord / Tenant Dispute,Landlord Tenant Dispute Resolution
+Courts,Juvenile Justice Courts,Juvenile Courts
+Courts,Small claims Courts,Small Claims Courts
+Courts,Veterans Courts,Veterans Courts
+Courts,Traffic Courts,Traffic Courts
+Courts,Civil State Trial Courts,Civil State Trial Courts
+Courts,Mental Health Courts,Mental Health Courts
+Courts,Criminal State Trial Courts,Criminal State Trial Courts

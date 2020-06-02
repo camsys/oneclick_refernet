@@ -18,14 +18,18 @@ module OneclickRefernet
     def self.fetch_all  
       refernet_service
       .get_categories.map do |name|
-        next nil unless name.present?
-        Rails.logger.debug "Building new category with name: #{name}"
-        self.new(
-          name: name, 
+        self.setup_category(name)
+      end.compact
+    end
+
+    def self.setup_category(name)
+      next nil unless name.present?
+      Rails.logger.debug "Building new category with name: #{name}"
+      self.new(
+          name: name,
           code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string
           confirmed: false
-        )
-      end.compact
+      )
     end
 
   end

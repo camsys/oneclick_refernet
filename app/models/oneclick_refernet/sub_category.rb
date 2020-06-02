@@ -20,16 +20,19 @@ module OneclickRefernet
       refernet_service
       .get_sub_categories(category.name.titleize)
       .try(:map) do |sub_cat|
-        name = sub_cat[0]
-        next nil unless name.present?
-        Rails.logger.debug "Building new sub_category with name: #{name}"
-        category.sub_categories.build(
-          name: name, 
-          code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string
-          refernet_category_id: sub_cat[1],
-          confirmed: false
-        )
+        self.setup_sub_category(category, sub_cat[0], sub_cat[1])
       end.compact
+    end
+
+    def self.setup_sub_category(category, name, sub_cat_refernet_id=nil)
+      next nil unless name.present?
+      Rails.logger.debug "Building new sub_category with name: #{name}"
+      category.sub_categories.build(
+          name: name,
+          code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string
+          refernet_category_id: sub_cat_refernet_id,
+          confirmed: false
+      )
     end
     
   end
