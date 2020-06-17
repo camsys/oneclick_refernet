@@ -6,6 +6,7 @@ module OneclickRefernet
 		attr_accessor :api_key
 	  BASE_URL = "http://www.referweb.net/mws/service.asmx/"
 		DEFAULT_API_KEY = OneclickRefernet.api_token
+		SUB_SUB_CATEGORY_IDENTIFIER = 'name'
 
 		def initialize(api_key=DEFAULT_API_KEY)
 			@api_key = api_key

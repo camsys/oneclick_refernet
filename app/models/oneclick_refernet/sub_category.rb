@@ -25,7 +25,7 @@ module OneclickRefernet
     end
 
     def self.setup_sub_category(category, name, sub_cat_refernet_id=nil)
-      next nil unless name.present?
+      return nil unless name.present?
       Rails.logger.debug "Building new sub_category with name: #{name}"
       category.sub_categories.build(
           name: name,

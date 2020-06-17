@@ -1,4 +1,4 @@
-namespace :ventura_211 do
+namespace :ventura do
   
   require 'tasks/helpers/refernet_task_helpers'
   include RefernetTaskHelpers
@@ -44,9 +44,9 @@ namespace :ventura_211 do
       Rails.logger.info "*** LOADING REFERNET CATEGORIES AND SERVICES ***"
 
       ### LOAD ALL DATABASE TABLES ###
-      Rake::Task["ventura_211:load:categories"].invoke
-      Rake::Task["ventura_211:load:sub_categories"].invoke
-      Rake::Task["ventura_211:load:sub_sub_categories"].invoke(args[:google_api_key])
+      Rake::Task["ventura:load:categories"].invoke
+      Rake::Task["ventura:load:sub_categories"].invoke
+      Rake::Task["ventura:load:sub_sub_categories"].invoke(args[:google_api_key] || '')
       Rake::Task["oneclick_refernet:load:services"].invoke
       
       ### CONFIRM CHANGES ###
@@ -56,7 +56,7 @@ namespace :ventura_211 do
       Rake::Task["oneclick_refernet:load:service_details"].invoke
 
       ### TRANSLATE ALL TABLES ###
-      Rake::Task["oneclick_refernet:translate:all"]
+      Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
       
       Rails.logger.info "*** COMPLETED LOADING REFERNET DATABASE ***"
     end
@@ -79,7 +79,7 @@ namespace :ventura_211 do
           'EDUCATION',
           'LEGAL ASSISTANCE'
         ].map do |category_name|
-          OCR::Category.setup_category(category_name)
+          OCR::Category.setup_category(category_name.downcase.titleize)
         end.compact
 
         @errors += save_and_log_errors(new_categories)
@@ -182,13 +182,13 @@ namespace :ventura_211 do
             ]
 
         }.each do |category_name, sub_category_names|
-          category = OCR::Category.unconfirmed.find_by(name: category_name)
+          category = OCR::Category.unconfirmed.find_by(name: category_name.downcase.titleize)
           cat_count += 1
           sub_cats = sub_category_names.map do |name|
             OCR::SubCategory.setup_sub_category(category, name)
           end.compact
 
-          Rails.logger.info "Category #{cat_count}/#{total_cat_count} (#{cat.name}): Getting #{sub_cats.count} SubCategories..."
+          Rails.logger.info "Category #{cat_count}/#{total_cat_count} (#{category_name}): Getting #{sub_cats.count} SubCategories..."
           @errors += save_and_log_errors(sub_cats)
           raise "ERROR LOADING REFERNET SUB-CATEGORIES" unless @errors.empty?
         end
@@ -203,11 +203,11 @@ namespace :ventura_211 do
     end
     
     desc "Load SubSubCategories from ReferNET"
-    task sub_sub_categories: :prepare, [:google_api_key] =>  [:environment] do |t,args|
+    task :sub_sub_categories, [:google_api_key] =>  [:prepare] do |t,args|
         begin
         OCR::SubSubCategory.destroy_unconfirmed # First, clear out all unconfirmed subsubcategories before loading new ones
 
-        filename = File.join(Rails.root,"db/data", 'ventura211_sub_sub_categories.csv')
+        filename = File.join(OCR::Engine.root,"db/data", 'ventura211_sub_sub_categories.csv')
 
         puts "Processing #{filename}"
 
@@ -216,17 +216,17 @@ namespace :ventura_211 do
           next nil unless row[0].present? && row[2].present?
           name = row[2]
           Rails.logger.debug "Building new sub_sub_category with name: #{name}"
-          new_sub_sub_categories = [OCR::SubCategory.find_by(name: row[0]).sub_sub_categories.build(
+          new_sub_sub_category = OCR::SubCategory.find_by(name: row[0]).sub_sub_categories.build(
               name: name,
               code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string,
+              taxonomy_code: OCR::SubSubCategory.refernet_service.get_taxonomy_code(name),
               confirmed: false
-          )]
+          )
 
-          @errors += save_and_log_errors(new_sub_sub_categories)
+          @errors += save_and_log_errors([new_sub_sub_category])
           raise "ERROR LOADING REFERNET SUB-SUB-CATEGORIES" unless @errors.empty?
 
-          cat = new_sub_sub_categories.first
-          puts "------------------Translating #{cat.class.name} #{cat.name} ------------------"
+          puts "------------------Translating #{new_sub_sub_category.class.name} #{new_sub_sub_category.name} ------------------"
 
           # Only translate available locales with missing translations
           I18n.available_locales.each do |locale|
@@ -235,15 +235,14 @@ namespace :ventura_211 do
               translated = row[1]
             else # Otherwise, translate the titleized code into the given locale
               if(args[:google_api_key]) # GOOGLE Translate
-                translated = gt.translate(cat.name, locale.to_s, :en)
+                translated = gt.translate(new_sub_sub_category.name, locale.to_s, :en)
               else # Fake Translate
-                translated = "#{locale}_#{cat.code}"
+                translated = "#{locale}_#{new_sub_sub_category.code}"
               end
             end
 
             # Set the translation and increment the counter
-            cat.set_translated_name(locale, translated)
-            new_translations += 1
+            new_sub_sub_category.set_translated_name(locale, translated)
 
           end # locales.each
         end

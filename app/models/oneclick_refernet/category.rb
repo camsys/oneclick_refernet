@@ -23,7 +23,7 @@ module OneclickRefernet
     end
 
     def self.setup_category(name)
-      next nil unless name.present?
+      return nil unless name.present?
       Rails.logger.debug "Building new category with name: #{name}"
       self.new(
           name: name,

@@ -40,7 +40,7 @@ module OneclickRefernet
     # Fetch services by sub-sub-category from ReferNET
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
-      .get_services_by_category_and_county(sub_sub_cat.name.titleize)
+      .get_services_by_category_and_county(sub_sub_cat.send(refernet_service.class::SUB_SUB_CATEGORY_IDENTIFIER))
       .try(:uniq) { |svc| [ svc[refernet_service.column_name_mappings[:service_id_column_name]], svc[refernet_service.column_name_mappings[:location_id_column_name]] ] } # Get uniq service by refernet ids
       .try(:map) do |svc|
         service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
@@ -67,7 +67,7 @@ module OneclickRefernet
 
     # Get Details
     def get_details
-      refernet_service.get_service_details(self.details[refernet_service.column_name_mappings[:location_id_column_name]], self.details[refernet_service.column_name_mappings[:service_id_column_name]], self.details[refernet_service.column_name_mappings[:service_site_id_column_name]])
+      self.class.refernet_service.get_service_details(self.details[self.class.refernet_service.column_name_mappings[:location_id_column_name]], self.details[self.class.refernet_service.column_name_mappings[:service_id_column_name]], self.details[self.class.refernet_service.column_name_mappings[:service_site_id_column_name]])
     end
     
     # Returns the service's name
@@ -89,8 +89,8 @@ module OneclickRefernet
     
     # Constructs a formatted address
     def address
-      details.values_at(*[refernet_service.column_name_mappings[:address1_column_name],refernet_service.column_name_mappings[:address2_column_name],refernet_service.column_name_mappings[:city_column_name],refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') +
-      " #{details[refernet_service.column_name_mappings[:zipcode_column_name]]}"
+      details.values_at(*[self.class.refernet_service.column_name_mappings[:address1_column_name],self.class.refernet_service.column_name_mappings[:address2_column_name],self.class.refernet_service.column_name_mappings[:city_column_name],self.class.refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') +
+      " #{details[self.class.refernet_service.column_name_mappings[:zipcode_column_name]]}"
     end
 
     # Returns whatever phone number can be found
@@ -114,7 +114,7 @@ module OneclickRefernet
     
     # Sets the latlng point from lat and lng in the details
     def set_latlng
-      lat, lng = details[refernet_service.column_name_mappings[:latitude_column_name]].to_f, details[refernet_service.column_name_mappings[:longitude_column_name]].to_f * -1
+      lat, lng = details[self.class.refernet_service.column_name_mappings[:latitude_column_name]].to_f, details[self.class.refernet_service.column_name_mappings[:longitude_column_name]].to_f.abs * -1
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
     
@@ -123,21 +123,21 @@ module OneclickRefernet
     
     # Sets agency and site names from details, if not already set
     def set_names
-      self.agency_name ||= details[refernet_service.column_name_mappings[:agency_name_column_name]]
-      self.site_name ||= details[refernet_service.column_name_mappings[:site_name_column_name]]
+      self.agency_name ||= details[self.class.refernet_service.column_name_mappings[:agency_name_column_name]]
+      self.site_name ||= details[self.class.refernet_service.column_name_mappings[:site_name_column_name]]
     end
     
     # Sets the service description based on the Service Description label, if available and not already set
     def set_description
-      descrip_column_name = refernet_service.column_name_mappings[:description_column_name]
+      descrip_column_name = self.class.refernet_service.column_name_mappings[:description_column_name]
       self.description ||= details[descrip_column_name] if details[descrip_column_name]
     end
     
     # Set ReferNET Service_ID, Location_ID, and ServiceSite_ID
     def set_refernet_ids
-      self.refernet_service_id ||= details[refernet_service.column_name_mappings[:service_id_column_name]]
-      self.refernet_location_id ||= details[refernet_service.column_name_mappings[:location_id_column_name]]
-      self.refernet_servicesite_id ||= details[refernet_service.column_name_mappings[:service_site_id_column_name]]
+      self.refernet_service_id ||= details[self.class.refernet_service.column_name_mappings[:service_id_column_name]]
+      self.refernet_location_id ||= details[self.class.refernet_service.column_name_mappings[:location_id_column_name]]
+      self.refernet_servicesite_id ||= details[self.class.refernet_service.column_name_mappings[:service_site_id_column_name]]
     end
     
     # Relevant labels contained in the details hash
@@ -161,7 +161,7 @@ module OneclickRefernet
     # Builds a translation key for this service and the passed label
     def translation_key(label)
       label = label.to_s.parameterize.underscore # Make label a snake_case string
-      "SERVICE_#{details[refernet_service.column_name_mappings[:service_id_column_name]]}+#{details[refernet_service.column_name_mappings[:service_site_id_column_name]]}_#{label}"
+      "SERVICE_#{details[self.class.refernet_service.column_name_mappings[:service_id_column_name]]}+#{details[self.class.refernet_service.column_name_mappings[:service_site_id_column_name]]}_#{label}"
     end
     
     # Get translated label by label name and locale
