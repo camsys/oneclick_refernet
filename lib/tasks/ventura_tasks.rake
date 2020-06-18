@@ -204,6 +204,14 @@ namespace :ventura do
     
     desc "Load SubSubCategories from ReferNET"
     task :sub_sub_categories, [:google_api_key] =>  [:prepare] do |t,args|
+
+        if args[:google_api_key]
+          puts 'Using Google Translate'
+          gt = OneclickRefernet::GoogleTranslate.new(args[:google_api_key])
+        else
+          puts 'Using Fake Translate'
+        end
+
         begin
         OCR::SubSubCategory.destroy_unconfirmed # First, clear out all unconfirmed subsubcategories before loading new ones
 
