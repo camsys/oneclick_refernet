@@ -28,7 +28,7 @@ module OneclickRefernet
 					zipcode_column_name: 'ZipCode',
 					latitude_column_name: 'Latitude',
 					longitude_column_name: 'Longitude',
-					description_column_name: 'Label_Service Description',
+					description_column_name: 'Label_service_description',
 					phone_column_name: "Number_Phone"
 			}
 		end

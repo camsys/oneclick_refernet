@@ -192,7 +192,7 @@ namespace :oneclick_refernet do
           Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
           s.get_details.each do |detail|
             if detail["Label"]
-              s.details["Label_#{detail["Label"]}"] = detail["Text"]
+              s.details["Label_#{detail["Label"].parameterize.underscore}"] = detail["Text"]
               @errors += save_and_log_errors([s])
             end
           end
