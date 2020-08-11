@@ -33,6 +33,22 @@ module OneclickRefernet
 			}
 		end
 
+		def labels
+			[
+					"Service Description",
+					"Eligibility",
+					"Intake Procedure",
+					"Fees",
+					"Program Service Hours", #
+					"Documents Required",
+					"Payment Options", #
+					"Site Hours", #
+					"LANGUAGES SPOKEN",
+					"TRAVEL INSTRUCTIONS",
+					"Accessibility"
+			]
+		end
+
 		def service_id_column_name
 			'idService'
 		end

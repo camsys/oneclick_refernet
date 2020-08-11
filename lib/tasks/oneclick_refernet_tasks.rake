@@ -225,6 +225,7 @@ namespace :oneclick_refernet do
               site_hours: 'locations.schedule',
               languages_spoken: 'language',
               travel_instructions: 'locations.transportation',
+              accessibility: 'accessibility'
           }.each do |translation_key, api_column_name|
             col = api_column_name.split('.').last
             if api_column_name.include? 'locations'
@@ -237,7 +238,7 @@ namespace :oneclick_refernet do
             s.details["Label_#{translation_key}"] = col_value
           end
 
-          s.details["Label_area_served"] = detail['services'][0]['serviceArea'].map{|area| "#{area['city']} #{area['state']}"}.join(', ')
+          # s.details["Label_area_served"] = detail['services'][0]['serviceArea'].map{|area| "#{area['city']} #{area['state']}"}.join(', ')
 
           s.details = s.details.merge(detail['locations'][0]['address'].find{|address| address['type'] == 'physical'}) if detail['locations'][0]['address']
 

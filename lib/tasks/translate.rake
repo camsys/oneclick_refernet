@@ -79,7 +79,7 @@ namespace :oneclick_refernet do
         puts "------------------Translating SERVICE #{service.id}: #{service.site_name} ------------------"
         
         # Translate each relevant label
-        OneclickRefernet::Service::LABELS.each do |label|
+        OneclickRefernet::Service.refernet_service.labels.each do |label|
           
           new_value = service['details']["Label_#{label.parameterize.underscore}"]
           

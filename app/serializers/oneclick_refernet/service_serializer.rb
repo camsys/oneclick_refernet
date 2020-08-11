@@ -12,6 +12,7 @@ module OneclickRefernet
                :email,
                :display_url,
                :phone,
+               :phones,
                :details,
                :service_id,
                :location_id
@@ -52,10 +53,21 @@ module OneclickRefernet
       object.details["Number_Phone2"] ||
       object.details["Number_Phone3"]          
     end
+
+    def phones
+      idx = 1
+      phones = []
+      while object.details["Number_Phone#{idx}"].present?
+        phones << object.details["Number_Phone#{idx}"]
+        idx +=1
+      end
+
+      return phones
+    end
     
     # Returns a hash of the translated details labels
     def details
-      OneclickRefernet::Service::LABELS.map do |label| 
+      OneclickRefernet::Service.refernet_service.labels.map do |label|
         [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
     end

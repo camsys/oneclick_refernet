@@ -33,6 +33,22 @@ module OneclickRefernet
 			}
 		end
 
+		def labels
+			[
+					"Service Description",
+					"Eligibility",
+					"Intake Procedure",
+					"Fees",
+					"Program Service Hours", #
+					"Documents Required",
+					"Payment Options", #
+					"Site Hours", #
+					"LANGUAGES SPOKEN",
+					"TRAVEL INSTRUCTIONS",
+					"Area Served"
+			]
+		end
+
 		# Keyword Search
 		# Returns an array of Hashes of ReferNET Services
 		def search_keyword keyword
