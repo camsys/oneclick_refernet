@@ -250,6 +250,8 @@ namespace :oneclick_refernet do
 
           s.details["email"] = detail['services'][0]['email'] if detail['services'][0]['email'].present?
           s.details["url"] = detail['services'][0]['url'] if detail['services'][0]['url'].present?
+
+          s.agency_name = s.details['nameService'] + " at " + s.agency_name
           @errors += save_and_log_errors([s])
 
         end
