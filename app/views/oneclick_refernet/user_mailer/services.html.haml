@@ -16,7 +16,7 @@
     -unless val.blank?
       %strong
         =I18n.translate(key)
-      =val
+      = sanitize val
       %br
   %hr
 
