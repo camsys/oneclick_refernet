@@ -205,60 +205,62 @@ namespace :oneclick_refernet do
 
     desc "Pulls in Service Descriptions from Azure"
     task azure_service_service_details: :prepare do
-      begin
-        svc_count = 0
-        total_svc_count = OCR::Service.confirmed.count
-        OCR::Service.confirmed.each do |s|
-          svc_count += 1
-          Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
+      svc_count = 0
+      total_svc_count = OCR::Service.confirmed.count
+      OCR::Service.confirmed.each do |s|
 
-          detail = s.get_details
+        svc_count += 1
+        Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
 
-          {
-              service_description: 'description',
-              eligibility: 'eligibility',
-              intake_procedure: 'applicationProcess',
-              fees: 'fees',
-              program_service_hours: 'schedule',
-              documents_required: 'document',
-              payment_options: '',
-              site_hours: 'locations.schedule',
-              languages_spoken: 'language',
-              travel_instructions: 'locations.transportation',
-              accessibility: 'accessibility'
-          }.each do |translation_key, api_column_name|
-            col = api_column_name.split('.').last
-            if api_column_name.include? 'locations'
-              col_value = detail['locations'][0]
-            else
-              col_value = detail['services'][0]
-            end
+        detail = s.get_details
 
+        {
+            service_description: 'description',
+            eligibility: 'eligibility',
+            intake_procedure: 'applicationProcess',
+            fees: 'fees',
+            program_service_hours: 'schedule',
+            documents_required: 'document',
+            payment_options: '',
+            site_hours: 'locations.schedule',
+            languages_spoken: 'language',
+            travel_instructions: 'locations.transportation',
+            accessibility: 'accessibility'
+        }.each do |translation_key, api_column_name|
+          col = api_column_name.split('.').last
+          if api_column_name.include? 'locations'
+            col_value = detail['locations'][0]
+          else
+            col_value = detail['services'][0]
+          end
+
+          if col_value
             col_value = col_value[col]
             s.details["Label_#{translation_key}"] = col_value
+          #else
+          #  @errors << { record: s, message: "No #{api_column_name}"}
           end
-
-          # s.details["Label_area_served"] = detail['services'][0]['serviceArea'].map{|area| "#{area['city']} #{area['state']}"}.join(', ')
-
-          s.details = s.details.merge(detail['locations'][0]['address'].find{|address| address['type'] == 'physical'}) if detail['locations'][0]['address']
-
-          unless detail['services'][0]['phone'].empty?
-            detail['services'][0]['phone'].each_with_index do |phone_num, idx|
-              s.details["Number_Phone#{idx+1}"] = phone_num['number']
-            end
-          end
-
-          s.details["email"] = detail['services'][0]['email'] if detail['services'][0]['email'].present?
-          s.details["url"] = detail['services'][0]['url'] if detail['services'][0]['url'].present?
-
-          s.agency_name = s.details['nameService'] + " at " + s.agency_name
-          @errors += save_and_log_errors([s])
-
         end
 
-      rescue => e
-        catch_refernet_load_errors(e, OCR::Service, @errors)
+        # s.details["Label_area_served"] = detail['services'][0]['serviceArea'].map{|area| "#{area['city']} #{area['state']}"}.join(', ')
+
+        s.details = s.details.merge(detail['locations'][0]['address'].find{|address| address['type'] == 'physical'}) if detail['locations'][0] && detail['locations'][0]['address']
+
+        unless detail['services'][0]['phone'].empty?
+          detail['services'][0]['phone'].each_with_index do |phone_num, idx|
+            s.details["Number_Phone#{idx+1}"] = phone_num['number']
+          end
+        end
+
+        s.details["email"] = detail['services'][0]['email'] if detail['services'][0]['email'].present?
+        s.details["url"] = detail['services'][0]['url'] if detail['services'][0]['url'].present?
+
+        s.agency_name = s.details['nameService'] + " at " + s.agency_name
+        @errors += save_and_log_errors([s])
       end
+      Rails.logger.error "ERROR MESSAGES: "
+      Rails.logger.error @errors
+
     end
     
   end
