@@ -213,6 +213,8 @@ namespace :oneclick_refernet do
         Rails.logger.info "Getting Details for Service #{svc_count}/#{total_svc_count} (#{s.agency_name}, #{s.id})"
 
         detail = s.get_details
+        # Wait between Azure http requests to prevent throttling by rate limit
+        sleep 1 # seconds
 
         {
             service_description: 'description',
