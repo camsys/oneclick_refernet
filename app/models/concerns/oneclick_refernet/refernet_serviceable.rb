@@ -6,7 +6,7 @@ module OneclickRefernet
       def self.refernet_service
         if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
           OneclickRefernet::RefernetService.new
-        elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        elsif true #DEREK ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
           OneclickRefernet::AzureService.new
         end
       end

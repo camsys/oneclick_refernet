@@ -47,13 +47,14 @@ namespace :ventura do
       Rake::Task["ventura:load:categories"].invoke
       Rake::Task["ventura:load:sub_categories"].invoke
       Rake::Task["ventura:load:sub_sub_categories"].invoke(args[:google_api_key] || '')
-      Rake::Task["oneclick_refernet:load:services"].invoke
+      Rake::Task["ventura:load:services"].invoke
+      #Rake::Task["oneclick_refernet:load:services"].invoke
       
       ### CONFIRM CHANGES ###
       Rake::Task["oneclick_refernet:load:confirm"].invoke
       
       ### LOAD SERVICE DETAILS ###
-      Rake::Task["oneclick_refernet:load:service_details"].invoke
+      #Rake::Task["oneclick_refernet:load:service_details"].invoke
 
       ### TRANSLATE ALL TABLES ###
       Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
@@ -61,7 +62,7 @@ namespace :ventura do
       Rails.logger.info "*** COMPLETED LOADING REFERNET DATABASE ***"
     end
   
-    desc "Load Categories from ReferNET"
+    desc "Load Categories for Ventura"
     task categories: :prepare do
       
       begin
@@ -81,8 +82,8 @@ namespace :ventura do
         ].map do |category_name|
           OCR::Category.setup_category(category_name.downcase.titleize)
         end.compact
-
         @errors += save_and_log_errors(new_categories)
+
         raise "ERROR LOADING REFERNET CATEGORIES" unless @errors.empty?
 
         Rails.logger.info "*** Successfully Loaded #{OCR::Category.unconfirmed.count} Categories ***"
@@ -93,7 +94,7 @@ namespace :ventura do
 
     end
     
-    desc "Load SubCategories from ReferNET"
+    desc "Load SubCategories for Ventura"
     task sub_categories: :prepare do
       begin
 
@@ -202,7 +203,7 @@ namespace :ventura do
         
     end
     
-    desc "Load SubSubCategories from ReferNET"
+    desc "Load SubSubCategories for Ventura from CSV"
     task :sub_sub_categories, [:google_api_key] =>  [:prepare] do |t,args|
 
         if args[:google_api_key]
@@ -227,7 +228,7 @@ namespace :ventura do
           new_sub_sub_category = OCR::SubCategory.find_by(name: row[0]).sub_sub_categories.build(
               name: name,
               code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string,
-              taxonomy_code: OCR::SubSubCategory.refernet_service.get_taxonomy_code(name),
+              taxonomy_code: 'na',
               confirmed: false
           )
 
@@ -258,6 +259,13 @@ namespace :ventura do
         catch_refernet_load_errors(e, OCR::SubSubCategory, @errors)
       end
 
+      puts "TOTAL NUMBER OF SUBSUBCATEGORIES IS #{OCR::SubSubCategory.count}"
+    end #sub_sub_categories
+
+    desc "Load services from Azure"
+    task services: :prepare do
+      OCR::Service.create_from_azure
     end
-  end
-end
+
+  end #load
+end #ventura

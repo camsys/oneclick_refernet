@@ -47,19 +47,20 @@ module OneclickRefernet
       object.details["email"]).to_s
     end
 
-    # Returns whatever phone number can be found
-    def phone
-      object.details["Number_Phone1"] ||
-      object.details["Number_Phone2"] ||
-      object.details["Number_Phone3"]          
-    end
-
     def phones
+      
       idx = 1
       phones = []
-      while object.details["Number_Phone#{idx}"].present?
-        phones << object.details["Number_Phone#{idx}"]
-        idx +=1
+      
+      if false #DEREK
+        while object.details["Number_Phone#{idx}"].present?
+          phones << object.details["Number_Phone#{idx}"]
+          idx +=1
+        end
+      elsif true #DEREK
+        object.details["phone"].each do |ph|
+          phones << ph["number"]
+        end
       end
 
       return phones

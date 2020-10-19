@@ -65,7 +65,7 @@ namespace :oneclick_refernet do
       :sub_sub_categories,
       :services
     ]
-  
+    
     desc "Load Categories from ReferNET"
     task categories: :prepare do
       
@@ -132,7 +132,7 @@ namespace :oneclick_refernet do
     end
     
     desc "Load Services from ReferNET"
-    task services: :prepare do
+    task services: :prepare_refernet do
       begin
         
         sscat_count = 0
@@ -154,6 +154,11 @@ namespace :oneclick_refernet do
       end
 
     end
+
+    desc "Load Services from Azure"
+    task services: :prepare_azure do
+    end
+
     
     desc "Confirms All Tables"
     task confirm: :prepare do
@@ -203,8 +208,12 @@ namespace :oneclick_refernet do
       end
     end
 
+    #No Longer Used: this is done at once from the export call
     desc "Pulls in Service Descriptions from Azure"
     task azure_service_service_details: :prepare do
+      
+      return #NOTHING TO DO
+
       svc_count = 0
       total_svc_count = OCR::Service.confirmed.count
       OCR::Service.confirmed.each do |s|

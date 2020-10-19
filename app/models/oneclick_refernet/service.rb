@@ -19,10 +19,10 @@ module OneclickRefernet
     
     ### ATTRIBUTES ###
     serialize :details
+    serialize :location_details
     
     # Before validating, set fields based on details hash
     before_validation :set_latlng, :set_names, :set_description, :set_refernet_ids
-    
     
     ### ASSOCIATIONS ###
     has_many :services_sub_sub_categories, dependent: :destroy
@@ -38,6 +38,7 @@ module OneclickRefernet
     ### CLASS METHODS ###
 
     # Fetch services by sub-sub-category from ReferNET
+    # Used for Referent: Not used for Azure
     def self.fetch_by_sub_sub_category(sub_sub_cat)
       refernet_service
       .get_services_by_category_and_county(sub_sub_cat.send(refernet_service.class::SUB_SUB_CATEGORY_IDENTIFIER))
@@ -57,7 +58,47 @@ module OneclickRefernet
         next new_service
       end.compact
     end
-    
+
+    def self.create_from_azure
+      tmp_orgs = [] #TODO Delete me
+      refernet_service.get_all_organizations.each do |org|
+        tmp_orgs << org
+        org["services"].each do |svc|
+          service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
+          svc["serviceAtLocation"].each do |loc|
+            location_id = loc["idLocation"]
+            location_details = org["locations"].select {|location| location["idLocation"] == location_id }.uniq.first
+            new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
+                refernet_service_id: service_id,
+                refernet_location_id: location_id,
+                confirmed: false
+            )
+
+            org_name = org["name"]
+            service_name = svc["name"]
+            location_name = location_details.try(:[], "name") || "N/A"
+
+            new_service.agency_name = "#{org_name} #{service_name}"
+            new_service.site_name = location_name 
+
+            new_service.assign_attributes(details: svc, location_details: location_details)
+            new_service.save! 
+
+            #Assign the services to the taxonomies
+            svc["taxonomy"].each do |taxonomy|
+              term = taxonomy["term"]
+              puts term
+              puts '----------'
+              sub_sub_category = OneclickRefernet::SubSubCategory.find_by(name: term)
+              sub_sub_category.services << new_service if sub_sub_category
+            end
+
+          end #Locations
+        end #Services
+      end #Orgs
+      tmp_orgs
+    end
+
     # Saves all services. Useful for refreshing their attributes from the details hash
     def self.save_all
       self.all.each {|svc| svc.save}
@@ -89,15 +130,23 @@ module OneclickRefernet
     
     # Constructs a formatted address
     def address
-      details.values_at(*[self.class.refernet_service.column_name_mappings[:address1_column_name],self.class.refernet_service.column_name_mappings[:address2_column_name],self.class.refernet_service.column_name_mappings[:city_column_name],self.class.refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') +
-      " #{details[self.class.refernet_service.column_name_mappings[:zipcode_column_name]]}"
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        details.values_at(*[self.class.refernet_service.column_name_mappings[:address1_column_name],self.class.refernet_service.column_name_mappings[:address2_column_name],self.class.refernet_service.column_name_mappings[:city_column_name],self.class.refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') + " #{details[self.class.refernet_service.column_name_mappings[:zipcode_column_name]]}"      
+      elsif true # DEREK ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        addr = location_details['address'].find{ |address| address['type'] == 'physical'} if location_details['address']
+        "#{addr['address_1']}#{' ' + addr['address_2'] if addr['address_2']}, #{addr['city']}"
+      end
     end
 
-    # Returns whatever phone number can be found
+  # Returns whatever phone number can be found
     def phone
-      details["Number_Phone1"] ||
-      details["Number_Phone2"] ||
-      details["Number_Phone3"]          
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        details["Number_Phone1"] ||
+        details["Number_Phone2"] ||
+        details["Number_Phone3"]  
+      else true #DEREK
+        details["phone"].try(:first).try(:[], "number")
+      end        
     end
     
     ## Geometry Helper Methods
@@ -114,18 +163,26 @@ module OneclickRefernet
     
     # Sets the latlng point from lat and lng in the details
     def set_latlng
-      lat, lng = details[self.class.refernet_service.column_name_mappings[:latitude_column_name]].to_f, details[self.class.refernet_service.column_name_mappings[:longitude_column_name]].to_f.abs * -1
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        lat, lng = details[self.class.refernet_service.column_name_mappings[:latitude_column_name]].to_f, details[self.class.refernet_service.column_name_mappings[:longitude_column_name]].to_f.abs * -1
+      elsif true # DEREK ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        lat, lng = location_details.try(:[], "latitude").to_f, location_details.try(:[], "longitude").to_f 
+      end
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
-    
-    
+
+
+
     ## Attribute Helper Methods
     
     # Sets agency and site names from details, if not already set
     def set_names
-      self.agency_name ||= details[self.class.refernet_service.column_name_mappings[:agency_name_column_name]]
-      self.site_name ||= details[self.class.refernet_service.column_name_mappings[:site_name_column_name]]
-    end
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        self.agency_name ||= details[self.class.refernet_service.column_name_mappings[:agency_name_column_name]]
+        self.site_name ||= details[self.class.refernet_service.column_name_mappings[:site_name_column_name]]
+      end 
+      #AZURE Service NAMES ARE SET WHEN THE SERVICE IS CREATED
+    end 
     
     # Sets the service description based on the Service Description label, if available and not already set
     def set_description
