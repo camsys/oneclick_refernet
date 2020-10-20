@@ -59,9 +59,11 @@ module OneclickRefernet
       end.compact
     end
 
-    def self.create_from_azure
-      tmp_orgs = [] #TODO Delete me
-      refernet_service.get_all_organizations.each do |org|
+    # Fetch all the Azure Services, Assign them to all the relevant subsubcategories (taxonomies)
+    # Services with multiple locations are treated as separate services
+    def self.create_from_azure updated_after=nil 
+      tmp_orgs = [] 
+      refernet_service.get_all_organizations(updated_after).each do |org|
         tmp_orgs << org
         org["services"].each do |svc|
           service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
@@ -87,8 +89,6 @@ module OneclickRefernet
             #Assign the services to the taxonomies
             svc["taxonomy"].each do |taxonomy|
               term = taxonomy["term"]
-              puts term
-              puts '----------'
               sub_sub_category = OneclickRefernet::SubSubCategory.find_by(name: term)
               sub_sub_category.services << new_service if sub_sub_category
             end
@@ -171,10 +171,7 @@ module OneclickRefernet
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
 
-
-
     ## Attribute Helper Methods
-    
     # Sets agency and site names from details, if not already set
     def set_names
       if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
@@ -197,22 +194,6 @@ module OneclickRefernet
       self.refernet_servicesite_id ||= details[self.class.refernet_service.column_name_mappings[:service_site_id_column_name]]
     end
     
-    # Relevant labels contained in the details hash
-    LABELS = [
-      "Service Description",
-      "Eligibility",
-      "Intake Procedure",
-      "Fees",
-      "Program Service Hours", #
-      "Documents Required",
-      "Payment Options", #
-      "Site Hours", #
-      "LANGUAGES SPOKEN",
-      "TRAVEL INSTRUCTIONS",
-      "Area Served"
-    ]
-
-
     ## Translation Helper Methods
     
     # Builds a translation key for this service and the passed label

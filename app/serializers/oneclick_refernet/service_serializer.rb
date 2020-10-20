@@ -48,7 +48,7 @@ module OneclickRefernet
     end
 
     def phones
-      
+
       idx = 1
       phones = []
       
@@ -63,7 +63,7 @@ module OneclickRefernet
         end
       end
 
-      return phones
+      return phones.uniq
     end
     
     # Returns a hash of the translated details labels

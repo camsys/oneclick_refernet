@@ -81,7 +81,11 @@ namespace :oneclick_refernet do
         # Translate each relevant label
         OneclickRefernet::Service.refernet_service.labels.each do |label|
           
-          new_value = service['details']["Label_#{label.parameterize.underscore}"]
+          if false #Derek
+            new_value = service['details']["Label_#{label.parameterize.underscore}"]
+          elsif true
+            new_value = service['details'][label.parameterize.underscore.camelize(:lower)]
+          end
           
           # If the value is nil, delete translations for this label
           if new_value.nil?

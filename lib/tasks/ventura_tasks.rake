@@ -48,14 +48,10 @@ namespace :ventura do
       Rake::Task["ventura:load:sub_categories"].invoke
       Rake::Task["ventura:load:sub_sub_categories"].invoke(args[:google_api_key] || '')
       Rake::Task["ventura:load:services"].invoke
-      #Rake::Task["oneclick_refernet:load:services"].invoke
       
       ### CONFIRM CHANGES ###
       Rake::Task["oneclick_refernet:load:confirm"].invoke
       
-      ### LOAD SERVICE DETAILS ###
-      #Rake::Task["oneclick_refernet:load:service_details"].invoke
-
       ### TRANSLATE ALL TABLES ###
       Rake::Task["oneclick_refernet:translate:all"].invoke(args[:google_api_key])
       
@@ -264,7 +260,13 @@ namespace :ventura do
 
     desc "Load services from Azure"
     task services: :prepare do
-      OCR::Service.create_from_azure
+      
+      
+      if OCR::Service.count == 0 #Initial Load: Load everything
+        OCR::Service.create_from_azure
+      else #Update load, only look at service updated in the past month
+        OCR::Service.create_from_azure Time.now-4.weeks 
+      end
     end
 
   end #load
