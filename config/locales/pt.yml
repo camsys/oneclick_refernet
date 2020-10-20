@@ -11,3 +11,11 @@ pt:
   languages_spoken: "Línguas faladas"
   travel_instructions: "Instruções de viagem" 
   area_served: "Área servida"
+  description: "Descrição",
+  application_process: "Processo de Aplicação",
+  wait_time: "Tempo de Espera",
+  accreditations: "Acreditações",
+  schedule: "Cronograma",
+  language: "Língua",
+  document: "Documentos necessários",
+  temporary_message: "Mensagem Temporária"
