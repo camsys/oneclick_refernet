@@ -11,11 +11,11 @@ ht:
   languages_spoken: "Lang yo pale"
   travel_instructions: "Enstriksyon vwayaj" 
   area_served: "Zòn te sèvi"
-  description: "Deskripsyon",
-  application_process: "Pwosesis Aplikasyon an",
-  wait_time: "Tann Tan",
-  accreditations: "Akreditasyon",
-  schedule: "Orè",
-  language: "Lang",
-  document: "Dokiman ki obligatwa",
+  description: "Deskripsyon"
+  application_process: "Pwosesis Aplikasyon an"
+  wait_time: "Tann Tan"
+  accreditations: "Akreditasyon"
+  schedule: "Orè"
+  language: "Lang"
+  document: "Dokiman ki obligatwa"
   temporary_message: "Mesaj Tanporè"

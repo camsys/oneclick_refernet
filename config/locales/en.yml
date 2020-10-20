@@ -1,6 +1,6 @@
 en:
   services: "Services"
-  service_description: "Service Description",
+  service_description: "Service Description"
   eligibility: "Eligibility"
   intake_procedure: "Intake Procedure"
   fees: "Fees"
@@ -10,12 +10,12 @@ en:
   site_hours: "Site Hours"
   languages_spoken: "Languages Spoken"
   travel_instructions: "Travel Instructions" 
-  area_served: "Area Served",
-  description: "Description",
-  application_process: "Application Process",
-  wait_time: "Wait Time",
-  accreditations: "Accreditations",
-  schedule: "Schedule",
-  language: "Language",
-  document: "Documents Required",
+  area_served: "Area Served"
+  description: "Description"
+  application_process: "Application Process"
+  wait_time: "Wait Time"
+  accreditations: "Accreditations"
+  schedule: "Schedule"
+  language: "Language"
+  document: "Documents Required"
   temporary_message: "Temporary Message"

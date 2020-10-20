@@ -12,10 +12,10 @@ vi:
   travel_instructions: "Hướng dẫn du lịch" 
   area_served: "Khu vực được phục vụ"
   description: "Sự iêu tả",
-  application_process: "Quy trình nộp đơn",
-  wait_time: "Thời gian chờ đợi",
-  accreditations: "Kiểm định",
-  schedule: "lịch trình",
-  language: "ngôn ngữ",
-  document: "Tài liệu cần thiết",
+  application_process: "Quy trình nộp đơn"
+  wait_time: "Thời gian chờ đợi"
+  accreditations: "Kiểm định"
+  schedule: "lịch trình"
+  language: "ngôn ngữ"
+  document: "Tài liệu cần thiết"
   temporary_message: "Tin nhắn tạm thời"
