@@ -52,12 +52,12 @@ module OneclickRefernet
       idx = 1
       phones = []
       
-      if false #DEREK
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
         while object.details["Number_Phone#{idx}"].present?
           phones << object.details["Number_Phone#{idx}"]
           idx +=1
         end
-      elsif true #DEREK
+      elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
         object.details["phone"].each do |ph|
           phones << ph["number"]
         end

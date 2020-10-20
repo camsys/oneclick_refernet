@@ -81,9 +81,9 @@ namespace :oneclick_refernet do
         # Translate each relevant label
         OneclickRefernet::Service.refernet_service.labels.each do |label|
           
-          if false #Derek
+          if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
             new_value = service['details']["Label_#{label.parameterize.underscore}"]
-          elsif true
+          elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
             new_value = service['details'][label.parameterize.underscore.camelize(:lower)]
           end
           

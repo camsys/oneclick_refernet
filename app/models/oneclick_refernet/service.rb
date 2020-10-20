@@ -132,7 +132,7 @@ module OneclickRefernet
     def address
       if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
         details.values_at(*[self.class.refernet_service.column_name_mappings[:address1_column_name],self.class.refernet_service.column_name_mappings[:address2_column_name],self.class.refernet_service.column_name_mappings[:city_column_name],self.class.refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') + " #{details[self.class.refernet_service.column_name_mappings[:zipcode_column_name]]}"      
-      elsif true # DEREK ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+      elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
         addr = location_details['address'].find{ |address| address['type'] == 'physical'} if location_details['address']
         "#{addr['address_1']}#{' ' + addr['address_2'] if addr['address_2']}, #{addr['city']}"
       end
@@ -144,7 +144,7 @@ module OneclickRefernet
         details["Number_Phone1"] ||
         details["Number_Phone2"] ||
         details["Number_Phone3"]  
-      else true #DEREK
+      else ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
         details["phone"].try(:first).try(:[], "number")
       end        
     end
@@ -165,7 +165,7 @@ module OneclickRefernet
     def set_latlng
       if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
         lat, lng = details[self.class.refernet_service.column_name_mappings[:latitude_column_name]].to_f, details[self.class.refernet_service.column_name_mappings[:longitude_column_name]].to_f.abs * -1
-      elsif true # DEREK ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+      elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
         lat, lng = location_details.try(:[], "latitude").to_f, location_details.try(:[], "longitude").to_f 
       end
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)

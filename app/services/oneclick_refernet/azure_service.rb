@@ -8,7 +8,7 @@ module OneclickRefernet
 		DEFAULT_API_KEY = OneclickRefernet.api_token
 		SUB_SUB_CATEGORY_IDENTIFIER = 'taxonomy_code'
 
-		def initialize(api_key="")
+		def initialize(api_key=DEFAULT_API_KEY)
 			@api_key = api_key
 		end
 
