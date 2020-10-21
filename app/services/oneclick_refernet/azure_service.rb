@@ -70,7 +70,8 @@ module OneclickRefernet
       results = []
       done = false
       while !done do 
-        orgs = get_paginated_organizations(updated_after, 500, page_index)
+        puts "Grabbing 500 Orgs"
+	orgs = get_paginated_organizations(updated_after, 500, page_index)
         page_index += 1 
         if orgs.nil?
           done = true
