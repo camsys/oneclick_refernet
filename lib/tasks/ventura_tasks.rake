@@ -16,18 +16,18 @@ namespace :ventura do
   end
 
   desc "Load database if it's more than a week old"
-  task :load_database_on_sunday, [:google_api_key] =>  [:prepare_environment] do |t,args|
+  task :load_database_on_sunday, [:google_api_key, :incremental] =>  [:prepare_environment] do |t,args|
     # Runs load_database only if it's Sunday
     if DateTime.now.wday == 0
       Rails.logger.info "It's Sunday! Running the load database task..."
-      Rake::Task["oneclick_refernet:load:database"].invoke(args[:google_api_key])
+      Rake::Task["oneclick_refernet:load:database"].invoke(args[:google_api_key], args[:incremental])
     else
       Rails.logger.info "Not running the load database task because it isn't Sunday."
     end
   end
 
   desc "Alias for load:database task"
-  task :load_database, [:google_api_key] => ["load:database"]
+  task :load_database, [:google_api_key, :incremental] => ["load:database"]
   
   ### TASKS FOR LOADING REFERNET DATA ###
   namespace :load do
@@ -39,7 +39,7 @@ namespace :ventura do
     end    
     
     desc "Load, Confirm, and Translate all ReferNET Tables"
-    task :database, [:google_api_key] => [:prepare] do |t,args|
+    task :database, [:google_api_key, :incremental] => [:prepare] do |t,args|
 
       Rails.logger.info "*** LOADING REFERNET CATEGORIES AND SERVICES ***"
 
@@ -47,7 +47,7 @@ namespace :ventura do
       Rake::Task["ventura:load:categories"].invoke
       Rake::Task["ventura:load:sub_categories"].invoke
       Rake::Task["ventura:load:sub_sub_categories"].invoke(args[:google_api_key] || '')
-      Rake::Task["ventura:load:services"].invoke
+      Rake::Task["ventura:load:services"].invoke(args[:incremental] || false)
       
       ### CONFIRM CHANGES ###
       Rake::Task["oneclick_refernet:load:confirm"].invoke
@@ -259,13 +259,13 @@ namespace :ventura do
     end #sub_sub_categories
 
     desc "Load services from Azure"
-    task services: :prepare do
-      
-      
-      if OCR::Service.count == 0 #Initial Load: Load everything
-        OCR::Service.create_from_azure
-      else #Update load, only look at service updated in the past month
+    task :services, [:incremental] => [:prepare] do |t,args|
+      if args[:incremental] #Only pull in services from the past 3 weeks
+        puts 'LOADING SERVICES UPDATED IN THE PAST 4 WEEKS'
         OCR::Service.create_from_azure Time.now-4.weeks 
+      else #Upload Everything
+        puts 'LOADING ALL SERVICES'
+        OCR::Service.create_from_azure
       end
     end
 
