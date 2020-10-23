@@ -2,7 +2,7 @@ module OneclickRefernet
   class CategoriesController < RefernetBaseController
     
     def index
-      render json: Category.confirmed, scope: { locale: @locale, lat: params[:lat], lng: params[:lng], meters: ((params[:meters] || 48280.3).to_f) }
+      render json: Category.confirmed, scope: { locale: @locale, lat: params[:lat], lng: params[:lng], meters: ((params[:meters] || OneclickRefernet.try(:default_radius_meters) || 48280.3).to_f) }
     end
     
     def show

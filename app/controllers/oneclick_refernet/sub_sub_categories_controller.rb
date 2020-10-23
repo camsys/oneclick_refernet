@@ -4,7 +4,7 @@ module OneclickRefernet
     def index
       @sub_category = SubCategory.find_by(code: params[:sub_category])
       render json: (@sub_category.try(:sub_sub_categories).try(:confirmed) || []), 
-             scope: {locale: @locale, lat: params[:lat], lng: params[:lng], meters: (params[:meters] || 48280.3).to_f}
+             scope: {locale: @locale, lat: params[:lat], lng: params[:lng], meters: (params[:meters] || OneclickRefernet.try(:default_radius_meters) || 48280.3).to_f}
     end
     
     def show

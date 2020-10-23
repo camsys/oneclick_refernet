@@ -260,7 +260,7 @@ namespace :ventura do
 
     desc "Load services from Azure"
     task :services, [:incremental] => [:prepare] do |t,args|
-      if args[:incremental] #Only pull in services from the past 3 weeks
+      if args[:incremental] == "true" #Only pull in services from the past 3 weeks
         puts 'LOADING SERVICES UPDATED IN THE PAST 4 WEEKS'
         OCR::Service.create_from_azure Time.now-4.weeks 
       else #Upload Everything
