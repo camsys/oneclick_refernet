@@ -71,7 +71,7 @@ module OneclickRefernet
       done = false
       while !done do 
         puts "Grabbing 500 Orgs"
-	orgs = get_paginated_organizations(updated_after, 500, page_index)
+	      orgs = get_paginated_organizations(updated_after, 500, page_index)
         page_index += 1 
         if orgs.nil?
           done = true
@@ -109,6 +109,24 @@ module OneclickRefernet
         end
       end
     end
+
+    def count_services
+      orgs = get_all_organizations 
+      service_count = 0
+      service_location_count = 0
+      puts "There are #{orgs.count} orgs."
+      orgs.each do |org|
+        services = org["services"]
+        service_count += services.count 
+        services.each do |svc|
+          service_location_count += svc["serviceAtLocation"].count
+        end
+      end
+      puts "There are #{service_count} services."
+      puts "There are #{service_location_count} service locations."
+    end
+
+
 
 		# protected
 		
