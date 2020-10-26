@@ -33,6 +33,7 @@ module OneclickRefernet
     
     # Returns the URL without http:// on the front
     def display_url
+      return 'www.google.com'
       (
         object.details["PUrl"] ||
         object.details["LUrl"] ||
@@ -42,6 +43,7 @@ module OneclickRefernet
 
     # Returns the Email
     def email
+      return "test@test.com"
       (object.details["PEmail"] ||
       object.details["LEmail"] ||
       object.details["email"]).to_s
