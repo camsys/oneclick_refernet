@@ -145,6 +145,7 @@ module OneclickRefernet
         details["Number_Phone2"] ||
         details["Number_Phone3"]  
       else ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        return "555-444-3333"
         details["phone"].try(:first).try(:[], "number")
       end        
     end
