@@ -49,6 +49,10 @@ module OneclickRefernet
       object.details["email"]).to_s
     end
 
+    def phone
+      "555-444-5555"
+    end
+
     def phones
 
       return ["555-555-5555"]
