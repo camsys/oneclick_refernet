@@ -49,6 +49,8 @@ module OneclickRefernet
 
     def phones
 
+      return ["555-555-5555"]
+
       idx = 1
       phones = []
       
