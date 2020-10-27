@@ -61,6 +61,9 @@ module OneclickRefernet
         object.details["phone"].each do |ph|
           phones << ph["number"]
         end
+        object.location_details.each do |ph|
+          phones << ph["number"]
+        end
       end
 
       return phones.uniq
