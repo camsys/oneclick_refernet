@@ -33,7 +33,6 @@ module OneclickRefernet
     
     # Returns the URL without http:// on the front
     def display_url
-      return 'www.google.com'
       (
         object.details["PUrl"] ||
         object.details["LUrl"] ||
@@ -43,19 +42,12 @@ module OneclickRefernet
 
     # Returns the Email
     def email
-      return "test@test.com"
       (object.details["PEmail"] ||
       object.details["LEmail"] ||
       object.details["email"]).to_s
     end
 
-    def phone
-      "555-444-5555"
-    end
-
     def phones
-
-      return ["555-555-5555"]
 
       idx = 1
       phones = []
@@ -77,8 +69,7 @@ module OneclickRefernet
     # Returns a hash of the translated details labels
     def details
       OneclickRefernet::Service.refernet_service.labels.map do |label|
-        #[label.parameterize.underscore, object.translated_label(label, scope[:locale])]
-        [label.parameterize.underscore, "TEST TEST"]
+        [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
     end
     
