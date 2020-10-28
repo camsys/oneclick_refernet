@@ -61,8 +61,8 @@ module OneclickRefernet
         object.details["phone"].each do |ph|
           phones << ph["number"]
         end
-        if object.location_details 
-          object.location_details.each do |ph|
+        if object.location_details
+          object.location_details["phone"].each do |ph|
             phones << ph["number"]
           end
         end
