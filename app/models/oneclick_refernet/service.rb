@@ -67,6 +67,10 @@ module OneclickRefernet
         tmp_orgs << org
         org["services"].each do |svc|
           service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
+          
+          #If the Service didn't have a URL, try to grab one from the org
+          svc["url"] = org["url"] if svc.try(:[], "url").nil? 
+          
           svc["serviceAtLocation"].each do |loc|
             location_id = loc["idLocation"]
             location_details = org["locations"].select {|location| location["idLocation"] == location_id }.uniq.first
@@ -84,6 +88,9 @@ module OneclickRefernet
             new_service.site_name = location_name 
 
             new_service.assign_attributes(details: svc, location_details: location_details)
+
+      
+            
             new_service.save! 
 
             #Assign the services to the taxonomies
