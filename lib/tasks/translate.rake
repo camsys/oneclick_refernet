@@ -45,6 +45,12 @@ namespace :oneclick_refernet do
             else # Otherwise, translate the titleized code into the given locale
               if(args[:google_api_key]) # GOOGLE Translate
                 translated = gt.translate(cat.name, locale.to_s, :en)
+                #translated = "REAL: " + cat.name 
+                if translated.blank?
+                  puts "ERROR TRANSLATING #{cat.name} into #{locale.to_s}"
+                  next
+                end
+                
               else # Fake Translate
                 translated = "#{locale}_#{cat.code}"
               end
@@ -75,8 +81,9 @@ namespace :oneclick_refernet do
  
       services_translated = 0
       OneclickRefernet::Service.all.each do |service|
-        puts
-        puts "------------------Translating SERVICE #{service.id}: #{service.site_name} ------------------"
+        translation_count = 0
+        #puts
+        #puts "------------------Translating SERVICE #{service.id}: #{service.site_name} ------------------"
         
         # Translate each relevant label
         OneclickRefernet::Service.refernet_service.labels.each do |label|
@@ -89,12 +96,10 @@ namespace :oneclick_refernet do
           
           # If the value is nil, delete translations for this label
           if new_value.nil?
-            puts "No value for #{service.translation_key(label)}; not translating"
+            #puts "No value for #{service.translation_key(label)}; not translating"
             service.destroy_label_translations(label)
             next
           end
-          
-          puts "Translating #{service.translation_key(label)}"
           
           # Check if the description field has changed
           old_value = service.translated_label(label, :en)
@@ -108,28 +113,25 @@ namespace :oneclick_refernet do
           
           # Go through all the locales that need translating, and translate the label for that locale
           (I18n.available_locales - locales_translated).each do |locale|
+            puts "Updating/Adding Translation for SERVICE #{service.id} at #{service.site_name}: #{service.translation_key(label)} in #{locale}"
             if(locale == :en) # If locale is English, simply copy over the description
               translated = new_value
             else # Otherwise, translate the titleized code into the given locale
+              translation_count += 1
               if(args[:google_api_key]) # GOOGLE Translate
                 translated = gt.translate(new_value, locale.to_s, :en)
+                #translated = "REAL#{locale}_#{new_value}"
+                puts "Calling Google Translate for the #{translation_count} time"
               else # Fake Translate
                 translated = "#{locale}_#{new_value}"
+                puts "Calling FAKE Translator for the #{translation_count} time"
               end
             end
         
             service.set_translated_label(label, locale, translated)
           end # locales.each
-                
-                         
         end
-        
-        # Increment the services translated count
-        services_translated += 1  
-        
       end # services.each
-      puts "Services with new translations: #{services_translated}"
-      puts "Services skipped: #{OneclickRefernet::Service.count - services_translated}"
     end
   end
 

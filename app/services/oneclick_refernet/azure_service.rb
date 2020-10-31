@@ -16,6 +16,7 @@ module OneclickRefernet
       {
           service_id_column_name: 'idService',
           location_id_column_name: 'idLocation'
+          #service_site_id_column_name: 'idLocation',
       }
     end
 

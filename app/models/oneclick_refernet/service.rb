@@ -63,6 +63,7 @@ module OneclickRefernet
     # Services with multiple locations are treated as separate services
     def self.create_from_azure updated_after=nil 
       tmp_orgs = [] 
+      unconfirm_all 
       refernet_service.get_all_organizations(updated_after).each do |org|
         tmp_orgs << org
         org["services"].each do |svc|
@@ -76,8 +77,7 @@ module OneclickRefernet
             location_details = org["locations"].select {|location| location["idLocation"] == location_id }.uniq.first
             new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
                 refernet_service_id: service_id,
-                refernet_location_id: location_id,
-                confirmed: false
+                refernet_location_id: location_id
             )
 
             org_name = org["name"]
@@ -88,9 +88,7 @@ module OneclickRefernet
             new_service.site_name = location_name 
 
             new_service.assign_attributes(details: svc, location_details: location_details)
-
-      
-            
+            new_service.confirmed = true 
             new_service.save! 
 
             #Assign the services to the taxonomies
@@ -103,6 +101,7 @@ module OneclickRefernet
           end #Locations
         end #Services
       end #Orgs
+      destroy_unconfirmed
       tmp_orgs
     end
 
