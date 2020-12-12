@@ -93,9 +93,10 @@ module OneclickRefernet
 
             #Assign the services to the taxonomies
             svc["taxonomy"].each do |taxonomy|
-              term = taxonomy["term"]
-              sub_sub_category = OneclickRefernet::SubSubCategory.find_by(name: term)
-              sub_sub_category.services << new_service if sub_sub_category
+              term = taxonomy["term"].to_s.strip.parameterize.underscore
+              OneclickRefernet::SubSubCategory.where(code: term).each do |sub_sub_category|
+                sub_sub_category.services << new_service
+              end
             end
 
           end #Locations
