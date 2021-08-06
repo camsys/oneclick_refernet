@@ -93,9 +93,10 @@ module OneclickRefernet
 
             #Assign the services to the taxonomies
             svc["taxonomy"].each do |taxonomy|
-              term = taxonomy["term"]
-              sub_sub_category = OneclickRefernet::SubSubCategory.find_by(name: term)
-              sub_sub_category.services << new_service if sub_sub_category
+              term = taxonomy["term"].to_s.strip.parameterize.underscore
+              OneclickRefernet::SubSubCategory.where(code: term).each do |sub_sub_category|
+                sub_sub_category.services << new_service
+              end
             end
 
           end #Locations
@@ -139,6 +140,7 @@ module OneclickRefernet
       if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
         details.values_at(*[self.class.refernet_service.column_name_mappings[:address1_column_name],self.class.refernet_service.column_name_mappings[:address2_column_name],self.class.refernet_service.column_name_mappings[:city_column_name],self.class.refernet_service.column_name_mappings[:state_column_name]]).compact.join(', ') + " #{details[self.class.refernet_service.column_name_mappings[:zipcode_column_name]]}"      
       elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        return "" unless location_details 
         addr = location_details['address'].find{ |address| address['type'] == 'physical'} if location_details['address']
         "#{addr['address_1']}#{' ' + addr['address_2'] if addr['address_2']}, #{addr['city']}"
       end
