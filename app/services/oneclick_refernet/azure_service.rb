@@ -4,7 +4,7 @@ module OneclickRefernet
 
   	require 'net/http'
 		attr_accessor :api_key
-    BASE_URL = "https://api-dev.211.technology/"
+    BASE_URL = "https://api.211.org/"
 		DEFAULT_API_KEY = OneclickRefernet.api_token
 		SUB_SUB_CATEGORY_IDENTIFIER = 'taxonomy_code'
 
@@ -133,13 +133,13 @@ module OneclickRefernet
 		
 		# Builds a ReferNET URL string
 		def search_url(root, query_params={})
-			"#{BASE_URL}search/api/#{root}?#{query_params.to_query}"
+			"#{BASE_URL}search/api/v1/#{root}?#{query_params.to_query}"
 		end
 
     #Export all the ORgs
     #TODO: Handle the params
     def export_url updated_after=nil, pageSize=100, pageIndex=0
-      url = "#{BASE_URL}api/Organizations?pageSize=#{pageSize}&pageIndex=#{pageIndex}"
+      url = "#{BASE_URL}api/v1/Organizations?pageSize=#{pageSize}&pageIndex=#{pageIndex}"
       if updated_after
         url += "&updatedAfterUtc=#{updated_after.utc.iso8601(3)}"
       end
@@ -155,7 +155,7 @@ module OneclickRefernet
 				request = Net::HTTP::Get.new(uri.request_uri)
 				# Request headers
 				request['Cache-Control'] = 'no-cache'
-				request['Ocp-Apim-Subscription-Key'] = @api_key
+				request['Api-Key'] = @api_key
 				response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 					http.request(request)
 				end

@@ -127,7 +127,10 @@ namespace :ventura do
               'Groceries',
               'Meals'
           ],
-          'CRISIS SERVICES' => ['Law Enforcement/Emergency Services'],
+          'CRISIS SERVICES' => [
+            'Extreme Heat Cool Centers',
+            'Law Enforcement/Emergency Services'
+          ],
           'HEALTH CARE' => [
               'Medical Facilities',
               'Health Insurance & Medical Expense Assistance',
@@ -222,6 +225,26 @@ namespace :ventura do
       end
 
     end #sub_sub_categories
+
+    desc "Create new sub_category and sub_sub_category under the specified category"
+    task :create_sub_categories, [:category_name, :sub_category_name, :sub_sub_category_name] => [:prepare] do |t,args|
+      # Look up existing category.
+      category = OCR::Category.find_by(name: args[:category_name].downcase.titleize)
+      # Create new sub_category under existing category.
+      Rails.logger.debug "Building new sub_category with name: #{args[:sub_category_name]}"
+      OCR::SubCategory.setup_sub_category(category, args[:sub_category_name])
+      sub_cat.confirmed = true 
+      sub_cat.save!
+      # Create new sub_sub_category under new sub_category.
+      Rails.logger.debug "Building new sub_sub_category with name: #{args[:sub_sub_category_name]}"
+      new_sub_sub_category = OCR::SubCategory.find_by(name: args[:sub_category_name]).sub_sub_categories.build(
+          name: args[:sub_sub_category_name],
+          code: args[:sub_sub_category_name].to_s.strip.parameterize.underscore, # Convert name to a snake case code string,
+          taxonomy_code: 'na',
+          confirmed: true
+      )
+      new_sub_sub_category.save!
+    end
 
     desc "Load services from Azure"
     task :services, [:incremental] => [:prepare] do |t,args|
