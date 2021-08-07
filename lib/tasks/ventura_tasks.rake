@@ -232,7 +232,7 @@ namespace :ventura do
       category = OCR::Category.find_by(name: args[:category_name].downcase.titleize)
       # Create new sub_category under existing category.
       Rails.logger.debug "Building new sub_category with name: #{args[:sub_category_name]}"
-      OCR::SubCategory.setup_sub_category(category, args[:sub_category_name])
+      sub_cat = OCR::SubCategory.setup_sub_category(category, args[:sub_category_name])
       sub_cat.confirmed = true 
       sub_cat.save!
       # Create new sub_sub_category under new sub_category.
