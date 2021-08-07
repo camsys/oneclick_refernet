@@ -139,7 +139,7 @@ module OneclickRefernet
     #Export all the ORgs
     #TODO: Handle the params
     def export_url updated_after=nil, pageSize=100, pageIndex=0
-      url = "#{BASE_URL}api/v1/Organizations?pageSize=#{pageSize}&pageIndex=#{pageIndex}"
+      url = "#{BASE_URL}export/v1/api/Organizations?pageSize=#{pageSize}&pageIndex=#{pageIndex}"
       if updated_after
         url += "&updatedAfterUtc=#{updated_after.utc.iso8601(3)}"
       end
