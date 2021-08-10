@@ -86,6 +86,7 @@ module OneclickRefernet
     # Get paginated list of organizations
     def get_paginated_organizations updated_after=nil, pageSize=500, pageIndex=0
       results = unpack(self.send(export_url(updated_after,pageSize,pageIndex)))
+      puts "Results count #{results.count}"
       results['organizations'] unless results == []
     end
 
@@ -172,11 +173,14 @@ module OneclickRefernet
 		def unpack(response)
 			if response.code == '200'
 				begin
+          puts "Unpacking response"
 					return JSON.parse(response.body) || []
 				rescue JSON::ParserError
+          puts "JSON Parse failed"
 					return []
 				end
 			else
+        puts "Response failed"
 				return []
 			end
 		end
