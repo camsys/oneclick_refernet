@@ -67,8 +67,10 @@ module OneclickRefernet
       refernet_service.get_all_organizations(updated_after).each do |org|
         begin
           tmp_orgs << org
+          puts "org name #{org["name"]}"
           org["services"].each do |svc|
             service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
+            puts "service_id #{service_id}"
             
             #If the Service didn't have a URL, try to grab one from the org
             svc["url"] = org["url"] if svc.try(:[], "url").nil? 
