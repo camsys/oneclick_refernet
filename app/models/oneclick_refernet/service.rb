@@ -65,42 +65,46 @@ module OneclickRefernet
       tmp_orgs = [] 
       unconfirm_all 
       refernet_service.get_all_organizations(updated_after).each do |org|
-        tmp_orgs << org
-        org["services"].each do |svc|
-          service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
-          
-          #If the Service didn't have a URL, try to grab one from the org
-          svc["url"] = org["url"] if svc.try(:[], "url").nil? 
-          
-          svc["serviceAtLocation"].each do |loc|
-            location_id = loc["idLocation"]
-            location_details = org["locations"].select {|location| location["idLocation"] == location_id }.uniq.first
-            new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
-                refernet_service_id: service_id,
-                refernet_location_id: location_id
-            )
+        begin
+          tmp_orgs << org
+          org["services"].each do |svc|
+            service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
+            
+            #If the Service didn't have a URL, try to grab one from the org
+            svc["url"] = org["url"] if svc.try(:[], "url").nil? 
+            
+            svc["serviceAtLocation"].each do |loc|
+              location_id = loc["idLocation"]
+              location_details = org["locations"].select {|location| location["idLocation"] == location_id }.uniq.first
+              new_service = OneclickRefernet::Service.unconfirmed.find_or_initialize_by(
+                  refernet_service_id: service_id,
+                  refernet_location_id: location_id
+              )
 
-            org_name = org["name"]
-            service_name = svc["name"]
-            location_name = location_details.try(:[], "name") || "N/A"
+              org_name = org["name"]
+              service_name = svc["name"]
+              location_name = location_details.try(:[], "name") || "N/A"
 
-            new_service.agency_name = "#{org_name} #{service_name}"
-            new_service.site_name = location_name 
+              new_service.agency_name = "#{org_name} #{service_name}"
+              new_service.site_name = location_name 
 
-            new_service.assign_attributes(details: svc, location_details: location_details)
-            new_service.confirmed = true 
-            new_service.save! 
+              new_service.assign_attributes(details: svc, location_details: location_details)
+              new_service.confirmed = true 
+              new_service.save! 
 
-            #Assign the services to the taxonomies
-            svc["taxonomy"].each do |taxonomy|
-              term = taxonomy["term"].to_s.strip.parameterize.underscore
-              OneclickRefernet::SubSubCategory.where(code: term).each do |sub_sub_category|
-                sub_sub_category.services << new_service
+              #Assign the services to the taxonomies
+              svc["taxonomy"].each do |taxonomy|
+                term = taxonomy["term"].to_s.strip.parameterize.underscore
+                OneclickRefernet::SubSubCategory.where(code: term).each do |sub_sub_category|
+                  sub_sub_category.services << new_service
+                end
               end
-            end
 
-          end #Locations
-        end #Services
+            end #Locations
+          end #Services
+        rescue => e
+          puts e.to_s
+        end
       end #Orgs
       destroy_unconfirmed
       tmp_orgs
