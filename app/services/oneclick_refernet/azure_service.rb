@@ -150,6 +150,7 @@ module OneclickRefernet
 		## Send the Requests
 		def send(url)
 			Rails.logger.debug(url)
+      puts url
 			begin
 				uri = URI.parse(url)
 				request = Net::HTTP::Get.new(uri.request_uri)
@@ -162,6 +163,7 @@ module OneclickRefernet
 
 				return response
 			rescue Exception=>e
+        puts e.to_s
 			 	nil
 			end
 		end #send
