@@ -159,6 +159,7 @@ module OneclickRefernet
 				request['Cache-Control'] = 'no-cache'
 				request['Api-Key'] = @api_key
 				response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+          puts request
 					http.request(request)
 				end
 
@@ -180,7 +181,7 @@ module OneclickRefernet
 					return []
 				end
 			else
-        puts "Response failed"
+        puts "Response failed #{response.code}"
 				return []
 			end
 		end
