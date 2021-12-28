@@ -152,6 +152,47 @@ module OneclickRefernet
       end
     end
 
+    def address_components
+      service_address = location_details.try(:[],'address')&.find {|addr| addr['type'] == 'physical'}
+      [
+        {
+          long_name: service_address["address_1"],
+          short_name: service_address["address_1"],
+          types: %w[street_number],
+        },
+        {
+          long_name: service_address["route"],
+          short_name: service_address["route"],
+          types: %w[route],
+        },
+        {
+          long_name: service_address["city"],
+          short_name: service_address["city"],
+          types: %w[locality political],
+        },
+        {
+          long_name: service_address["region"],
+          short_name: service_address["region"],
+          types: %w[administrative_area_level_2 political  ],
+        },
+        {
+          long_name: service_address["state_province"],
+          short_name: service_address["state_province"],
+          types: %w[administrative_area_level_1 political  ],
+        },
+        {
+          long_name: service_address["country"],
+          short_name: service_address["country"],
+          types: %w[country political],
+        },
+        {
+          long_name: service_address["zipcode"],
+          short_name: service_address["zipcode"],
+          types: %w[postal_code political  ],
+        },
+      ] unless service_address.empty?
+    end
+
   # Returns whatever phone number can be found
     def phone
       if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
@@ -184,7 +225,7 @@ module OneclickRefernet
       end
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
-
+:monk
     ## Attribute Helper Methods
     # Sets agency and site names from details, if not already set
     def set_names
