@@ -8,6 +8,7 @@ module OneclickRefernet
                :lat,
                :lng,
                :address,
+               :address_components,
                :url,
                :email,
                :display_url,
@@ -77,7 +78,7 @@ module OneclickRefernet
         [label.parameterize.underscore, object.translated_label(label, scope[:locale])]
       end.to_h
     end
-    
+
     def service_id
       object.refernet_service_id
     end
