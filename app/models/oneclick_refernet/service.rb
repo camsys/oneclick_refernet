@@ -223,7 +223,7 @@ module OneclickRefernet
       end
       self.latlng = point_from_latlng(lat, lng) unless (lat.zero? || lng.zero?)
     end
-
+:monk
     ## Attribute Helper Methods
     # Sets agency and site names from details, if not already set
     def set_names
