@@ -34,7 +34,7 @@ module OneclickRefernet
     ### VALIDATIONS ###
     validates :agency_name, presence: true
     validates :site_name, presence: true
-    
+
     ### CLASS METHODS ###
 
     # Fetch services by sub-sub-category from ReferNET
@@ -152,45 +152,43 @@ module OneclickRefernet
       end
     end
 
+    # Returns address components of a service, if they aren't available then return an empty array
     def address_components
-      service_address = location_details.try(:[],'address')&.find {|addr| addr['type'] == 'physical'}
-      [
-        {
-          long_name: service_address["address_1"],
-          short_name: service_address["address_1"],
-          types: %w[street_number],
-        },
-        {
-          long_name: service_address["route"],
-          short_name: service_address["route"],
-          types: %w[route],
-        },
-        {
-          long_name: service_address["city"],
-          short_name: service_address["city"],
-          types: %w[locality political],
-        },
-        {
-          long_name: service_address["region"],
-          short_name: service_address["region"],
-          types: %w[administrative_area_level_2 political  ],
-        },
-        {
-          long_name: service_address["state_province"],
-          short_name: service_address["state_province"],
-          types: %w[administrative_area_level_1 political  ],
-        },
-        {
-          long_name: service_address["country"],
-          short_name: service_address["country"],
-          types: %w[country political],
-        },
-        {
-          long_name: service_address["zipcode"],
-          short_name: service_address["zipcode"],
-          types: %w[postal_code political  ],
-        },
-      ] unless service_address.empty?
+      # If we're running AzureServices then return a certain set of address components names
+      # otherwise if it's a RefernetService service, return those sets of address component names
+      # else it's an empty array
+      components_template = return_address_template
+
+      if ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        address_comp = components_template.map do |component|
+          {
+            long_name: details[component[:name]],
+            short_name: details[component[:name]],
+            types: component[:types]
+          }
+        end
+
+        empty_comps = address_comp.all? {|comp| comp[:long_name].nil?}
+        # There's no convenient check to see if the service has all of the address components required, so
+        # this ternary exists to plug that
+        empty_comps ? [] : address_comp
+      elsif ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        service_address = location_details.try(:[],'address')&.find {|addr| addr['type'] == 'physical'}
+        if service_address.present?
+          components_template.map do |component|
+            {
+              long_name: service_address[component[:name]],
+              short_name: service_address[component[:name]],
+              types: component[:types],
+            }
+          end
+        else
+          []
+        end
+      # else return nil if the service is neither of the expected values
+      else
+        []
+      end
     end
 
   # Returns whatever phone number can be found
@@ -281,6 +279,29 @@ module OneclickRefernet
     def present_translations(label)
       translations(label).where("value <> ''").where.not(value: nil)
     end
-    
+
+    def return_address_template
+      if ENV['REFERNET_SERVICE_CLASS'] == 'AzureService'
+        [
+          {name: 'address_1', types: %w[street_number]},
+          {name: 'route', types: %w[route]},
+          {name: 'city', types: %w[locality political]},
+          {name: 'region', types: %w[administrative_area_level_2 political]},
+          {name: 'state_province', types: %w[administrative_area_level_1 political]},
+          {name: 'country', types: %w[country political]},
+          {name: 'zipcode', types: %w[postal_code political]},
+        ].freeze
+      elsif ENV['REFERNET_SERVICE_CLASS'] == 'RefernetService'
+        [
+          {name: self.class.refernet_service.column_name_mappings[:address1_column_name], types: %w[street_number]},
+          {name: self.class.refernet_service.column_name_mappings[:address2_column_name], types: %w[room]},
+          {name: self.class.refernet_service.column_name_mappings[:city_column_name], types: %w[locality political]},
+          {name: self.class.refernet_service.column_name_mappings[:state_column_name], types: %w[administrative_area_level_1 political]},
+          {name: self.class.refernet_service.column_name_mappings[:zipcode_column_name], types: %w[postal_code political]},
+        ].freeze
+      else
+        []
+      end
+    end
   end
 end
