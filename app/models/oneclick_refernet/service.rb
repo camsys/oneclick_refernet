@@ -62,9 +62,33 @@ module OneclickRefernet
     # Fetch all the Azure Services, Assign them to all the relevant subsubcategories (taxonomies)
     # Services with multiple locations are treated as separate services
     def self.create_from_azure updated_after=nil 
-      tmp_orgs = [] 
-      unconfirm_all 
-      refernet_service.get_all_organizations(updated_after).each do |org|
+      tmp_orgs = []
+      orgs = refernet_service.get_all_organizations(updated_after)
+      if updated_after.nil?
+        # Importing all services.
+        unconfirm_all
+      else
+        # Importing only services updated after specified date.
+        # Unconfirm only existing services that will be updated.
+        orgs.each do |org|
+          org["services"].each do |svc|
+            service_id = svc[refernet_service.column_name_mappings[:service_id_column_name]]
+            svc["serviceAtLocation"].each do |loc|
+              location_id = loc["idLocation"]
+              existing_service = OneclickRefernet::Service.confirmed.find_by(
+                refernet_service_id: service_id,
+                refernet_location_id: location_id
+              )
+              if !existing_service.nil?
+                puts "Unconfirmed service_id #{service_id} location_id #{location_id}"
+                existing_service.confirmed = false
+                existing_service.save
+              end
+            end
+          end
+        end
+      end
+      orgs.each do |org|
         begin
           tmp_orgs << org
           puts "org name #{org["name"]}"
@@ -92,12 +116,18 @@ module OneclickRefernet
 
               new_service.assign_attributes(details: svc, location_details: location_details)
               new_service.confirmed = true 
-              new_service.save! 
+              new_service.save!
 
+              # Delete any existing taxonomy mappings to this service.
+              OneclickRefernet::ServicesSubSubCategory.where(service_id: new_service.id).delete_all
               #Assign the services to the taxonomies
               svc["taxonomy"].each do |taxonomy|
                 term = taxonomy["term"].to_s.strip.parameterize.underscore
-                OneclickRefernet::SubSubCategory.where(code: term).each do |sub_sub_category|
+                term_sub_sub_categories = OneclickRefernet::SubSubCategory.where(code: term)
+                if term_sub_sub_categories.empty?
+                  puts "Skipping taxonomy term #{term}, not in category hierarchy"
+                end
+                term_sub_sub_categories.each do |sub_sub_category|
                   sub_sub_category.services << new_service
                 end
               end
