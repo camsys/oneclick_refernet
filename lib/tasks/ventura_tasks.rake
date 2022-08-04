@@ -173,7 +173,8 @@ namespace :ventura do
               'Senior Support Services',
               'Senior Health Care',
               'Senior Housing',
-              'Senior Meals'
+              'Senior Meals',
+              'Transportation'
           ],
           'EDUCATION' => [
               'Education Programs',
@@ -255,6 +256,44 @@ namespace :ventura do
         puts 'LOADING ALL SERVICES'
         OCR::Service.create_from_azure
       end
+    end
+
+    desc "Create sub-category SENIORS > Transportation"
+    task :create_sub_category_seniors_transportation => [:prepare] do |t,args|
+      {
+        'SENIORS' => [
+            'Transportation'
+        ]
+      }.each do |category_name, sub_category_names|
+        puts OCR::Category.count
+        category = OCR::Category.find_by(name: category_name.downcase.titleize)
+        sub_category_names.each do |name|
+          sub_cat = OCR::SubCategory.setup_sub_category(category, name)
+          sub_cat.confirmed = true 
+          sub_cat.save!
+        end
+      end
+      puts "Created sub-category SENIORS > Transportation"
+    end
+
+    desc "Create sub-sub-categories for sub-category SENIORS > Transportation"
+    task :create_sub_sub_categories_seniors_transportation => [:prepare] do |t,args|
+      # Run create_sub_category_seniors_transportation task first as pre-req.
+      sub_category_name = 'Transportation'
+      sub_sub_category_names = ['Senior Ride Programs', 
+        'Disability Related Transportation', 
+        'Non-Emergency Medical Transportation']
+      sub_sub_category_names.each do |name|
+        Rails.logger.debug "Building new sub_sub_category with name: #{name}"
+        new_sub_sub_category = OCR::SubCategory.find_by(name: sub_category_name).sub_sub_categories.build(
+            name: name,
+            code: name.to_s.strip.parameterize.underscore, # Convert name to a snake case code string,
+            taxonomy_code: 'na',
+            confirmed: true
+        )
+        new_sub_sub_category.save!
+      end
+      puts "Create sub-sub-categories for sub-category SENIORS > Transportation"
     end
 
   end #load
