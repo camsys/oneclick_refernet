@@ -26,7 +26,7 @@ module OneclickRefernet
            "OneclickRefernet::SubSubCategory"
         return object.name
       when "OneclickRefernet::Service"
-        name_str = object.site_name || object.agency_name
+        name_str = object.agency_name || object.site_name
         name_str += " (#{object.details["ServiceGroup"]})" if object.details["ServiceGroup"]
         return name_str
       else
